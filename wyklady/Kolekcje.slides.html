@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-<title>Wyjątki slides</title>
+<title>Kolekcje slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11830,7 +11830,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Wyj&#261;tki">Wyj&#261;tki<a class="anchor-link" href="#Wyj&#261;tki">&#182;</a></h1><h2 id="Obs&#322;uga-b&#322;&#281;d&#243;w-z-u&#380;yciem-mechanizmu-wyj&#261;tk&#243;w">Obs&#322;uga b&#322;&#281;d&#243;w z u&#380;yciem mechanizmu wyj&#261;tk&#243;w<a class="anchor-link" href="#Obs&#322;uga-b&#322;&#281;d&#243;w-z-u&#380;yciem-mechanizmu-wyj&#261;tk&#243;w">&#182;</a></h2><p><br/></p>
+<h1 id="Kolekcje">Kolekcje<a class="anchor-link" href="#Kolekcje">&#182;</a></h1><h2 id="Interfejsy-i-klasy-s&#322;u&#380;&#261;ce-do-przechowywania-obiekt&#243;w">Interfejsy i klasy s&#322;u&#380;&#261;ce do przechowywania obiekt&#243;w<a class="anchor-link" href="#Interfejsy-i-klasy-s&#322;u&#380;&#261;ce-do-przechowywania-obiekt&#243;w">&#182;</a></h2><p><br/></p>
 <h2 id="dr-in&#380;.-Aleksander-Smywi&#324;ski-Pohl">dr in&#380;. Aleksander Smywi&#324;ski-Pohl<a class="anchor-link" href="#dr-in&#380;.-Aleksander-Smywi&#324;ski-Pohl">&#182;</a></h2><h2 id="apohllo@o2.pl">apohllo@o2.pl<a class="anchor-link" href="#apohllo@o2.pl">&#182;</a></h2><h2 id="http://apohllo.pl/dydaktyka/programowanie-obiektowe"><a href="http://apohllo.pl/dydaktyka/programowanie-obiektowe">http://apohllo.pl/dydaktyka/programowanie-obiektowe</a><a class="anchor-link" href="#http://apohllo.pl/dydaktyka/programowanie-obiektowe">&#182;</a></h2>
 </div>
 </div>
@@ -11840,61 +11840,60 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Obs&#322;uga-b&#322;&#281;d&#243;w-w-j&#281;zyku-C">Obs&#322;uga b&#322;&#281;d&#243;w w j&#281;zyku C<a class="anchor-link" href="#Obs&#322;uga-b&#322;&#281;d&#243;w-w-j&#281;zyku-C">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kt">FILE</span> <span class="o">*</span> <span class="nf">open_file</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">file_name</span><span class="p">){</span>
-    <span class="kt">FILE</span> <span class="o">*</span> <span class="n">file</span><span class="p">;</span>
-    <span class="k">if</span><span class="p">(</span> <span class="n">access</span><span class="p">(</span> <span class="n">file_name</span><span class="p">,</span> <span class="n">F_OK</span> <span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="n">fopen</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="p">(</span><span class="kt">FILE</span> <span class="o">*</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
+<h1 id="Plan">Plan<a class="anchor-link" href="#Plan">&#182;</a></h1><ul>
+<li>kolekcje - <code>Collection</code></li>
+<li>listy - <code>List</code></li>
+<li>iteratory - <code>Iterator</code>, <code>Iterable</code></li>
+<li>zbiory - <code>Set</code></li>
+<li>słowniki - <code>Map</code></li>
+<li>strumienie - <code>Streams</code></li>
+</ul>
 
 </div>
 </div>
-</div><div class="fragment">
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kt">char</span> <span class="o">*</span> <span class="nf">read_file</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">file_name</span><span class="p">,</span> <span class="n">count</span><span class="p">){</span>
-    <span class="kt">FILE</span> <span class="o">*</span> <span class="n">file</span> <span class="o">=</span> <span class="n">open_file</span><span class="p">(</span><span class="n">file_name</span><span class="p">);</span>
-    <span class="kt">char</span> <span class="o">*</span> <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span> <span class="o">*</span> <span class="n">count</span><span class="p">);</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">file</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Nie można otworzyć pliku %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">file_name</span><span class="p">);</span>
-        <span class="k">return</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="n">fread</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span> <span class="n">count</span><span class="p">,</span> <span class="n">file</span><span class="p">);</span>
-        <span class="n">fclose</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
-        <span class="n">retrun</span> <span class="n">result</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
+<h1 id="Interfejs-Collection">Interfejs <code>Collection</code><a class="anchor-link" href="#Interfejs-Collection">&#182;</a></h1><ul>
+<li>najbardziej wysokopoziomowy interfejs</li>
+<li>mapa nie jest kolekcją (w Javie)</li>
+<li>podstawowe operacje<ul>
+<li><code>add</code></li>
+<li><code>addAll</code></li>
+<li><code>remove</code></li>
+<li><code>removeAll</code></li>
+<li><code>retainAll</code></li>
+<li><code>clear</code></li>
+<li><code>isEmpty</code></li>
+<li><code>size</code></li>
+<li><code>contains</code></li>
+<li><code>containsAll</code></li>
+<li><code>toArray</code></li>
+<li><code>singleton</code></li>
+<li><code>iterator</code></li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
-</div></div></section><section>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">read_files</span><span class="p">(){</span>
-    <span class="kt">char</span> <span class="o">*</span> <span class="n">text</span> <span class="o">=</span> <span class="n">read_file</span><span class="p">(</span><span class="s">&quot;file1.txt&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">text</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span> 
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="k">return</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">text</span> <span class="o">=</span> <span class="n">read_file</span><span class="p">(</span><span class="s">&quot;file2.txt&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">text</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="k">return</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<h1 id="Kolekcje-bez-typu">Kolekcje bez typu<a class="anchor-link" href="#Kolekcje-bez-typu">&#182;</a></h1><div class="highlight"><pre><span></span><span class="n">Collection</span> <span class="n">cars</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">();</span>
+<span class="n">Car</span> <span class="n">car1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Car</span><span class="o">();</span>
+<span class="n">Rocket</span> <span class="n">rocket1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rocket</span><span class="o">();</span>
+<span class="n">cars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car1</span><span class="o">);</span>
+<span class="n">cars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">rocket</span><span class="o">);</span>
+<span class="n">cars</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">car1</span><span class="o">);</span>           <span class="c1">// =&gt; true</span>
+<span class="n">cars</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">rocket1</span><span class="o">);</span>        <span class="c1">// =&gt; true</span>
+<span class="n">cars</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="k">new</span> <span class="n">Rocket</span><span class="o">());</span>   <span class="c1">// =&gt; false</span>
 </pre></div>
 
 </div>
@@ -11905,19 +11904,26 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="img/exceptions.png"/></p>
+<h1 id="Kolekcje-z-typem">Kolekcje z typem<a class="anchor-link" href="#Kolekcje-z-typem">&#182;</a></h1><div class="highlight"><pre><span></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">Car</span><span class="o">&gt;</span> <span class="n">cars</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
+<span class="n">Car</span> <span class="n">car1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Car</span><span class="o">();</span>
+<span class="n">Rocket</span> <span class="n">rocket1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rocket</span><span class="o">();</span>
+<span class="n">cars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car1</span><span class="o">);</span>
+<span class="n">cars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">rocekt1</span><span class="o">);</span>         <span class="c1">// błąd kompilacji</span>
+</pre></div>
 
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Wyj&#261;tki-w-Javie">Wyj&#261;tki w Javie<a class="anchor-link" href="#Wyj&#261;tki-w-Javie">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">FileReader</span> <span class="nf">openFile</span><span class="o">(</span><span class="n">String</span> <span class="n">fileName</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="n">fileName</span><span class="o">);</span>
-<span class="o">}</span>
+<h1 id="add,-addAll,-remove,-removeAll"><code>add</code>, <code>addAll</code>, <code>remove</code>, <code>removeAll</code><a class="anchor-link" href="#add,-addAll,-remove,-removeAll">&#182;</a></h1><div class="highlight"><pre><span></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">Car</span><span class="o">&gt;</span> <span class="n">cars1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
+<span class="n">cars1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Car</span><span class="o">());</span>
+<span class="n">cars1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Car</span><span class="o">());</span>
+<span class="n">cars1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Car</span><span class="o">());</span>
+<span class="n">Collection</span><span class="o">&lt;</span><span class="n">Car</span><span class="o">&gt;</span> <span class="n">cars2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
 </pre></div>
 
 </div>
@@ -11928,12 +11934,26 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">char</span><span class="o">[]</span> <span class="nf">readFile</span><span class="o">(</span><span class="n">String</span> <span class="n">fileName</span><span class="o">,</span> <span class="kt">int</span> <span class="n">count</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
-    <span class="n">FileReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="n">openFile</span><span class="o">(</span><span class="n">fileName</span><span class="o">);</span>
-    <span class="kt">char</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="n">count</span><span class="o">];</span>
-    <span class="n">reader</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">buffer</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">count</span><span class="o">);</span>
-    <span class="k">return</span> <span class="n">buffer</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><span class="k">for</span><span class="o">(</span><span class="n">Car</span> <span class="n">car</span> <span class="o">:</span> <span class="n">cars1</span><span class="o">){</span>
+    <span class="n">cars2</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
 <span class="o">}</span>
+<span class="c1">// prościej</span>
+<span class="n">cars2</span><span class="o">.</span><span class="na">addAll</span><span class="o">(</span><span class="n">cars1</span><span class="o">);</span>
+</pre></div>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="k">for</span><span class="o">(</span><span class="n">Car</span> <span class="n">car</span> <span class="o">:</span> <span class="n">cars1</span><span class="o">){</span>
+    <span class="n">cars2</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="c1">// prościej</span>
+<span class="n">cars2</span><span class="o">.</span><span class="na">removeAll</span><span class="o">(</span><span class="n">cars1</span><span class="o">);</span>
 </pre></div>
 
 </div>
@@ -11944,17 +11964,12 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">readFiles</span><span class="o">(){</span>
-    <span class="kt">char</span><span class="o">[]</span> <span class="n">buffer</span><span class="o">;</span>
-    <span class="k">try</span> <span class="o">{</span>
-        <span class="n">buffer</span> <span class="o">=</span> <span class="n">readFile</span><span class="o">(</span><span class="s">&quot;plik1.txt&quot;</span><span class="o">,</span><span class="mi">10</span><span class="o">);</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">buffer</span><span class="o">);</span>
-        <span class="n">buffer</span> <span class="o">=</span> <span class="n">readFile</span><span class="o">(</span><span class="s">&quot;plik2.txt&quot;</span><span class="o">,</span><span class="mi">20</span><span class="o">);</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">buffer</span><span class="o">);</span>
-    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Problem z odczytaniem pliku &quot;</span> <span class="o">+</span> <span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+<h1 id="remove,-size,-empty-i-singleton"><code>remove</code>, <code>size</code>, <code>empty</code> i <code>singleton</code><a class="anchor-link" href="#remove,-size,-empty-i-singleton">&#182;</a></h1><div class="highlight"><pre><span></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">Car</span><span class="o">&gt;</span> <span class="n">cars1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
+<span class="n">Car</span> <span class="n">car</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Car</span><span class="o">();</span>
+<span class="n">cars1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
+<span class="n">cars1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
+<span class="n">cars1</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
+<span class="n">cars1</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
 </pre></div>
 
 </div>
@@ -11965,7 +11980,65 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="img/exceptions_java.png"/></p>
+<div class="highlight"><pre><span></span><span class="n">cars1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
+<span class="n">cars1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
+<span class="n">cars1</span><span class="o">.</span><span class="na">removeAll</span><span class="o">(</span><span class="n">Collections</span><span class="o">.</span><span class="na">singleton</span><span class="o">(</span><span class="n">car</span><span class="o">));</span>
+<span class="n">cars1</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">();</span>
+</pre></div>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="toArray"><code>toArray</code><a class="anchor-link" href="#toArray">&#182;</a></h1><div class="highlight"><pre><span></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">Car</span><span class="o">&gt;</span> <span class="n">cars1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
+<span class="n">Car</span> <span class="n">car</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Car</span><span class="o">();</span>
+<span class="n">cars1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
+<span class="n">cars1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
+<span class="n">cars1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Car</span><span class="o">());</span>
+</pre></div>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="n">Car</span><span class="o">[]</span> <span class="n">carsAsArray1</span> <span class="o">=</span> <span class="n">cars1</span><span class="o">.</span><span class="na">toArray</span><span class="o">();</span>             <span class="c1">// to nie zadziała</span>
+<span class="n">Object</span><span class="o">[]</span> <span class="n">carsAsArray2</span> <span class="o">=</span> <span class="n">cars1</span><span class="o">.</span><span class="na">toArray</span><span class="o">();</span>          <span class="c1">// to zadziała</span>
+<span class="n">Car</span><span class="o">[]</span> <span class="n">carsAsArray3</span> <span class="o">=</span> <span class="n">cars1</span><span class="o">.</span><span class="na">toArray</span><span class="o">(</span><span class="k">new</span> <span class="n">Car</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>   <span class="c1">// i to też</span>
+</pre></div>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="singleton-i-opcjonalne-metody"><code>singleton</code> i opcjonalne metody<a class="anchor-link" href="#singleton-i-opcjonalne-metody">&#182;</a></h1><div class="highlight"><pre><span></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">Car</span><span class="o">&gt;</span> <span class="n">oneCar</span> <span class="o">=</span> <span class="n">Collections</span><span class="o">.</span><span class="na">singleton</span><span class="o">(</span><span class="k">new</span> <span class="n">Car</span><span class="o">());</span>
+<span class="n">oneCar</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Car</span><span class="o">());</span>
+</pre></div>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>oneCar.add(new Car());
+|  java.lang.UnsupportedOperationException thrown: 
+|        at AbstractCollection.add (AbstractCollection.java:267)
+|        at (#77:1)</code></pre>
 
 </div>
 </div>
@@ -11975,12 +12048,28 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Instrukcja-throw">Instrukcja <code>throw</code><a class="anchor-link" href="#Instrukcja-throw">&#182;</a></h1><div class="highlight"><pre><span></span><span class="k">if</span><span class="o">(</span><span class="n">Files</span><span class="o">.</span><span class="na">exists</span><span class="o">(</span><span class="n">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">fileName</span><span class="o">))){</span>
-    <span class="c1">// do the work</span>
-<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-    <span class="k">throw</span> <span class="k">new</span> <span class="n">FileNotFoundException</span><span class="o">(</span><span class="n">fileName</span> <span class="o">+</span> <span class="s">&quot; nie istnieje&quot;</span><span class="o">);</span>
-<span class="o">}</span>
-</pre></div>
+<h1 id="List">List<a class="anchor-link" href="#List">&#182;</a></h1><ul>
+<li>uporządkowany zbiór obiektów</li>
+<li>obiekty mogą się powtarzać</li>
+<li>obiekty posiadają <em>indeks</em></li>
+<li>metody <code>List</code><ul>
+<li><code>get</code></li>
+<li><code>set</code></li>
+<li><code>indexOf</code></li>
+<li><code>lastIndexOf</code></li>
+<li><code>subList</code></li>
+</ul>
+</li>
+<li>metody <code>Collections</code><ul>
+<li><code>sort</code></li>
+<li><code>min</code>, <code>max</code></li>
+</ul>
+</li>
+<li>metody <code>Arrays</code><ul>
+<li><code>asList</code></li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
@@ -11990,28 +12079,11 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Instrukcja-throws">Instrukcja <code>throws</code><a class="anchor-link" href="#Instrukcja-throws">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">FileReader</span> <span class="nf">openFile</span><span class="o">(</span><span class="n">String</span> <span class="n">fileName</span><span class="o">)</span> <span class="n">thorws</span> <span class="n">FileNotFoundException</span> <span class="o">{</span>
-    <span class="c1">// ...</span>
-    <span class="k">throw</span> <span class="k">new</span> <span class="n">FileNotFoundException</span><span class="o">(</span><span class="n">fileName</span> <span class="o">+</span> <span class="s">&quot; nie istnieje&quot;</span><span class="o">);</span>
-    <span class="c1">// ...</span>
-<span class="o">}</span>
-</pre></div>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Instrukcja-try-...-catch-...-finally">Instrukcja <code>try ... catch ... finally</code><a class="anchor-link" href="#Instrukcja-try-...-catch-...-finally">&#182;</a></h1><div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">{</span>
-    <span class="c1">// kod, który może rzucić wyjątek</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">FileNotFoundException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// kod obsługi błędu</span>
-<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
-    <span class="c1">// kod wykonywany niezależnie od wystąpienia wyjątku</span>
-<span class="o">}</span>
+<div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">words</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">,</span> <span class="s">&quot;dwa&quot;</span><span class="o">,</span> <span class="s">&quot;trzy&quot;</span><span class="o">);</span>
+<span class="n">words</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>          <span class="c1">// =&gt; &quot;jeden&quot;</span>
+<span class="n">words</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="s">&quot;zero&quot;</span><span class="o">);</span>   <span class="c1">// =&gt; &quot;jeden&quot;</span>
+<span class="n">words</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>          <span class="c1">// =&gt; &quot;zero&quot;</span>
+<span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;dwa&quot;</span><span class="o">);</span>      <span class="c1">// UnsupportedOperationException</span>
 </pre></div>
 
 </div>
@@ -12022,81 +12094,109 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">FileReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-<span class="kt">char</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="mi">100</span><span class="o">];</span>
-<span class="k">try</span> <span class="o">{</span>
-    <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="n">fileName</span><span class="o">);</span>
-    <span class="n">reader</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">buffer</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">);</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">FileNotFoundException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">fileName</span> <span class="o">+</span> <span class="s">&quot; nie istnieje. Sprawdź nazwę pliku.&quot;</span><span class="o">);</span>
-<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
-    <span class="n">reader</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-<span class="o">}</span>
+<div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">words</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">,</span> <span class="s">&quot;dwa&quot;</span><span class="o">,</span> <span class="s">&quot;jeden&quot;</span><span class="o">);</span>
+<span class="n">words</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">);</span>        <span class="c1">// =&gt; 0</span>
+<span class="n">words</span><span class="o">.</span><span class="na">lastIndexOf</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">);</span>    <span class="c1">// =&gt; 2</span>
 </pre></div>
 
 </div>
 </div>
-</div><aside class="notes">
-
+</div></div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Ten kod jest niepoprawny - zmienna reader może mieć wartość <code>null</code>.</p>
-
-</div>
-</div>
-</div>
-</aside></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Resource-acquisition-is-initialization-(RAII)">Resource acquisition is initialization (RAII)<a class="anchor-link" href="#Resource-acquisition-is-initialization-(RAII)">&#182;</a></h1><div class="highlight"><pre><span></span><span class="n">FileReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-<span class="kt">char</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="mi">100</span><span class="o">];</span>
-<span class="k">try</span> <span class="o">{</span>
-    <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="n">fileName</span><span class="o">);</span>
-    <span class="n">reader</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">buffer</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">);</span>
-<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
-    <span class="k">if</span><span class="o">(</span><span class="n">reader</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">){</span>
-        <span class="k">try</span> <span class="o">{</span>
-            <span class="n">reader</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">//obsługa błędu zamknięcia pliku</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+<div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">words</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
+<span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">);</span>
+<span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;dwa&quot;</span><span class="o">);</span>
+<span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">);</span>
+<span class="n">words</span><span class="o">.</span><span class="na">subList</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">3</span><span class="o">).</span><span class="na">clear</span><span class="o">();</span>       
+<span class="n">words</span>                                     <span class="c1">// [&quot;jeden&quot;]</span>
 </pre></div>
 
 </div>
 </div>
-</div><aside class="notes">
-
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Resource acquisition is initialization (RAII) - wzorzec z C++</p>
-
-</div>
-</div>
-</div>
-</aside></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Instrukcja-try-z-zasobami">Instrukcja <code>try</code> z zasobami<a class="anchor-link" href="#Instrukcja-try-z-zasobami">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kt">char</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="mi">100</span><span class="o">];</span>
-<span class="k">try</span><span class="o">(</span><span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="s">&quot;file1.txt&quot;</span><span class="o">))</span> <span class="o">{</span>
-    <span class="n">reader</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">buffer</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">);</span>
-<span class="o">}</span>
+<h1 id="Collections:-sort,-min,-max"><code>Collections</code>: <code>sort</code>, <code>min</code>, <code>max</code><a class="anchor-link" href="#Collections:-sort,-min,-max">&#182;</a></h1><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">words</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">,</span> <span class="s">&quot;dwa&quot;</span><span class="o">,</span> <span class="s">&quot;trzy&quot;</span><span class="o">);</span>
+<span class="n">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">words</span><span class="o">);</span>           <span class="c1">// &quot;dwa&quot;, &quot;jeden&quot;, &quot;trzy&quot;</span>
 </pre></div>
-<p><strong>Obiekty użyte w tej konstrukcji muszą implementować interfejs <code>AutoCloseable</code></strong></p>
 
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="n">Collections</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">words</span><span class="o">);</span>   <span class="c1">// &quot;dwa&quot;</span>
+<span class="n">Collections</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">words</span><span class="o">);</span>   <span class="c1">// &quot;trzy&quot;</span>
+</pre></div>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Lista-liczb">Lista liczb<a class="anchor-link" href="#Lista-liczb">&#182;</a></h1><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>
+<span class="n">numbers</span>
+</pre></div>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Implementacje-interfejsu-List">Implementacje interfejsu <code>List</code><a class="anchor-link" href="#Implementacje-interfejsu-List">&#182;</a></h1><table>
+<tr>
+    <th>Klasa</th>
+    <th>Reprezentacja</th>
+    <th>Uwagi</th>
+</tr>
+<tr>
+    <td>`ArrayList`</td>
+    <td>tablica</td>
+    <td>implementacja ogólnego przeznaczenia</td>
+</tr>
+<tr>
+    <td>`LinkedList`</td>
+    <td>lista dwukierunkowa</td>
+    <td>efektywne wstawianie i usuwanie</td>
+</tr>
+<tr>
+    <td>`CopyOnWriteArrayList`</td>
+    <td>tablica</td>
+    <td>bezpieczna zw. na wątki</td>
+</tr>
+<tr>
+    <td>`Vector`</td>
+    <td>tablica</td>
+    <td>synchronizowane metody, przestarzała</td>
+</tr>
+<tr>
+    <td>`Stack`</td>
+    <td>tablica</td>
+    <td>dodaje metody `push`, `pop`, `peek`, przestarzała</td>
+</tr>
+</table>
 </div>
 </div>
 </div></section></section><section><section>
@@ -12105,286 +12205,13 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Rodzaje-wyj&#261;tk&#243;w">Rodzaje wyj&#261;tk&#243;w<a class="anchor-link" href="#Rodzaje-wyj&#261;tk&#243;w">&#182;</a></h1><h3 id="b&#322;&#261;d-w-kodzie-programu">b&#322;&#261;d w kodzie programu<a class="anchor-link" href="#b&#322;&#261;d-w-kodzie-programu">&#182;</a></h3><p>np. <code>NullPointerException</code></p>
-<h3 id="b&#322;&#261;d-zwi&#261;zany-ze-z&#322;amaniem-kontraktu">b&#322;&#261;d zwi&#261;zany ze z&#322;amaniem kontraktu<a class="anchor-link" href="#b&#322;&#261;d-zwi&#261;zany-ze-z&#322;amaniem-kontraktu">&#182;</a></h3><p>np. niepoprawny plik JSON, brakujący wymagane pole w bazie danych</p>
-<h3 id="b&#322;&#261;d-zwi&#261;zany-z-dost&#281;pem-do-zasob&#243;w">b&#322;&#261;d zwi&#261;zany z dost&#281;pem do zasob&#243;w<a class="anchor-link" href="#b&#322;&#261;d-zwi&#261;zany-z-dost&#281;pem-do-zasob&#243;w">&#182;</a></h3><p>np. brak połączenia z internetem, z bazą danych, problem z dostępem do pliku</p>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Typy-wyj&#261;tk&#243;w">Typy wyj&#261;tk&#243;w<a class="anchor-link" href="#Typy-wyj&#261;tk&#243;w">&#182;</a></h1><h3 id="unchecked-exceptions"><em>unchecked exceptions</em><a class="anchor-link" href="#unchecked-exceptions">&#182;</a></h3><ul>
-<li>klasy dziedziczące z <code>RuntimeException</code></li>
-<li>nie muszą być deklarowane, np. <code>NullPointerException</code></li>
-</ul>
-<h3 id="checked-exceptions"><em>checked exceptions</em><a class="anchor-link" href="#checked-exceptions">&#182;</a></h3><ul>
-<li>klasy dziedziczące z <code>Exception</code> i <strong>niedziedziczące</strong> z <code>RuntimeException</code> </li>
-<li>muszą być deklarowane w sekcji <code>throws</code> lub obsłużone w bloku <code>try...catch</code>, np. <code>FileNotFoundException</code></li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="img/runtime_exception.png"/></p>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#321;apanie-wielu-wyj&#261;tk&#243;w">&#321;apanie wielu wyj&#261;tk&#243;w<a class="anchor-link" href="#&#321;apanie-wielu-wyj&#261;tk&#243;w">&#182;</a></h1><p><img src="img/exception_hierarchy.png"></p>
-
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">{</span>
-    <span class="c1">// ...</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">EOFException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// obsługa błędu EOFException</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// obsługa błędu IOException</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// obsługa pozostałych wyjątków</span>
-<span class="o">}</span>
-</pre></div>
-
-</div>
-</div>
-</div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">{</span>
-    <span class="c1">// ...</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// obsługa wszystkich wyjątków</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// ten kod nigdy się nie wykona</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">EOFException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// ten kod nigdy się nie wykona</span>
-<span class="o">}</span>
-</pre></div>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">{</span>
-    <span class="c1">// ...</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">FileNotFoundException</span> <span class="o">|</span> <span class="n">EOFException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// wspólny kod obsługi błędów FileNotFoundException i EOFException</span>
-<span class="o">}</span>
-</pre></div>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Praktyczne-zalecenia">Praktyczne zalecenia<a class="anchor-link" href="#Praktyczne-zalecenia">&#182;</a></h1><h2 id="1.-Obs&#322;uga-wyj&#261;tk&#243;w-musi-by&#263;-faktycznie-realizowana">1. Obs&#322;uga wyj&#261;tk&#243;w musi by&#263; faktycznie realizowana<a class="anchor-link" href="#1.-Obs&#322;uga-wyj&#261;tk&#243;w-musi-by&#263;-faktycznie-realizowana">&#182;</a></h2><ul>
-<li>W realnie działających systemach wyjątki faktycznie występują. </li>
-<li>Ich obsługa nie może sprwadzać się do tego, że kod w ogóle się kompiluje.</li>
-</ul>
-
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.-Rzucaj-wyj&#261;tki-wcze&#347;nie,-obs&#322;uguj-p&#243;&#378;no">2. Rzucaj wyj&#261;tki wcze&#347;nie, obs&#322;uguj p&#243;&#378;no<a class="anchor-link" href="#2.-Rzucaj-wyj&#261;tki-wcze&#347;nie,-obs&#322;uguj-p&#243;&#378;no">&#182;</a></h2><h3 id="Im-wcze&#347;niej-zg&#322;osisz-sytuacj&#281;-nietypow&#261;,-tym-lepiej">Im wcze&#347;niej <strong>zg&#322;osisz</strong> sytuacj&#281; nietypow&#261;, tym lepiej<a class="anchor-link" href="#Im-wcze&#347;niej-zg&#322;osisz-sytuacj&#281;-nietypow&#261;,-tym-lepiej">&#182;</a></h3><ul>
-<li>Możesz podać więcej szczegółów na temat przyczyny błędu.</li>
-</ul>
-<h3 id="Im-p&#243;&#378;niej-obs&#322;u&#380;ysz-sytuacj&#281;-nietypow&#261;,-tym-lepiej">Im p&#243;&#378;niej <strong>obs&#322;u&#380;ysz</strong> sytuacj&#281; nietypow&#261;, tym lepiej<a class="anchor-link" href="#Im-p&#243;&#378;niej-obs&#322;u&#380;ysz-sytuacj&#281;-nietypow&#261;,-tym-lepiej">&#182;</a></h3><ul>
-<li>Możesz obsłużyć wiele wyjątków za pomocą jednego mechanizmu.</li>
-<li>Jesteś bliżej interfejsu użytkownika, co pozwala na wyprodukowanie stosownego komunikatu.</li>
-</ul>
-
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.-Dbaj-o-wszystkie-otwierane-zasoby">3. Dbaj o wszystkie otwierane zasoby<a class="anchor-link" href="#3.-Dbaj-o-wszystkie-otwierane-zasoby">&#182;</a></h2><ul>
-<li>Zbyt duża liczba otwartych plików lub połączeń do bazy danych może spowodować zatrzymanie programu lub blokadę systemu operacyjnego.</li>
-</ul>
-
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="4.-Spr&#243;buj-znale&#378;&#263;-rozwi&#261;zanie-problemu">4. Spr&#243;buj znale&#378;&#263; rozwi&#261;zanie problemu<a class="anchor-link" href="#4.-Spr&#243;buj-znale&#378;&#263;-rozwi&#261;zanie-problemu">&#182;</a></h2><ul>
-<li><code>FileNotFoundException</code> - poproś użytkownika o poprawienie nazwy pliku</li>
-<li><code>ConnectException</code> - spróbuj ponownie wysłać zapytanie do zdalnego serwisu</li>
-<li><code>InterruptedException</code> - zakończ albo zrestartuj wątek przetwarzający zadanie</li>
-</ul>
-
-</div>
-</div>
-</div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Ad.-1---antywzorce">Ad. 1 - antywzorce<a class="anchor-link" href="#Ad.-1---antywzorce">&#182;</a></h1><div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">{</span> 
-    <span class="c1">// kod rzucający wyjątki</span>
-<span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// nic nie rób</span>
-<span class="o">}</span>
-</pre></div>
-
-</div>
-</div>
-</div><aside class="notes">
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Żadne wyjątek nie może się zamanifestować, nawet <code>NullPointerException</code>.</p>
-
-</div>
-</div>
-</div>
-</aside><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">{</span>
-    <span class="c1">// kod rzucający wyjątki</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">FileNotFoundException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">logger</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="n">ex</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
-    <span class="k">throw</span> <span class="n">ex</span><span class="o">;</span>
-<span class="o">}</span>
-</pre></div>
-
-</div>
-</div>
-</div><aside class="notes">
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Istnieje ryzyko, że ten sam błąd będzie wielokrotnie logowany.</p>
-
-</div>
-</div>
-</div>
-</aside></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Ad.-2---antywzorce">Ad. 2 - antywzorce<a class="anchor-link" href="#Ad.-2---antywzorce">&#182;</a></h1><div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">{</span>
-    <span class="c1">// kod rzucający wyjątki</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">FileNotFoundException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">logger</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="n">ex</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
-    <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
-<span class="o">}</span>
-</pre></div>
-
-</div>
-</div>
-</div><aside class="notes">
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Zamiast zwracać <code>null</code> pozwól by wyjątek obsłużono wyżej.</p>
-
-</div>
-</div>
-</div>
-</aside><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">TransferDetails</span> <span class="nf">parse</span><span class="o">(</span><span class="n">String</span> <span class="n">transferSpecification</span><span class="o">)</span> 
-        <span class="kd">throws</span> <span class="n">InvalidTransferSpecification</span> <span class="o">{</span>
-    <span class="k">try</span> <span class="o">{</span>
-        <span class="c1">// kod rzucający wyjątek XMLParserError</span>
-    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">XMLParserError</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">throw</span> <span class="k">new</span> <span class="n">InvalidTransferSpecification</span><span class="o">(</span><span class="n">transferSpecification</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</pre></div>
-
-</div>
-</div>
-</div><aside class="notes">
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>tracona jest dokładna informacja o wyjątku</p>
-
-</div>
-</div>
-</div>
-</aside></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="exception-chaining---poprawne-rozwi&#261;zanie"><em>exception chaining</em> - poprawne rozwi&#261;zanie<a class="anchor-link" href="#exception-chaining---poprawne-rozwi&#261;zanie">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Parser</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="n">TransferDetails</span> <span class="nf">parse</span><span class="o">(</span><span class="n">String</span> <span class="n">transferSpecification</span><span class="o">)</span> 
-            <span class="kd">throws</span> <span class="n">InvalidTransferSpecification</span> <span class="o">{</span>
-        <span class="k">try</span> <span class="o">{</span>
-            <span class="c1">// kod rzucający wyjątek XMLParserError</span>
-        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">XMLParserError</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
-            <span class="c1">//                                                          vvvvvv</span>
-            <span class="k">throw</span> <span class="k">new</span> <span class="n">InvalidTransferSpecification</span><span class="o">(</span><span class="n">transferSpecification</span><span class="o">,</span> <span class="n">ex</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
+<h1 id="Wzorzec-Iterator">Wzorzec <code>Iterator</code><a class="anchor-link" href="#Wzorzec-Iterator">&#182;</a></h1><div class="highlight"><pre><span></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">Car</span><span class="o">&gt;</span> <span class="n">cars1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
+<span class="n">Car</span> <span class="n">car</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Car</span><span class="o">();</span>
+<span class="n">cars1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
+<span class="n">cars1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
+<span class="n">Iterator</span><span class="o">&lt;</span><span class="n">Car</span><span class="o">&gt;</span> <span class="n">iterator</span> <span class="o">=</span> <span class="n">cars1</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
+<span class="k">while</span><span class="o">(</span><span class="n">iterator</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()){</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">iterator</span><span class="o">.</span><span class="na">next</span><span class="o">());</span>
 <span class="o">}</span>
 </pre></div>
 
@@ -12396,13 +12223,11 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-
-<pre><code>InvalidTransferSpecification: ...
-at Parser.parse()
-at System.main()
-Caused by: XMLParserError: ...
-at XMLParser.readHeader()
-at XMLParser.parse()</code></pre>
+<div class="highlight"><pre><span></span><span class="c1">// krócej</span>
+<span class="k">for</span><span class="o">(</span><span class="n">Car</span> <span class="n">car</span> <span class="o">:</span> <span class="n">cars1</span><span class="o">){</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
 
 </div>
 </div>
@@ -12412,16 +12237,29 @@ at XMLParser.parse()</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Ad.-2---antywzroce">Ad. 2 - antywzroce<a class="anchor-link" href="#Ad.-2---antywzroce">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">doSomeCalculation</span><span class="o">(){</span>
-    <span class="k">try</span> <span class="o">{</span>
-        <span class="k">for</span><span class="o">(</span><span class="n">Element</span> <span class="n">element</span> <span class="o">:</span> <span class="n">elements</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">if</span><span class="o">(</span><span class="n">element</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
-                <span class="k">throw</span> <span class="n">EmptyElementException</span><span class="o">();</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">EmptyElementException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// ...</span>
-    <span class="o">}</span>
+<p><img src="img/iterator.png"></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Interfejs-Iterator&lt;E&gt;">Interfejs <code>Iterator&lt;E&gt;</code><a class="anchor-link" href="#Interfejs-Iterator&lt;E&gt;">&#182;</a></h1><ul>
+<li>służy do definiowania iteratorów</li>
+<li>metody:<ul>
+<li>next</li>
+<li>hasNext</li>
+<li>remove</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Iterator</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kt">boolean</span> <span class="nf">hasNext</span><span class="o">();</span>
+    <span class="n">E</span> <span class="nf">next</span><span class="o">();</span>
+    <span class="kt">void</span> <span class="nf">remove</span><span class="o">();</span>
 <span class="o">}</span>
 </pre></div>
 
@@ -12433,11 +12271,123 @@ at XMLParser.parse()</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Ad.-3-obs&#322;uga-zasob&#243;w">Ad. 3 obs&#322;uga zasob&#243;w<a class="anchor-link" href="#Ad.-3-obs&#322;uga-zasob&#243;w">&#182;</a></h1><p>Najprościej zrobić to używając konstrukcji <code>try</code> z zasobami:</p>
-<div class="highlight"><pre><span></span><span class="kt">char</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="mi">100</span><span class="o">];</span>
-<span class="k">try</span><span class="o">(</span><span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="s">&quot;file1.txt&quot;</span><span class="o">))</span> <span class="o">{</span>
-    <span class="n">reader</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">buffer</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">);</span>
+<h1 id="Interfejs-Iterable&lt;E&gt;">Interfejs <code>Iterable&lt;E&gt;</code><a class="anchor-link" href="#Interfejs-Iterable&lt;E&gt;">&#182;</a></h1><ul>
+<li>zwraca iterator</li>
+<li>pozwala "chodzić" po swoich elementach</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Iterable</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">Iterator</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="nf">iterator</span><span class="o">();</span>
 <span class="o">}</span>
+</pre></div>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Wyj&#261;tek-ConcurrentModificationException">Wyj&#261;tek <code>ConcurrentModificationException</code><a class="anchor-link" href="#Wyj&#261;tek-ConcurrentModificationException">&#182;</a></h1><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">cars</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">,</span> <span class="s">&quot;dwa&quot;</span><span class="o">,</span> <span class="s">&quot;trzy&quot;</span><span class="o">))</span>
+<span class="n">Iterator</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">iterator</span> <span class="o">=</span> <span class="n">cars</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
+<span class="n">cars</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">);</span>
+<span class="n">iterator</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+</pre></div>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="n">iterator</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+<span class="n">iterator</span><span class="o">.</span><span class="na">remove</span><span class="o">();</span>
+</pre></div>
+
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Interfejs-Set">Interfejs <code>Set</code><a class="anchor-link" href="#Interfejs-Set">&#182;</a></h1><ul>
+<li>przechowuje elementy bez powtórzeń</li>
+<li>wymaga poprawnej definicji metod <code>equals</code> i <code>hashCode</code></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="equals-i-hashCode"><code>equals</code> i <code>hashCode</code><a class="anchor-link" href="#equals-i-hashCode">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Car</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">vin</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Car</span><span class="o">(</span><span class="n">String</span> <span class="n">vin</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">vin</span> <span class="o">=</span> <span class="n">vin</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="n">Object</span> <span class="n">other</span><span class="o">){</span>
+        <span class="c1">//...</span>
+        <span class="n">Car</span> <span class="n">that</span> <span class="o">=</span> <span class="o">(</span><span class="n">Car</span><span class="o">)</span> <span class="n">other</span><span class="o">;</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">vin</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">that</span><span class="o">.</span><span class="na">vin</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">hashCode</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">vin</span><span class="o">.</span><span class="na">hashCode</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">Car</span> <span class="n">car1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Car</span><span class="o">(</span><span class="s">&quot;ABC&quot;</span><span class="o">);</span>
+<span class="n">Car</span> <span class="n">car2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Car</span><span class="o">(</span><span class="s">&quot;ABC&quot;</span><span class="o">);</span>
+<span class="n">Set</span><span class="o">&lt;</span><span class="n">Car</span><span class="o">&gt;</span> <span class="n">cars</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;();</span>
+<span class="n">cars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car1</span><span class="o">);</span>
+<span class="n">cars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car2</span><span class="o">);</span>
+<span class="n">cars</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+</pre></div>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Interfejs-SortedSet">Interfejs <code>SortedSet</code><a class="anchor-link" href="#Interfejs-SortedSet">&#182;</a></h1><ul>
+<li><code>SortedSet</code> przechowuje elementy w sposób uporządkowany</li>
+<li>wymaga aby obiekty imeplementowały interfejs <code>Comparable</code> lub aby przekazano do niego obiekt implementujący 
+interfejs <code>Comparator</code></li>
+<li>metody:<ul>
+<li><code>headSet</code></li>
+<li><code>tailSet</code></li>
+<li><code>subSet</code></li>
+<li><code>first</code></li>
+<li><code>last</code></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Przyk&#322;ad">Przyk&#322;ad<a class="anchor-link" href="#Przyk&#322;ad">&#182;</a></h1><div class="highlight"><pre><span></span><span class="n">SortedSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeSet</span><span class="o">&lt;&gt;(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">,</span> <span class="s">&quot;dwa&quot;</span><span class="o">,</span> <span class="s">&quot;trzy&quot;</span><span class="o">));</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">headSet</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">);</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">tailSet</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">);</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">tailSet</span><span class="o">(</span><span class="s">&quot;jeden\0&quot;</span><span class="o">);</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">subSet</span><span class="o">(</span><span class="s">&quot;dwa\0&quot;</span><span class="o">,</span><span class="s">&quot;trzy&quot;</span><span class="o">);</span>
 </pre></div>
 
 </div>
@@ -12448,80 +12398,364 @@ at XMLParser.parse()</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Uwaga-na-sekcj&#281;&#160;finally">Uwaga na sekcj&#281;&#160;<code>finally</code><a class="anchor-link" href="#Uwaga-na-sekcj&#281;&#160;finally">&#182;</a></h1><div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">{</span>
-    <span class="c1">// kod z wyjątkami</span>
-<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
-<span class="o">}</span>
+<h1 id="Implementacje-interfejsu-Set">Implementacje interfejsu <code>Set</code><a class="anchor-link" href="#Implementacje-interfejsu-Set">&#182;</a></h1><table>
+<tr>
+    <th>Klasa</th>
+    <th>Reprezentacja</th>
+    <th>Uporządkowanie</th>
+    <th>Ograniczenia</th>
+    <th>Wydajność dostępu</th>
+    <th>Wydajność iteracji</th>
+    <th>Uwagi</th>
+</tr>
+<tr>
+    <td>`HashSet`</td>
+    <td>tablica haszująca</td>
+    <td>brak</td>
+    <td>brak</td>
+    <td>O(1)</td>
+    <td>O(pojemność)</td>
+    <td>implementacja ogólnego przeznaczenia</td>
+</tr>
+<tr>
+    <td>`LinkedHashSet`</td>
+    <td>powiązana tablica haszująca</td>
+    <td>kolejność wstawiania</td>
+    <td>brak</td>
+    <td>O(1)</td>
+    <td>O(n)</td>
+    <td>zachowuje kolejność</td>
+</tr>
+<tr>
+    <td>`EnumSet`</td>
+    <td>pole bitowe</td>
+    <td>deklaracja</td>
+    <td>wartości `enum`</td>
+    <td>O(1)</td>
+    <td>O(n)</td>
+    <td>tylko wartości `enum`</td>
+</tr>
+<tr>
+    <td>`TreeSet`</td>
+    <td>drzewo czerwono-czarne</td>
+    <td>sortowanie rosnące</td>
+    <td>porównywalność</td>
+    <td>O(log(n))</td>
+    <td>O(n)</td>
+    <td>`Comparable` lub `Comparator`</td>
+</tr>
+<tr>
+    <td>`CopyOnWriteArraySet`</td>
+    <td>tablica</td>
+    <td>kolejność wstawiania</td>
+    <td>brak</td>
+    <td>O(n)</td>
+    <td>O(n)</td>
+    <td>bezpieczna zw. na wątki</td>
+</tr>
+</table>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Interfejs-Map">Interfejs <code>Map</code><a class="anchor-link" href="#Interfejs-Map">&#182;</a></h1><ul>
+<li>implementuje strukturę słownika</li>
+<li>odwzorowuje <em>klucze</em> na <em>wartości</em></li>
+<li>można to interpretować jako tablicę indeksowaną <em>kluczami</em>, które nie muszą być liczbami</li>
+<li>pozwala na szybki dostęp do elementów</li>
+<li>metody:<ul>
+<li><code>put</code></li>
+<li><code>get</code></li>
+<li><code>remove</code></li>
+<li><code>containsKey</code></li>
+<li><code>containsValue</code></li>
+<li><code>keySet</code></li>
+<li><code>values</code></li>
+<li><code>entrySet</code></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="put,-get,-remove"><code>put</code>, <code>get</code>, <code>remove</code><a class="anchor-link" href="#put,-get,-remove">&#182;</a></h1><div class="highlight"><pre><span></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;dwa&quot;</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;trzy&quot;</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;dwa&quot;</span><span class="o">);</span>            <span class="c1">// =&gt; 2</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="s">&quot;dwa&quot;</span><span class="o">);</span>         <span class="c1">// =&gt; 2</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;dwa&quot;</span><span class="o">)</span>             <span class="c1">// =&gt; null</span>
 </pre></div>
 
 </div>
 </div>
-</div><aside class="notes">
-
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Rzucenie wyjątku lub wyjście z metody w <code>finally</code> powoduje nadpisanie wcześniejszego wyjątku.</p>
-
-</div>
-</div>
-</div>
-</aside><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">{</span>
-    <span class="c1">// kod z wyjątkami</span>
-<span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">SomeException</span> <span class="n">ex</span><span class="o">){</span>
-    <span class="n">ex</span><span class="o">.</span><span class="na">getSuppressedException</span><span class="o">();</span>
-<span class="o">}</span>
+<h1 id="containsKey,-containsValue"><code>containsKey</code>, <code>containsValue</code><a class="anchor-link" href="#containsKey,-containsValue">&#182;</a></h1><div class="highlight"><pre><span></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;dwa&quot;</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;trzy&quot;</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">);</span>        <span class="c1">// =&gt; true</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="s">&quot;cztery&quot;</span><span class="o">);</span>       <span class="c1">// =&gt; false</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">containsValue</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>            <span class="c1">// =&gt; true</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">containsValue</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>            <span class="c1">// =&gt; false</span>
 </pre></div>
 
 </div>
 </div>
-</div></div></section><section>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Nie-deklaruj-(bardzo)-wielu-wyj&#261;tk&#243;w">Nie deklaruj (bardzo) wielu wyj&#261;tk&#243;w<a class="anchor-link" href="#Nie-deklaruj-(bardzo)-wielu-wyj&#261;tk&#243;w">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">launchICBM</span><span class="o">()</span> <span class="n">thorws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">DatabaseException</span><span class="o">,</span> <span class="n">NetworkException</span><span class="o">,</span> 
-    <span class="n">NullPointerException</span><span class="o">,</span> <span class="n">ArithmeticException</span><span class="o">,</span> <span class="n">WorldDoesNotExistException</span> <span class="o">{</span>
-    <span class="c1">// launch ICBM</span>
+<h1 id="keySet,-values,-entrySet"><code>keySet</code>, <code>values</code>, <code>entrySet</code><a class="anchor-link" href="#keySet,-values,-entrySet">&#182;</a></h1><div class="highlight"><pre><span></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;dwa&quot;</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;trzy&quot;</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">keySet</span><span class="o">();</span>                        <span class="c1">// =&gt; Set: &quot;jeden&quot;, &quot;trzy&quot;, &quot;dwa&quot;</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">values</span><span class="o">();</span>                        <span class="c1">// =&gt; Collection 1, 3, 2</span>
+<span class="k">for</span><span class="o">(</span><span class="n">Map</span><span class="o">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">entry</span> <span class="o">:</span> <span class="n">numbers</span><span class="o">.</span><span class="na">entrySet</span><span class="o">()){</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;&quot;</span> <span class="o">+</span> <span class="n">entry</span><span class="o">.</span><span class="na">key</span> <span class="o">+</span> <span class="s">&quot; : &quot;</span> <span class="o">+</span> <span class="n">entry</span><span class="o">.</span><span class="na">value</span><span class="o">);</span>
 <span class="o">}</span>
+<span class="c1">// jeden : 1</span>
+<span class="c1">// trzy : 3</span>
+<span class="c1">// dwa : 2</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">keySet</span><span class="o">().</span><span class="na">remove</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">)</span>
+<span class="n">numbers</span>                                  <span class="c1">// =&gt; {trzy=3, dwa=2}</span>
 </pre></div>
 
 </div>
 </div>
-</div><div class="fragment">
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">launchICBM</span><span class="o">()</span> <span class="n">thorws</span> <span class="n">LaunchException</span> <span class="o">{</span>
-    <span class="k">try</span> <span class="o">{</span>
-        <span class="c1">// lanuch ICBM</span>
-    <span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">IOException</span> <span class="o">|</span> <span class="n">DatabaseException</span> <span class="o">|</span> <span class="o">...</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">throw</span> <span class="k">new</span> <span class="n">LaunchException</span><span class="o">(</span><span class="s">&quot;Something went wrong...&quot;</span><span class="o">,</span> <span class="n">ex</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+<h1 id="Interfejs-SortedMap">Interfejs <code>SortedMap</code><a class="anchor-link" href="#Interfejs-SortedMap">&#182;</a></h1><ul>
+<li>rozszerza interfejs <code>Map</code></li>
+<li>elementy są sortowane względem wartości kluczy</li>
+<li>wymaga elementów typu <code>Comparable</code> lub przekazania obiektu <code>Comparator</code></li>
+<li>metody:<ul>
+<li><code>firstKey</code></li>
+<li><code>lastKey</code></li>
+<li><code>headMap</code></li>
+<li><code>tailMap</code></li>
+<li><code>subMap</code></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="firstKey,-lastKey"><code>firstKey</code>, <code>lastKey</code><a class="anchor-link" href="#firstKey,-lastKey">&#182;</a></h1><div class="highlight"><pre><span></span><span class="n">SortedMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeMap</span><span class="o">&lt;&gt;();</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;dwa&quot;</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;trzy&quot;</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">firstKey</span><span class="o">();</span>               <span class="c1">// &quot;dwa&quot;</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">lastKey</span><span class="o">();</span>                <span class="c1">// &quot;trzy&quot;</span>
 </pre></div>
 
 </div>
 </div>
-</div></div></section><section>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="img/atomic_bomb.jpg"/></p>
+<h1 id="Implementacje-interfejsu-Map">Implementacje interfejsu <code>Map</code><a class="anchor-link" href="#Implementacje-interfejsu-Map">&#182;</a></h1><table>
+<tr>
+    <th>Klasa</th>
+    <th>Reprezentacja</th>
+    <th>klucze `null`</th>
+    <th>wartości `null`</th>
+    <th>uwagi</th>
+</tr>
+<tr>
+    <td>`HashMap`</td>
+    <td>tablica haszująca</td>
+    <td>tak</td>
+    <td>tak</td>
+    <td>implementacja ogólnego przeznaczenia</td>
+</tr>
+<tr>
+    <td>`ConcurrentHashMap`</td>
+    <td>tablica haszująca</td>
+    <td>nie</td>
+    <td>nie</td>
+    <td>implementacja bezpieczna zw. na wątki</td>
+</tr>
+<tr>
+    <td>`ConcurrentSkipListMap`</td>
+    <td>tablica haszująca</td>
+    <td>nie</td>
+    <td>nie</td>
+    <td>jw., interfejs `ConcurrentNavigableMap`</td>
+</tr>
+<tr>
+    <td>`EnumMap`</td>
+    <td>tablica</td>
+    <td>nie</td>
+    <td>nie</td>
+    <td>klucze to wartości `enum`</td>
+</tr>
+<tr>
+    <td>`LinkedHashMap`</td>
+    <td>tablica haszująca</td>
+    <td>tak</td>
+    <td>tak</td>
+    <td>zachowuje kolejność wstawiania</td>
+</tr>
+<tr>
+    <td>`TreeMap`</td>
+    <td>drzewo czerwono-czarne</td>
+    <td>nie</td>
+    <td>tak</td>
+    <td>posortowana wg wartości kluczy</td>
+</tr>
+<tr>
+    <td>`IdentityHashMap`</td>
+    <td>tablica haszująca</td>
+    <td>tak</td>
+    <td>tak</td>
+    <td>do porównywania używa ==</td>
+</tr>
+<tr>
+    <td>`WeakHashMap`</td>
+    <td>tablica haszująca</td>
+    <td>tak</td>
+    <td>tak</td>
+    <td>korzysta ze słabych referencji dla kluczy</td>
+</tr>
+<tr>
+    <td>`Hashtable`</td>
+    <td>tablica haszująca</td>
+    <td>nie</td>
+    <td>nie</td>
+    <td>przestarzała, synchronizowane metody</td>
+</tr>
+<tr>
+    <td>`Properties`</td>
+    <td>tablica haszująca</td>
+    <td>nie</td>
+    <td>nie</td>
+    <td>rozszerza `Hashtable` o metody klasy `String`</td>
+</tr>
+</table>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Interfejs-Stream-i-techniki-funkcyjne">Interfejs <code>Stream</code> i techniki funkcyjne<a class="anchor-link" href="#Interfejs-Stream-i-techniki-funkcyjne">&#182;</a></h1><ul>
+<li>interfejs <code>Collection</code> został rozszerzony o metodę <code>streams</code></li>
+<li>metoda ta została wprowadzona aby ograniczyć wsteczną niekompatybilność</li>
+<li>metoda ta jest domyślna w interfejsie <code>Collection</code></li>
+<li>metoda zwraca elemet typu <code>Stream</code></li>
+<li>interfejs <code>Stream</code> umożliwia wykonywania metod funkcyjnych:<ul>
+<li><code>allMatch</code></li>
+<li><code>anyMatch</code></li>
+<li><code>collect</code></li>
+<li><code>concat</code></li>
+<li><code>count</code></li>
+<li><code>distinct</code></li>
+<li><code>empty</code></li>
+<li><code>filter</code></li>
+<li><code>findAny</code></li>
+<li><code>findFirst</code></li>
+<li><code>flatMap</code></li>
+<li><code>forEach</code></li>
+<li><code>map</code></li>
+<li>itd.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="fliter,-map-i-collect"><code>fliter</code>, <code>map</code> i <code>collect</code><a class="anchor-link" href="#fliter,-map-i-collect">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.stream.*</span><span class="o">;</span>
+
+<span class="n">Collection</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">);</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">filter</span><span class="o">(</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="n">e</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">).</span>
+                 <span class="n">map</span><span class="o">(</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="n">e</span><span class="o">.</span><span class="na">toString</span><span class="o">()).</span>
+                 <span class="n">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">());</span>
+</pre></div>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="map"><code>map</code><a class="anchor-link" href="#map">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.stream.*</span><span class="o">;</span>
+
+<span class="n">Collection</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">,</span> <span class="s">&quot;dwa&quot;</span><span class="o">,</span> <span class="s">&quot;trzy&quot;</span><span class="o">,</span> <span class="s">&quot;cztery&quot;</span><span class="o">);</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">map</span><span class="o">(</span><span class="n">String</span><span class="o">::</span><span class="n">length</span><span class="o">).</span>
+                 <span class="n">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">joining</span><span class="o">(</span><span class="s">&quot;, &quot;</span><span class="o">));</span>
+</pre></div>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="forEach"><code>forEach</code><a class="anchor-link" href="#forEach">&#182;</a></h1><div class="highlight"><pre><span></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">,</span> <span class="s">&quot;dwa&quot;</span><span class="o">,</span> <span class="s">&quot;trzy&quot;</span><span class="o">,</span> <span class="s">&quot;cztery&quot;</span><span class="o">);</span>
+<span class="n">numbers</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="c1">// jeden</span>
+<span class="c1">// dwa</span>
+<span class="c1">// trzy</span>
+<span class="c1">// cztery</span>
+</pre></div>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="map-i-reduce"><code>map</code> i <code>reduce</code><a class="anchor-link" href="#map-i-reduce">&#182;</a></h1><div class="highlight"><pre><span></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">,</span> <span class="s">&quot;dwa&quot;</span><span class="o">,</span> <span class="s">&quot;trzy&quot;</span><span class="o">,</span> <span class="s">&quot;cztery&quot;</span><span class="o">);</span>
+<span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">numbers</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">map</span><span class="o">(</span><span class="n">String</span><span class="o">::</span><span class="n">length</span><span class="o">).</span>
+                              <span class="n">reduce</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="o">(</span><span class="n">x</span><span class="o">,</span><span class="n">y</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="o">;</span> <span class="o">});</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sum</span> <span class="o">/</span> <span class="n">numbers</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+</pre></div>
 
 </div>
 </div>
