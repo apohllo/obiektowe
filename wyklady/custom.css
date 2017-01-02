@@ -10,11 +10,7 @@ div.prompt.input_prompt {
   padding: 0 !important;
 }
 
-.reveal .rendered_html h2:first-child {
-  margin: 0 0 0.5em 0;
-}
-
-.reveal .rendered_html h3:first-child {
+.reveal .rendered_html h1:first-child, .reveal .rendered_html h2:first-child, .reveal .rendered_html h3:first-child  {
   margin: 0 0 0.5em 0;
 }
 
