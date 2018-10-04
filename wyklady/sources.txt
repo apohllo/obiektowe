@@ -1,26 +1,89 @@
-Wyklad 1
+Wyklad 1 (czym jest programowanie obiektowe)
 http://cdn.environmentalleader.com/wp-content/uploads/2014/11/Vehicle-life-cycle.jpg
 https://upload.wikimedia.org/wikipedia/commons/b/b1/Chameau_de_bactriane.JPG
 https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/AverroesAndPorphyry.JPG/1920px-AverroesAndPorphyry.JPG
 http://cliparts.co/cliparts/qcB/jqg/qcBjqgxc5.jpg
 http://javasofttech.blogspot.com/2012/08/explain-about-jvm-architecture.html
 https://pl.wikipedia.org/wiki/Mars_Climate_Orbiter#/media/File:Mars_Climate_Orbiter_2.jpg
-
-Wyklad 2
+https://www.thinglink.com/scene/716060753563484161
+http://www.scottbot.net/HIAL/index.html@p=39166.html
+https://pl.pinterest.com/pin/548524429591787611/?lp=true
+https://www.youtube.com/watch?v=J-bAKh_dYls
+Wyklad 2 (języka Java)
 http://forsal.pl/artykuly/888598,zarobki-w-branzy-it-gdzie-zaplaca-ci-najwiecej.html
 https://www.linkedin.com/pulse/java-javascript-eliseo-d-annunzio
+https://surveyanyplace.com/survey-questions-types/
+
+Wyklad 3 (typy danych)
+https://javatutoring.com/data-types-in-java/
+https://rota.com/little-abc-hospitality/
+http://deltadentalazblog.com/true-or-false-5-trivia-questions-to-test-your-dental-knowledge/
+http://www.rgbstock.com/photo/mIMkRUQ/one+two+three
+https://www.justquant.com/topic/ratio-and-proportion/
+https://www.amazon.com/Melissa-Doug-Wooden-Number-Magnets/dp/B000IBRD74
+https://www.pinterest.com/explore/cross-stitch-patterns/
+http://mo.morsi.org/blog/2015/09/26/bitcoin_aware_barbers_pole/
+https://en.wikipedia.org/wiki/Java_(programming_language)
+https://www.forgettingthepill.com/categories/pill-organizers
 
 Wyklad 4 (stan)
 https://play.google.com/store/apps/details?id=com.nrsoftbd.roomtemperature
 
 Wyklad 5 (zachowanie)
 http://planetxnews.com/2015/09/14/pope-appears-positioned-to-mediate-soon-coming-fake-alien-invasion/
+http://madvilletimes.blogspot.com/2010/06/new-public-access-open-at-lake-madison.html
+https://nonprofitquarterly.org/2016/04/04/the-racial-makeup-of-private-schools-often-nonprofit-is-very-white/
+https://www.vitalsignsdirect.co.uk/warning-signs/bill-board-landscape-6242.html
+http://car--reviews.com/single/pinguin-pinguin/pinguin-pinguin-10.html
+https://news.nationalgeographic.com/2016/09/humpback-whale-delisting-endangered-species-recovery/
+http://www.artofvfx.com/blade-runner-2049-paul-lambert-vfx-supervisor-double-negative/
+http://www.automobilemag.com/news/cars-blade-runner-2049/
+https://penguinplacepost.wordpress.com/2014/05/22/why-are-penguins-black-white/
+http://www.patheos.com/blogs/slacktivist/2016/12/21/clarity-dead-end/
+https://www.vox.com/2015/4/21/8459353/loch-ness-monster
+http://averagejoerestoration.com/1964-mustang-wiring-diagrams/
+https://www.vox.com/2017/8/26/16206746/mayweather-mcgregor-fight-saturday-racism-domestic-abuse
 
 Wyklad 6 (wyjątki)
+https://www.pinterest.com/pin/24840235423814629/
+http://www.entomon.net/19-pretty-butterflies-in-picture-frame.shtml
+https://www.lazerhorse.org/2013/12/01/human-ingenuity-problem-solving-best/human-ingenuity-iron-cooking-pizza/
 http://www.businessinsider.com/5-myths-about-the-atomic-bomb-2015-8?IR=T
 
-Wyklad X (refleksja)
+Wyklad 7 (kolekcje)
+https://unsekhable.com/tag/class-diagram/
+
+Wyklad 8 (typy zagnieżdżone)
+
+Wyklad 9 (refleksja)
+http://mashable.com/2013/03/31/reddit-facts-3-29/#SeT920PQZuqN
 https://cdn.cloudpix.co/images/the-mask/the-mask-jim-carrey-cd24de742dca0da2d9f89e7b14d806c3-large-1401947.jpg
 https://www.youtube.com/watch?v=icqDxNab3D
 http://7-themes.com/6985370-funny-cat.html
 http://itsfunny.org/wp-content/uploads/2013/01/Funny-cat-undercover.jpg
+
+Wyklad 10 (typy ogólne)
+http://memeshappen.com/meme/jackie-chan-wtf/why-just-why-43291
+http://yukaichou.com/gamification-examples/farmville-game-mechanics-winning-addicting/
+https://pl.pinterest.com/explore/fat-people-memes/?lp=true
+http://www.birderslounge.com/2010/02/snake-knot/20100209-dsc_0592/
+http://www.funslurp.com/for-big-mistakes-eraser
+
+Wyklad 11 (wątki)
+http://crunchify.com/java-simple-thread-example/
+http://www.rtos.be/2013/08/programs-processes-and-threads-part-2/
+https://funnymodo.com/funny-cats-sleeping-in-weird-positions-compilation-2014/
+https://www.toonpool.com/cartoons/execution_78009
+http://www.independent.co.uk/arts-entertainment/tv/features/back-to-the-future-why-the-jetsons-is-the-most-influential-tv-show-of-the-20th-century-8225272.html
+http://winterbe.com/posts/2015/04/07/java8-concurrency-tutorial-thread-executor-examples/
+https://memegenerator.net/instance/63014641
+http://blog.palominolabs.com/2014/02/10/java-8-performance-improvements-longadder-vs-atomiclong/index.html
+
+Wyklad 12 (IO)
+https://twitter.com/fordevethz/status/786820747373252608
+https://www.hongkiat.com/blog/40-funny-error-messages-youve-never-seen-before/
+http://www.telegraph.co.uk/comment/9877546/Oliver-Pritchett-cooking-classes-will-spice-up-school-reports.html
+https://www.cartoonstock.com/directory/b/babushka_dolls.asp
+https://en.wikipedia.org/wiki/Decorator_pattern
+https://pl.fotolia.com/tag/gl%C4%99boko
+https://commons.wikimedia.org/wiki/File:Duke_Wave.png
