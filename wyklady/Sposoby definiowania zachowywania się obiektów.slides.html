@@ -36,7 +36,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 
 <!-- Loading the mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -58,7 +58,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
     <!-- End of mathjax configuration -->
 
 <!-- Get Font-awesome from cdn -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -67,8 +67,8 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 *
 */
 /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1163,7 +1163,6 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2592,7 +2591,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3083,7 +3081,6 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8814,6 +8811,9 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
+[dir="rtl"] #ipython_notebook {
+  float: right !important;
+}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -9016,8 +9016,14 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
+[dir="rtl"] #tabs li {
+  float: right;
+}
 ul#tabs {
   margin-bottom: 4px;
+}
+[dir="rtl"] ul#tabs {
+  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -9040,6 +9046,16 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
+}
+[dir="rtl"] .list_toolbar .tree-buttons {
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-right {
+  padding-top: 1px;
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-left {
+  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9176,6 +9192,9 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
+[dir="rtl"] #tree-selector a {
+  float: right;
+}
 #button-select-all {
   min-width: 50px;
 }
@@ -9265,6 +9284,9 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
+[dir="rtl"] #new-menu {
+  text-align: right;
+}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9309,6 +9331,9 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
+}
+[dir="rtl"] #running .col-sm-8 {
+  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9605,6 +9630,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9625,11 +9651,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11300,7 +11321,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 20ex;
+  width: 21ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11612,6 +11633,7 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
+  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11625,6 +11647,9 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
+}
+.terminal-app .terminal .xterm-rows {
+  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11685,8 +11710,10 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11697,9 +11724,11 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11747,7 +11776,6 @@ ul.typeahead-list > li > a {
 /* Overrides of notebook CSS for static HTML export */
 .reveal {
   font-size: 160%;
-  overflow-y: scroll;
 }
 .reveal pre {
   width: inherit;
@@ -11777,6 +11805,41 @@ ul.typeahead-list > li > a {
 }
 .reveal .progress {
   position: static;
+}
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #727272;
+}
+.reveal .controls .navigate-left.enabled:hover,
+.reveal .controls .navigate-left.enabled.enabled:hover {
+  border-right-color: #dfdfdf;
+}
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #727272;
+}
+.reveal .controls .navigate-right.enabled:hover,
+.reveal .controls .navigate-right.enabled.enabled:hover {
+  border-left-color: #dfdfdf;
+}
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #727272;
+}
+.reveal .controls .navigate-up.enabled:hover,
+.reveal .controls .navigate-up.enabled.enabled:hover {
+  border-bottom-color: #dfdfdf;
+}
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #727272;
+}
+.reveal .controls .navigate-down.enabled:hover,
+.reveal .controls .navigate-down.enabled.enabled:hover {
+  border-top-color: #dfdfdf;
+}
+.reveal .progress span {
+  background: #727272;
 }
 div.input_area {
   padding: 0.06em;
@@ -11811,6 +11874,19 @@ a.anchor-link {
 .rendered_html p {
   text-align: inherit;
 }
+::-webkit-scrollbar
+{
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar *
+{
+  background:transparent;
+}
+::-webkit-scrollbar-thumb
+{
+  background: #727272 !important;
+}
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
@@ -11825,38 +11901,138 @@ a.anchor-link {
 <div class="reveal">
 <div class="slides">
 <section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Sposoby-definiowania-zachowania-si&#281;-obiekt&#243;w">Sposoby definiowania zachowania si&#281; obiekt&#243;w<a class="anchor-link" href="#Sposoby-definiowania-zachowania-si&#281;-obiekt&#243;w">&#182;</a></h1><h2 id="Metody-instancyjne-i-klasowe,-klasy-abstrakcyjne,-interfejsy">Metody instancyjne i klasowe, klasy abstrakcyjne, interfejsy<a class="anchor-link" href="#Metody-instancyjne-i-klasowe,-klasy-abstrakcyjne,-interfejsy">&#182;</a></h2><p><br/></p>
+<h1 id="Definiowanie-zachowania-obiekt&#243;w">Definiowanie zachowania obiekt&#243;w<a class="anchor-link" href="#Definiowanie-zachowania-obiekt&#243;w">&#182;</a></h1><h2 id="Metody-instancyjne-i-klasowe,-klasy-abstrakcyjne,-interfejsy">Metody instancyjne i klasowe, klasy abstrakcyjne, interfejsy<a class="anchor-link" href="#Metody-instancyjne-i-klasowe,-klasy-abstrakcyjne,-interfejsy">&#182;</a></h2><p><br/></p>
 <h2 id="dr-in&#380;.-Aleksander-Smywi&#324;ski-Pohl">dr in&#380;. Aleksander Smywi&#324;ski-Pohl<a class="anchor-link" href="#dr-in&#380;.-Aleksander-Smywi&#324;ski-Pohl">&#182;</a></h2><h2 id="apohllo@o2.pl">apohllo@o2.pl<a class="anchor-link" href="#apohllo@o2.pl">&#182;</a></h2><h2 id="http://apohllo.pl/dydaktyka/programowanie-obiektowe"><a href="http://apohllo.pl/dydaktyka/programowanie-obiektowe">http://apohllo.pl/dydaktyka/programowanie-obiektowe</a><a class="anchor-link" href="#http://apohllo.pl/dydaktyka/programowanie-obiektowe">&#182;</a></h2>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Definiowanie-zachowania">Definiowanie zachowania<a class="anchor-link" href="#Definiowanie-zachowania">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">value</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">;</span>
+<p><img src="img/behaviour.jpg" style="width: 1000px"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Definiowanie-(publicznego)-zachowania">Definiowanie (publicznego) zachowania<a class="anchor-link" href="#Definiowanie-(publicznego)-zachowania">&#182;</a></h1><p><img src="img/public.JPG"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">enum</span> <span class="n">SpeedUnit</span> <span class="o">{</span>
+    <span class="n">KMH</span><span class="o">,</span> <span class="n">MS</span>
+<span class="o">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="n">value</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">SpaceShip</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Speed</span> <span class="n">speed</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">SpaceShip</span><span class="o">(){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">speed</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">();</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">speed</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accelerate</span><span class="o">(</span><span class="n">Speed</span> <span class="n">delta</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">delta</span><span class="o">.</span><span class="na">unit</span> <span class="o">==</span> <span class="k">this</span><span class="o">.</span><span class="na">speed</span><span class="o">.</span><span class="na">unit</span> <span class="o">&amp;&amp;</span> <span class="n">delta</span><span class="o">.</span><span class="na">value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">speed</span><span class="o">.</span><span class="na">value</span> <span class="o">+=</span> <span class="n">delta</span><span class="o">.</span><span class="na">value</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">LandVehicle</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Speed</span> <span class="n">speed</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">LandVehicle</span><span class="o">(){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">speed</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">();</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">speed</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accelerate</span><span class="o">(</span><span class="n">Speed</span> <span class="n">delta</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">delta</span><span class="o">.</span><span class="na">unit</span> <span class="o">==</span> <span class="k">this</span><span class="o">.</span><span class="na">speed</span><span class="o">.</span><span class="na">unit</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">speed</span><span class="o">.</span><span class="na">value</span> <span class="o">+=</span> <span class="n">delta</span><span class="o">.</span><span class="na">value</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">value</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">;</span>
 
     <span class="kd">public</span> <span class="nf">Speed</span><span class="o">(</span><span class="kt">double</span> <span class="n">value</span><span class="o">,</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
         <span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="n">unit</span><span class="o">;</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="n">Speed</span> <span class="nf">add</span><span class="o">(</span><span class="n">Speed</span> <span class="n">that</span><span class="o">){</span>
         <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">==</span> <span class="n">that</span><span class="o">.</span><span class="na">unit</span><span class="o">){</span>
-            <span class="k">return</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">+</span> <span class="n">that</span><span class="o">.</span><span class="na">value</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">)</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nf">Speed</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">+</span> <span class="n">that</span><span class="o">.</span><span class="na">value</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">)</span>
         <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
             <span class="c1">//...</span>
         <span class="o">}</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isAboveZero</span><span class="o">(){</span>
         <span class="k">return</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">;</span>
     <span class="o">}</span>
@@ -11865,10 +12041,11 @@ a.anchor-link {
 
 </div>
 </div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11878,12 +12055,12 @@ a.anchor-link {
 </div>
 </div>
 </aside></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">SpaceShip</span> <span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">SpaceShip</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="n">Speed</span> <span class="n">speed</span><span class="o">;</span>
 
     <span class="kd">public</span> <span class="nf">SpaceShip</span><span class="o">(){</span>
@@ -11900,9 +12077,33 @@ a.anchor-link {
 
 </div>
 </div>
+</div>
+
 </div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">LandVehicle</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Speed</span> <span class="n">speed</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">SpaceShip</span><span class="o">(){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">speed</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accelerate</span><span class="o">(</span><span class="n">Speed</span> <span class="n">delta</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">speed</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">speed</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">delta</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11911,56 +12112,82 @@ a.anchor-link {
 </div>
 </div>
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Modyfikacja-zachowania-w-klasie-dziedzicz&#261;cej">Modyfikacja zachowania w klasie dziedzicz&#261;cej<a class="anchor-link" href="#Modyfikacja-zachowania-w-klasie-dziedzicz&#261;cej">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">value</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">;</span>
+<h1 id="Modyfikacja-zachowania-w-klasie-dziedzicz&#261;cej">Modyfikacja zachowania w klasie dziedzicz&#261;cej<a class="anchor-link" href="#Modyfikacja-zachowania-w-klasie-dziedzicz&#261;cej">&#182;</a></h1><p><img src="img/whale.jpg" style="width: 1000px"/></p>
 
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">value</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">;</span>
+    
     <span class="kd">public</span> <span class="nf">Speed</span><span class="o">(</span><span class="kt">double</span> <span class="n">value</span><span class="o">,</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
         <span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="n">unit</span><span class="o">;</span>
     <span class="o">}</span>
-
+    
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">(){</span>
-        <span class="k">return</span> <span class="s">&quot;&quot;</span> <span class="o">+</span> <span class="n">value</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">unit</span><span class="o">;</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="n">value</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">unit</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</div>
+
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">Speed</span> <span class="n">speed1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span><span class="o">);</span>
+<p>Każda klasa dziedziczy pośrednio lub bezpośrednio z klasy Object. W tej klasie zdefiniowana jest m.in. metoda
+toString, która odpowiedzialna jest za zamianę obiektu na łańcuch znaków.</p>
+
+</div>
+</div>
+</div>
+</aside><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">Speed</span> <span class="n">speed1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span><span class="o">);</span>
 <span class="n">speed1</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
 </pre></div>
 
 </div>
 </div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">Object</span> <span class="n">speed2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span><span class="o">);</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">Object</span> <span class="n">speed2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span><span class="o">);</span>
 <span class="n">speed2</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11970,26 +12197,42 @@ a.anchor-link {
 </div>
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Innymi słowy zasadniczo metody w Javie są wirtualne.</p>
-<p>TODO - obrazek: jak to działa.</p>
+<p>Innymi słowy zasadniczo metody w Javie są <strong>wirtualne</strong>.</p>
 
 </div>
 </div>
 </div>
 </aside></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Rozszerzenie-zachowania-klasy-nadrz&#281;dnej">Rozszerzenie zachowania klasy nadrz&#281;dnej<a class="anchor-link" href="#Rozszerzenie-zachowania-klasy-nadrz&#281;dnej">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">value</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">;</span>
+<h1 id="Rozszerzenie-zachowania-klasy-nadrz&#281;dnej">Rozszerzenie zachowania klasy nadrz&#281;dnej<a class="anchor-link" href="#Rozszerzenie-zachowania-klasy-nadrz&#281;dnej">&#182;</a></h1><p><img src="img/car1.jpg" style="width: 1024px"></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/car2.jpg"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">value</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">;</span>
 
     <span class="kd">public</span> <span class="nf">Speed</span><span class="o">(</span><span class="kt">double</span> <span class="n">value</span><span class="o">,</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
@@ -11998,28 +12241,31 @@ a.anchor-link {
 
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">(){</span>
-        <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">value</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">unit</span><span class="o">;</span>
+        <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">value</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">unit</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">Speed</span> <span class="n">speed1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span><span class="o">);</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">Speed</span> <span class="n">speed1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span><span class="o">);</span>
 <span class="n">speed1</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12028,25 +12274,35 @@ a.anchor-link {
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Pola-vs.-metody">Pola vs. metody<a class="anchor-link" href="#Pola-vs.-metody">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">enum</span> <span class="n">SpeedUnit</span> <span class="o">{</span>
+<h1 id="Pola-vs.-metody">Pola vs. metody<a class="anchor-link" href="#Pola-vs.-metody">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">enum</span> <span class="n">SpeedUnit</span> <span class="o">{</span>
     <span class="n">MS</span><span class="o">,</span> <span class="n">KMH</span><span class="o">,</span> <span class="n">MA</span>
 <span class="o">}</span>
 </pre></div>
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kt">double</span> <span class="n">value</span><span class="o">;</span>
     <span class="kd">public</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">;</span>
 
@@ -12059,13 +12315,15 @@ a.anchor-link {
 
 </div>
 </div>
-</div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">SuperSonicSpeed</span> <span class="kd">extends</span> <span class="n">Speed</span> <span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">SuperSonicSpeed</span> <span class="kd">extends</span> <span class="n">Speed</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kt">double</span> <span class="n">value</span><span class="o">;</span>
     <span class="kd">public</span> <span class="n">SpeedUnit</span> <span class="n">unit</span> <span class="o">=</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MA</span><span class="o">;</span>
 
@@ -12077,45 +12335,52 @@ a.anchor-link {
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">Speed</span> <span class="n">speed1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">);</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">Speed</span> <span class="n">speed1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">);</span>
 <span class="n">speed1</span><span class="o">.</span><span class="na">unit</span><span class="o">;</span>
 </pre></div>
 
 </div>
 </div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">Speed</span> <span class="n">speed2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SuperSonicSpeed</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">Speed</span> <span class="n">speed2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SuperSonicSpeed</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
 <span class="n">speed2</span><span class="o">.</span><span class="na">unit</span><span class="o">;</span>
 </pre></div>
 
 </div>
 </div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">SuperSonicSpeed</span> <span class="n">speed3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SuperSonicSpeed</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">SuperSonicSpeed</span> <span class="n">speed3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SuperSonicSpeed</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
 <span class="n">speed3</span><span class="o">.</span><span class="na">unit</span><span class="o">;</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12125,8 +12390,7 @@ a.anchor-link {
 </div>
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12136,27 +12400,38 @@ a.anchor-link {
 </div>
 </div>
 </aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Modyfikator-private">Modyfikator <code>private</code><a class="anchor-link" href="#Modyfikator-private">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+<h1 id="Modyfikator-private">Modyfikator <code>private</code><a class="anchor-link" href="#Modyfikator-private">&#182;</a></h1><p><img src="img/private.jpg"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">MS_TO_KMH_RATIO</span> <span class="o">=</span> <span class="mf">3.6</span><span class="o">;</span>
-
+ 
     <span class="kd">public</span> <span class="n">Speed</span> <span class="nf">add</span><span class="o">(</span><span class="n">Speed</span> <span class="n">that</span><span class="o">){</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">+</span> <span class="n">that</span><span class="o">.</span><span class="na">convert</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">),</span> <span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">);</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Speed</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">+</span> <span class="n">that</span><span class="o">.</span><span class="na">convert</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">),</span> <span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">);</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="n">Speed</span> <span class="nf">subtract</span><span class="o">(</span><span class="n">Speed</span> <span class="n">that</span><span class="o">){</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">-</span> <span class="n">that</span><span class="o">.</span><span class="na">convert</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">),</span> <span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">);</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Speed</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">-</span> <span class="n">that</span><span class="o">.</span><span class="na">convert</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">),</span> <span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="kd">private</span> <span class="kt">double</span> <span class="nf">convert</span><span class="o">(</span><span class="n">SpeedUnit</span> <span class="n">target</span><span class="o">){</span>
         <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span> <span class="o">&amp;&amp;</span> <span class="n">target</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">){</span>
-            <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">/</span> <span class="n">MS_TO_KMH_RATIO</span><span class="o">;</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span> <span class="o">&amp;&amp;</span> <span class="n">target</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span><span class="o">){</span>
-            <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">*</span> <span class="n">MS_TO_KMH_RATIO</span><span class="o">;</span>
+            <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="s">/ MS_TO_KMH_RATIO;</span>
+<span class="s">        } else if(this.unit == SpeedUnit.MS &amp;&amp; target == SpeedUnit.KMH){</span>
+<span class="s">            return this.value * MS_TO_KMH_RATIO;</span>
+<span class="s">        } else if(...) {</span>
+<span class="s">            /</span><span class="o">/</span> <span class="n">pozostałe</span> <span class="n">przypadki</span>
         <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
             <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">value</span><span class="o">;</span>
         <span class="o">}</span>
@@ -12166,33 +12441,38 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">Speed</span> <span class="n">speed1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">);</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">Speed</span> <span class="n">speed1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">);</span>
 <span class="n">Speed</span> <span class="n">speed2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="mi">36</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span><span class="o">);</span>
 <span class="n">speed1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">speed2</span><span class="o">);</span>
 </pre></div>
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">speed1</span><span class="o">.</span><span class="na">convert</span><span class="o">(</span><span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">);</span>     <span class="c1">// niedozwolone</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">speed1</span><span class="o">.</span><span class="na">convert</span><span class="o">(</span><span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">);</span>     <span class="c1">// niedozwolone</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12202,8 +12482,7 @@ a.anchor-link {
 </div>
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12213,12 +12492,12 @@ a.anchor-link {
 </div>
 </div>
 </aside></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">SuperSonicSpeed</span> <span class="kd">extends</span> <span class="n">Speed</span><span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">SuperSonicSpeed</span> <span class="kd">extends</span> <span class="n">Speed</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="nf">SuperSonicSpeed</span><span class="o">(</span><span class="kt">double</span> <span class="n">value</span><span class="o">){</span>
         <span class="kd">super</span><span class="o">(</span><span class="n">value</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MA</span><span class="o">);</span>
     <span class="o">}</span>
@@ -12231,10 +12510,11 @@ a.anchor-link {
 
 </div>
 </div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12244,21 +12524,22 @@ a.anchor-link {
 </div>
 </div>
 </aside><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">SuperSonicSpeed</span> <span class="n">speed1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SuperSonicSpeed</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">SuperSonicSpeed</span> <span class="n">speed1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SuperSonicSpeed</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
 <span class="n">SuperSonicSpeed</span> <span class="n">speed2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SuperSonicSpeed</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
 <span class="n">speed1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">speed2</span><span class="o">);</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12267,12 +12548,21 @@ a.anchor-link {
 </div>
 </div>
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Modyfikator-protected">Modyfikator <code>protected</code><a class="anchor-link" href="#Modyfikator-protected">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+<h1 id="Modyfikator-protected">Modyfikator <code>protected</code><a class="anchor-link" href="#Modyfikator-protected">&#182;</a></h1><p><img src="img/protected.gif"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
     <span class="kd">protected</span> <span class="kt">double</span> <span class="nf">convert</span><span class="o">(</span><span class="n">SpeedUnit</span> <span class="n">target</span><span class="o">){</span>
         <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span> <span class="o">&amp;&amp;</span> <span class="n">target</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">){</span>
             <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">/</span> <span class="n">MS_TO_KMH_RATIO</span><span class="o">;</span>
@@ -12287,13 +12577,15 @@ a.anchor-link {
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">SuperSonicSpeed</span> <span class="kd">extends</span> <span class="n">Speed</span><span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">SuperSonicSpeed</span> <span class="kd">extends</span> <span class="n">Speed</span><span class="o">{</span>
     <span class="kd">public</span> <span class="nf">SuperSonicSpeed</span><span class="o">(</span><span class="kt">double</span> <span class="n">value</span><span class="o">){</span>
         <span class="kd">super</span><span class="o">(</span><span class="n">value</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MA</span><span class="o">);</span>
     <span class="o">}</span>
@@ -12306,22 +12598,25 @@ a.anchor-link {
 
 </div>
 </div>
-</div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">SuperSonicSpeed</span> <span class="n">speed1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SuperSonicSpeed</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">SuperSonicSpeed</span> <span class="n">speed1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SuperSonicSpeed</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
 <span class="n">SuperSonicSpeed</span> <span class="n">speed2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SuperSonicSpeed</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
 <span class="n">speed1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">speed2</span><span class="o">);</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12331,8 +12626,7 @@ a.anchor-link {
 </div>
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12342,12 +12636,21 @@ a.anchor-link {
 </div>
 </div>
 </aside></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Modyfikator-final">Modyfikator <code>final</code><a class="anchor-link" href="#Modyfikator-final">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+<h1 id="Modyfikator-final">Modyfikator <code>final</code><a class="anchor-link" href="#Modyfikator-final">&#182;</a></h1><p><img src="img/final.jpg"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="kd">final</span> <span class="kt">double</span> <span class="nf">convert</span><span class="o">(</span><span class="n">SpeedUnit</span> <span class="n">target</span><span class="o">){</span>
         <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span> <span class="o">&amp;&amp;</span> <span class="n">target</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">){</span>
             <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">/</span> <span class="n">MS_TO_KMH_RATIO</span><span class="o">;</span>
@@ -12362,13 +12665,15 @@ a.anchor-link {
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">SuperSonicSpeed</span> <span class="kd">extends</span> <span class="n">Speed</span><span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">SuperSonicSpeed</span> <span class="kd">extends</span> <span class="n">Speed</span><span class="o">{</span>
     <span class="kd">public</span> <span class="nf">SuperSonicSpeed</span><span class="o">(</span><span class="kt">double</span> <span class="n">value</span><span class="o">){</span>
         <span class="kd">super</span><span class="o">(</span><span class="n">value</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MA</span><span class="o">);</span>
     <span class="o">}</span>
@@ -12382,15 +12687,26 @@ a.anchor-link {
 
 </div>
 </div>
+</div>
+
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Modyfikator-static">Modyfikator <code>static</code><a class="anchor-link" href="#Modyfikator-static">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kt">double</span> <span class="n">value</span><span class="o">;</span>
+<h1 id="Modyfikator-static">Modyfikator <code>static</code><a class="anchor-link" href="#Modyfikator-static">&#182;</a></h1><p><img src="img/barracuda.jpg"/></p>
 
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">value</span><span class="o">;</span>
+    
     <span class="kd">private</span> <span class="kd">static</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">,</span> <span class="n">Speed</span><span class="o">&gt;</span> <span class="n">instances</span> <span class="o">=</span>
         <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
 
@@ -12412,13 +12728,15 @@ a.anchor-link {
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">Speed</span> <span class="n">speed1</span> <span class="o">=</span> <span class="n">Speed</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">Speed</span> <span class="n">speed1</span> <span class="o">=</span> <span class="n">Speed</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
 <span class="n">Speed</span> <span class="n">speed2</span> <span class="o">=</span> <span class="n">Speed</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
 
 <span class="n">speed1</span> <span class="o">==</span> <span class="n">speed2</span>
@@ -12426,10 +12744,11 @@ a.anchor-link {
 
 </div>
 </div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12439,12 +12758,20 @@ a.anchor-link {
 </div>
 </div>
 </aside></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Dziedziczenie-a-metody-statyczne">Dziedziczenie a metody statyczne<a class="anchor-link" href="#Dziedziczenie-a-metody-statyczne">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+<h1 id="Dziedziczenie-a-metody-statyczne">Dziedziczenie a metody statyczne<a class="anchor-link" href="#Dziedziczenie-a-metody-statyczne">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="kt">double</span> <span class="n">value</span><span class="o">;</span>
 
     <span class="kd">private</span> <span class="kd">static</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">,</span> <span class="n">Speed</span><span class="o">&gt;</span> <span class="n">instances</span> <span class="o">=</span>
@@ -12463,48 +12790,53 @@ a.anchor-link {
             <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
         <span class="o">}</span>
     <span class="o">}</span>
-
+    
     <span class="kd">protected</span> <span class="kd">static</span> <span class="n">Speed</span> <span class="nf">createInstance</span><span class="o">(</span><span class="kt">double</span> <span class="n">value</span><span class="o">){</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="n">value</span><span class="o">);</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Speed</span><span class="o">(</span><span class="n">value</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
 
 </div>
 </div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">SuperSonicSpeed</span> <span class="kd">extends</span> <span class="n">Speed</span> <span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">SuperSonicSpeed</span> <span class="kd">extends</span> <span class="n">Speed</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="nf">SuperSonicSpeed</span><span class="o">(</span><span class="kt">double</span> <span class="n">value</span><span class="o">){</span>
         <span class="kd">super</span><span class="o">(</span><span class="n">value</span><span class="o">);</span>
     <span class="o">}</span>
-
+    
     <span class="kd">protected</span> <span class="kd">static</span> <span class="n">SuperSonicSpeed</span> <span class="nf">createInstance</span><span class="o">(</span><span class="kt">double</span> <span class="n">value</span><span class="o">){</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="n">SuperSonicSpeed</span><span class="o">(</span><span class="n">value</span> <span class="o">*</span> <span class="mi">10</span><span class="o">);</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">SuperSonicSpeed</span><span class="o">(</span><span class="n">value</span> <span class="o">*</span> <span class="mi">10</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">SuperSonicSpeed</span> <span class="n">speed</span> <span class="o">=</span> <span class="n">SuperSonicSpeed</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">SuperSonicSpeed</span> <span class="n">speed</span> <span class="o">=</span> <span class="n">SuperSonicSpeed</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12514,8 +12846,7 @@ a.anchor-link {
 </div>
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12525,14 +12856,22 @@ a.anchor-link {
 </div>
 </div>
 </aside></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Antywzorzec">Antywzorzec<a class="anchor-link" href="#Antywzorzec">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+<h1 id="Antywzorzec">Antywzorzec<a class="anchor-link" href="#Antywzorzec">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">Speed</span> <span class="nf">toMs</span><span class="o">(</span><span class="n">Speed</span> <span class="n">speed1</span><span class="o">){</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="n">speed1</span><span class="o">.</span><span class="na">convert</span><span class="o">(</span><span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">),</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">);</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Speed</span><span class="o">(</span><span class="n">speed1</span><span class="o">.</span><span class="na">convert</span><span class="o">(</span><span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">),</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
@@ -12546,41 +12885,54 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</div>
+
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Modyfikator-abstract">Modyfikator <code>abstract</code><a class="anchor-link" href="#Modyfikator-abstract">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">AbstractSpaceShip</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="n">Speed</span> <span class="n">speed</span><span class="o">;</span>
+<h1 id="Modyfikator-abstract">Modyfikator <code>abstract</code><a class="anchor-link" href="#Modyfikator-abstract">&#182;</a></h1><p><img src="img/abstract.jpg"/></p>
 
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">AbstractSpaceShip</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Speed</span> <span class="n">speed</span><span class="o">;</span>
+    
     <span class="kd">public</span> <span class="nf">AbstractSpaceShip</span><span class="o">(){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">speed</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">);</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">();</span>
-
+    
     <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">land</span><span class="o">();</span>
 <span class="o">}</span>
 </pre></div>
 
 </div>
 </div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Rocket</span> <span class="kd">extends</span> <span class="n">AbstractSpaceShip</span> <span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Rocket</span> <span class="kd">extends</span> <span class="n">AbstractSpaceShip</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="n">Engine</span> <span class="n">engine</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">Parachute</span> <span class="n">parachute</span><span class="o">;</span>
 
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">(){</span>
         <span class="n">engine</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">land</span><span class="o">(){</span>
         <span class="n">parachute</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
     <span class="o">}</span>
@@ -12589,25 +12941,27 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">SpaceShuttle</span> <span class="kd">extends</span> <span class="n">AbstractSpaceShip</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Booster</span><span class="o">&gt;</span> <span class="n">boosters</span><span class="o">;</span>
 
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">SpaceShuttle</span> <span class="kd">extends</span> <span class="n">AbstractSpaceShip</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Booster</span><span class="o">&gt;</span> <span class="n">boosters</span><span class="o">;</span>
+    
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">(){</span>
         <span class="k">for</span><span class="o">(</span><span class="n">Booster</span> <span class="n">booster</span> <span class="o">:</span> <span class="n">boosters</span><span class="o">){</span>
             <span class="n">booster</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
         <span class="o">}</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">land</span><span class="o">(){</span>
         <span class="n">descend</span><span class="o">(</span><span class="k">new</span> <span class="n">Distance</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">DistanceUnit</span><span class="o">.</span><span class="na">KM</span><span class="o">));</span>
     <span class="o">}</span>
-
+    
     <span class="kd">private</span> <span class="kt">void</span> <span class="nf">descend</span><span class="o">(</span><span class="n">Distance</span> <span class="n">distance</span><span class="o">){</span>
         <span class="c1">//...</span>
     <span class="o">}</span>
@@ -12616,9 +12970,10 @@ a.anchor-link {
 
 </div>
 </div>
+</div>
+
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12627,12 +12982,12 @@ a.anchor-link {
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="c1">// aliens are coming... </span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="c1">// aliens are coming... </span>
 
 <span class="n">List</span><span class="o">&lt;</span><span class="n">AbstractSpaceShip</span><span class="o">&gt;</span> <span class="n">spaceFleet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
 <span class="n">spaceFleet</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Rocket</span><span class="o">());</span>
@@ -12642,7 +12997,7 @@ a.anchor-link {
     <span class="n">ship</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
 <span class="o">}</span>
 
-<span class="c1">// rescue then World, then...</span>
+<span class="c1">// rescue the World, then...</span>
 
 <span class="k">for</span><span class="o">(</span><span class="n">AbstractSpaceShip</span> <span class="n">ship</span> <span class="o">:</span> <span class="n">spaceFleet</span><span class="o">){</span>
     <span class="n">ship</span><span class="o">.</span><span class="na">land</span><span class="o">();</span>
@@ -12651,13 +13006,24 @@ a.anchor-link {
 
 </div>
 </div>
+</div>
+
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Interfejs">Interfejs<a class="anchor-link" href="#Interfejs">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">interface</span> <span class="nc">ISpaceShip</span> <span class="o">{</span>
+<h1 id="Interfejs-(aka-mi&#281;dzyg&#281;bie)">Interfejs (aka mi&#281;dzyg&#281;bie)<a class="anchor-link" href="#Interfejs-(aka-mi&#281;dzyg&#281;bie)">&#182;</a></h1><p><img src="img/interface.jpg"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">interface</span> <span class="nc">ISpaceShip</span> <span class="o">{</span>
     <span class="kt">void</span> <span class="nf">start</span><span class="o">();</span>
     <span class="kt">void</span> <span class="nf">land</span><span class="o">();</span>
 <span class="o">}</span>
@@ -12665,17 +13031,19 @@ a.anchor-link {
 
 </div>
 </div>
+</div>
+
 </div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Rocket</span> <span class="kd">implements</span> <span class="n">ISpaceShip</span> <span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Rocket</span> <span class="kd">implements</span> <span class="n">ISpaceShip</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">(){</span>
         <span class="c1">//...</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">land</span><span class="o">(){</span>
         <span class="c1">//...</span>
     <span class="o">}</span>
@@ -12684,13 +13052,15 @@ a.anchor-link {
 
 </div>
 </div>
+</div>
+
 </div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">SpaceShuttle</span> <span class="kd">implements</span> <span class="n">ISpaceShip</span> <span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">SpaceShuttle</span> <span class="kd">implements</span> <span class="n">ISpaceShip</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">(){</span>
         <span class="c1">//...</span>
     <span class="o">}</span>
@@ -12703,13 +13073,15 @@ a.anchor-link {
 
 </div>
 </div>
-</div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="c1">// aliens are coming... </span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="c1">// aliens are coming... </span>
 
 <span class="n">List</span><span class="o">&lt;</span><span class="n">ISpaceShip</span><span class="o">&gt;</span> <span class="n">spaceFleet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
 <span class="n">spaceFleet</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Rocket</span><span class="o">());</span>
@@ -12719,7 +13091,7 @@ a.anchor-link {
     <span class="n">ship</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
 <span class="o">}</span>
 
-<span class="c1">// rescue then World, then...</span>
+<span class="c1">// rescue the World, then...</span>
 
 <span class="k">for</span><span class="o">(</span><span class="n">AbstractSpaceShip</span> <span class="n">ship</span> <span class="o">:</span> <span class="n">spaceFleet</span><span class="o">){</span>
     <span class="n">ship</span><span class="o">.</span><span class="na">land</span><span class="o">();</span>
@@ -12728,13 +13100,15 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">interface</span> <span class="nc">ISpaceShip</span> <span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">interface</span> <span class="nc">ISpaceShip</span> <span class="o">{</span>
     <span class="kt">void</span> <span class="nf">start</span><span class="o">();</span>
     <span class="kt">void</span> <span class="nf">land</span><span class="o">();</span>
     <span class="c1">// nowa metoda</span>
@@ -12744,54 +13118,77 @@ a.anchor-link {
 
 </div>
 </div>
+</div>
+
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Modyfikator-default">Modyfikator <code>default</code><a class="anchor-link" href="#Modyfikator-default">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">interface</span> <span class="nc">ISpaceShip</span> <span class="o">{</span>
+<h1 id="Modyfikator-default">Modyfikator <code>default</code><a class="anchor-link" href="#Modyfikator-default">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">interface</span> <span class="nc">ISpaceShip</span> <span class="o">{</span>
     <span class="kt">void</span> <span class="nf">start</span><span class="o">();</span>
     <span class="kt">void</span> <span class="nf">land</span><span class="o">();</span>
-
+    
     <span class="c1">// nowość w Javie 8.0</span>
     <span class="k">default</span> <span class="kt">void</span> <span class="nf">launchMissile</span><span class="o">(){</span>
         <span class="n">InterplanetarySystem</span><span class="o">.</span><span class="na">out</span><span class="o">.</span>
-            <span class="nf">println</span><span class="o">(</span><span class="s">&quot;Włamujemy się emacsem przez sendmeila&quot;</span><span class="o">);</span>
+            <span class="nf">println</span><span class="o">(</span><span class="s2">&quot;Włamujemy się emacsem przez sendmeila&quot;</span><span class="o">);</span>
         <span class="n">InterplanetarySystem</span><span class="o">.</span><span class="na">out</span><span class="o">.</span>
-            <span class="nf">println</span><span class="o">(</span><span class="s">&quot;omijając potrójną ścianę ogniową&quot;</span><span class="o">);</span>
+            <span class="nf">println</span><span class="o">(</span><span class="s2">&quot;omijając potrójną ścianę ogniową&quot;</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
 
 </div>
 </div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</div>
+
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Dziedziczenie-vs.-kompozycja">Dziedziczenie vs. kompozycja<a class="anchor-link" href="#Dziedziczenie-vs.-kompozycja">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Car</span> <span class="o">{</span>
+<h1 id="Dziedziczenie-vs.-kompozycja">Dziedziczenie vs. kompozycja<a class="anchor-link" href="#Dziedziczenie-vs.-kompozycja">&#182;</a></h1><p><img src="img/composition.jpg"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Car</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">openDoor</span><span class="o">(</span><span class="n">DoorSpecification</span> <span class="n">doorSpec</span><span class="o">){</span>
         <span class="n">doors</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">doorSpec</span><span class="o">).</span><span class="na">open</span><span class="o">();</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">drive</span><span class="o">();</span>
 <span class="o">}</span>
 </pre></div>
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">GasolineCar</span> <span class="kd">extends</span> <span class="n">Car</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="n">GasolineEngine</span> <span class="n">engine</span><span class="o">;</span>
 
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">GasolineCar</span> <span class="kd">extends</span> <span class="n">Car</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">GasolineEngine</span> <span class="n">engine</span><span class="o">;</span>
+    
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">drive</span><span class="o">(){</span>
         <span class="n">engine</span><span class="o">.</span><span class="na">deliverGasoline</span><span class="o">();</span>
         <span class="n">engine</span><span class="o">.</span><span class="na">igniteGasoline</span><span class="o">();</span>
@@ -12802,15 +13199,17 @@ a.anchor-link {
 
 </div>
 </div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">ElectricCar</span> <span class="kd">extends</span> <span class="n">Car</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">WheelMotor</span><span class="o">&gt;</span> <span class="n">motors</span><span class="o">;</span>
 
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">ElectricCar</span> <span class="kd">extends</span> <span class="n">Car</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">WheelMotor</span><span class="o">&gt;</span> <span class="n">motors</span><span class="o">;</span>
+    
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">drive</span><span class="o">(){</span>
         <span class="k">for</span><span class="o">(</span><span class="n">WheelMotor</span> <span class="n">motor</span> <span class="o">:</span> <span class="n">motors</span><span class="o">){</span>
             <span class="n">motor</span><span class="o">.</span><span class="na">rotate</span><span class="o">();</span>
@@ -12821,19 +13220,21 @@ a.anchor-link {
 
 </div>
 </div>
-</div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Car</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="n">IDriveSystem</span> <span class="n">driveSystem</span><span class="o">;</span>
 
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Car</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">IDriveSystem</span> <span class="n">driveSystem</span><span class="o">;</span>
+    
     <span class="kd">public</span> <span class="nf">Car</span><span class="o">(</span><span class="n">IDriveSystem</span> <span class="n">driveSystem</span><span class="o">){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">driveSystem</span> <span class="o">=</span> <span class="n">driveSystem</span><span class="o">;</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="nf">drive</span><span class="o">(){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">driveSystem</span><span class="o">.</span><span class="na">drive</span><span class="o">();</span>
     <span class="o">}</span>
@@ -12842,13 +13243,15 @@ a.anchor-link {
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">interface</span> <span class="nc">IDriveSystem</span> <span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">interface</span> <span class="nc">IDriveSystem</span> <span class="o">{</span>
     <span class="kt">void</span> <span class="nf">drive</span><span class="o">();</span>
 <span class="o">}</span>
 
@@ -12863,28 +13266,22 @@ a.anchor-link {
 
 </div>
 </div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">Car</span> <span class="n">car</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Car</span><span class="o">(</span><span class="k">new</span> <span class="n">GasolineDriveSystem</span><span class="o">());</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">Car</span> <span class="n">car</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Car</span><span class="o">(</span><span class="k">new</span> <span class="n">GasolineDriveSystem</span><span class="o">());</span>
 </pre></div>
 
 </div>
 </div>
-</div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="http://cliparts.co/cliparts/qcB/jqg/qcBjqgxc5.jpg" alt="Pytania? "></p>
 
-</div>
-</div>
-</div></section></section>
+</div></div></section></section>
 </div>
 </div>
 
@@ -12909,8 +13306,7 @@ require(
             progress: true,
             history: true,
 
-            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-            transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+            transition: "slide",
 
             // Optional libraries used to extend on reveal.js
             dependencies: [
@@ -12930,13 +13326,25 @@ require(
 
         Reveal.addEventListener('slidechanged', update);
 
-        var update_scroll = function(event){
-          $(".reveal").scrollTop(0);
-        };
+        function setScrollingSlide() {
+            var scroll = false
+            if (scroll === true) {
+              var h = $('.reveal').height() * 0.95;
+              $('section.present').find('section')
+                .filter(function() {
+                  return $(this).height() > h;
+                })
+                .css('height', 'calc(95vh)')
+                .css('overflow-y', 'scroll')
+                .css('margin-top', '20px');
+            }
+        }
 
-        Reveal.addEventListener('slidechanged', update_scroll);
+        // check and set the scrolling slide every time the slide change
+        Reveal.addEventListener('slidechanged', setScrollingSlide);
 
     }
+
 );
 </script>
 

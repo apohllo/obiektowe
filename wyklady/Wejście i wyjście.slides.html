@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-<title>Język Java i wirtualna maszyna Javy slides</title>
+<title>Wejście i wyjście slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11905,36 +11905,16 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="J&#281;zyk-Java-i-wirtualna-maszyna-Javy-(JVM)">J&#281;zyk Java i wirtualna maszyna Javy (JVM)<a class="anchor-link" href="#J&#281;zyk-Java-i-wirtualna-maszyna-Javy-(JVM)">&#182;</a></h1><p><br/></p>
-<h2 id="dr-in&#380;.-Aleksander-Smywi&#324;ski-Pohl">dr in&#380;. Aleksander Smywi&#324;ski-Pohl<a class="anchor-link" href="#dr-in&#380;.-Aleksander-Smywi&#324;ski-Pohl">&#182;</a></h2><h2 id="apohllo@o2.pl">apohllo@o2.pl<a class="anchor-link" href="#apohllo@o2.pl">&#182;</a></h2><h2 id="http://apohllo.pl"><a href="http://apohllo.pl">http://apohllo.pl</a><a class="anchor-link" href="#http://apohllo.pl">&#182;</a></h2>
+<h1 id="Wej&#347;cie-i-wyj&#347;cie">Wej&#347;cie i wyj&#347;cie<a class="anchor-link" href="#Wej&#347;cie-i-wyj&#347;cie">&#182;</a></h1><h2 id="Obs&#322;uga-operacji-wej&#347;cia-i-wyj&#347;cia-za-pomoc&#261;-API-Stream-oraz-NIO">Obs&#322;uga operacji wej&#347;cia i wyj&#347;cia za pomoc&#261; API Stream oraz NIO<a class="anchor-link" href="#Obs&#322;uga-operacji-wej&#347;cia-i-wyj&#347;cia-za-pomoc&#261;-API-Stream-oraz-NIO">&#182;</a></h2><p><br/></p>
+<h2 id="dr-in&#380;.-Aleksander-Smywi&#324;ski-Pohl">dr in&#380;. Aleksander Smywi&#324;ski-Pohl<a class="anchor-link" href="#dr-in&#380;.-Aleksander-Smywi&#324;ski-Pohl">&#182;</a></h2><h2 id="apohllo@o2.pl">apohllo@o2.pl<a class="anchor-link" href="#apohllo@o2.pl">&#182;</a></h2><h2 id="http://apohllo.pl/dydaktyka/programowanie-obiektowe"><a href="http://apohllo.pl/dydaktyka/programowanie-obiektowe">http://apohllo.pl/dydaktyka/programowanie-obiektowe</a><a class="anchor-link" href="#http://apohllo.pl/dydaktyka/programowanie-obiektowe">&#182;</a></h2>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Tiobe-index">Tiobe index<a class="anchor-link" href="#Tiobe-index">&#182;</a></h1><p><img src="img/java-tiobe.png" width="1400"/></p>
-
-</div>
-</div>
-</div><aside class="notes">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Całkiem prawdopodobne, że większość z osób siedzących na tej sali będzie zarabiać na życie programując w Javie ;-)</p>
-
-</div>
-</div>
-</div>
-</aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Zarobki">Zarobki<a class="anchor-link" href="#Zarobki">&#182;</a></h1><p><img src="img/zarobki.png" width="600"/></p>
+<h1 id="Input---Output">Input - Output<a class="anchor-link" href="#Input---Output">&#182;</a></h1><p><img src="img/io.jpg"/></p>
 
 </div>
 </div>
@@ -11943,63 +11923,1137 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Kto-u&#380;ywa-Javy?">Kto u&#380;ywa Javy?<a class="anchor-link" href="#Kto-u&#380;ywa-Javy?">&#182;</a></h1><p><img src="img/google.png" style="text-align: right"/></p>
+<h1 id="Klasa-File">Klasa <code>File</code><a class="anchor-link" href="#Klasa-File">&#182;</a></h1><p><img src="img/delete.jpg"/></p>
 
 </div>
 </div>
-</div><aside class="notes">
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[227]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="n">File</span> <span class="n">homedir</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;user.home&quot;</span><span class="o">));</span>
 
+<span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">homedir</span><span class="o">,</span> <span class="s">&quot;plik.txt&quot;</span><span class="o">);</span>
+
+<span class="k">if</span><span class="o">(</span><span class="n">file</span><span class="o">.</span><span class="na">exists</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">file</span><span class="o">.</span><span class="na">isFile</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">file</span><span class="o">.</span><span class="na">canRead</span><span class="o">()){</span>
+    <span class="n">File</span> <span class="n">directory</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">homedir</span><span class="o">,</span> <span class="s">&quot;katalog&quot;</span><span class="o">);</span>
+    <span class="n">directory</span><span class="o">.</span><span class="na">mkdir</span><span class="o">();</span>
+    <span class="n">file</span><span class="o">.</span><span class="na">renameTo</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">directory</span><span class="o">,</span> <span class="s">&quot;plik1.txt&quot;</span><span class="o">));</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Plik został zmieniony&quot;</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Plik nie istnieje&quot;</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Plik został zmieniony
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[227]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>null</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Poza tym</p>
-<ul>
-<li>IBM</li>
-<li>Facebook</li>
-<li>Amazon</li>
-<li>LinkedIn</li>
-<li>...</li>
-</ul>
+<h1 id="Metody-klasy-File">Metody klasy <code>File</code><a class="anchor-link" href="#Metody-klasy-File">&#182;</a></h1><p><img src="img/delete_file.jpg"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[228]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="n">File</span> <span class="n">homedir</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;user.home&quot;</span><span class="o">),</span> <span class="s">&quot;katalog&quot;</span><span class="o">);</span>
+
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">homedir</span><span class="o">.</span><span class="na">canExecute</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">homedir</span><span class="o">.</span><span class="na">canRead</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">homedir</span><span class="o">.</span><span class="na">canWrite</span><span class="o">());</span>
+</pre></div>
 
 </div>
 </div>
 </div>
-</aside></section></section><section><section>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>true
+true
+false
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[228]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>null</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[229]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="n">File</span> <span class="n">homedir</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;user.home&quot;</span><span class="o">),</span> <span class="s">&quot;katalog&quot;</span><span class="o">);</span>
+
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">homedir</span><span class="o">.</span><span class="na">setReadOnly</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">homedir</span><span class="o">.</span><span class="na">setExecutable</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">homedir</span><span class="o">.</span><span class="na">setReadable</span><span class="o">(</span><span class="kc">true</span><span class="o">));</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>true
+true
+true
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[229]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>null</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[230]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="n">File</span> <span class="n">homedir</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;user.home&quot;</span><span class="o">),</span> <span class="s">&quot;katalog&quot;</span><span class="o">);</span>
+
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">homedir</span><span class="o">.</span><span class="na">getAbsolutePath</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">homedir</span><span class="o">.</span><span class="na">getCanonicalPath</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">homedir</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">homedir</span><span class="o">.</span><span class="na">getParent</span><span class="o">());</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>/home/apohllo/katalog
+/home/apohllo/katalog
+katalog
+/home/apohllo
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[230]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>null</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[231]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="n">File</span> <span class="n">homedir</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;user.home&quot;</span><span class="o">),</span> <span class="s">&quot;katalog&quot;</span><span class="o">);</span>
+<span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">homedir</span><span class="o">,</span> <span class="s">&quot;plik1.txt&quot;</span><span class="o">);</span>
+
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">homedir</span><span class="o">.</span><span class="na">exists</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">file</span><span class="o">.</span><span class="na">exists</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">homedir</span><span class="o">.</span><span class="na">isAbsolute</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">homedir</span><span class="o">.</span><span class="na">isDirectory</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">homedir</span><span class="o">.</span><span class="na">isFile</span><span class="o">());</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>true
+true
+true
+true
+false
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[231]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>null</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[232]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;user.home&quot;</span><span class="o">)</span> <span class="o">+</span> <span class="n">File</span><span class="o">.</span><span class="na">separator</span> <span class="o">+</span> <span class="s">&quot;katalog&quot;</span><span class="o">,</span> <span class="s">&quot;plik1.txt&quot;</span><span class="o">);</span>
+
+<span class="n">File</span> <span class="n">destination</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;user.home&quot;</span><span class="o">)</span> <span class="o">+</span> <span class="n">File</span><span class="o">.</span><span class="na">separator</span> <span class="o">+</span> <span class="s">&quot;katalog&quot;</span><span class="o">,</span> <span class="s">&quot;plik2.txt&quot;</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">file</span><span class="o">.</span><span class="na">renameTo</span><span class="o">(</span><span class="n">destination</span><span class="o">));</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">file</span><span class="o">.</span><span class="na">delete</span><span class="o">());</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>false
+false
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[232]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>null</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[233]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;user.home&quot;</span><span class="o">)</span> <span class="o">+</span> <span class="n">File</span><span class="o">.</span><span class="na">separator</span> <span class="o">+</span> <span class="s">&quot;katalog&quot;</span><span class="o">,</span> <span class="s">&quot;plik1.txt&quot;</span><span class="o">);</span>
+
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">file</span><span class="o">.</span><span class="na">getFreeSpace</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">file</span><span class="o">.</span><span class="na">getTotalSpace</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">file</span><span class="o">.</span><span class="na">getUsableSpace</span><span class="o">());</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>80200617984
+179570700288
+71007543296
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[233]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>null</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[234]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="n">File</span><span class="o">[]</span> <span class="n">roots</span> <span class="o">=</span> <span class="n">File</span><span class="o">.</span><span class="na">listRoots</span><span class="o">();</span>
+<span class="n">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">roots</span><span class="o">).</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>/
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[234]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>null</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Aplikacje-napisane-w-Javie">Aplikacje napisane w Javie<a class="anchor-link" href="#Aplikacje-napisane-w-Javie">&#182;</a></h1><p><img src="img/amazon.jpg" style="text-align: right"/></p>
+<h1 id="Plik-tymczasowy">Plik tymczasowy<a class="anchor-link" href="#Plik-tymczasowy">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+
+<span class="n">File</span> <span class="n">temporary</span> <span class="o">=</span> <span class="n">File</span><span class="o">.</span><span class="na">createTempFile</span><span class="o">(</span><span class="s">&quot;prefix&quot;</span><span class="o">,</span> <span class="s">&quot;.txt&quot;</span><span class="o">);</span>
+<span class="n">temporary</span><span class="o">.</span><span class="na">deleteOnExit</span><span class="o">();</span>
+</pre></div>
 
 </div>
 </div>
-</div><aside class="notes">
+</div>
 
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Przykładowe narzędzia i platformy</p>
-<ul>
-<li>Google Web Toolkit</li>
-<li>Android</li>
-<li>Eclipse (IBM)</li>
-<li>LibreOffice</li>
-</ul>
+<h1 id="Strumienie">Strumienie<a class="anchor-link" href="#Strumienie">&#182;</a></h1><p><img src="img/mincer.jpg"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[235]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Przykład strumienia I/O&quot;</span><span class="o">);</span>
+</pre></div>
 
 </div>
 </div>
 </div>
-</aside></section></section><section><section>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Przykład strumienia I/O
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[235]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>null</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Bezpiecze&#324;stwo">Bezpiecze&#324;stwo<a class="anchor-link" href="#Bezpiecze&#324;stwo">&#182;</a></h1><ul>
-<li>jedna z najbardziej bezpiecznych platform programistycznych</li>
-<li>język tworzony z myślą o bezpieczeństwie</li>
-<li><a href="https://java-0day.com/">https://java-0day.com/</a> </li>
+<h1 id="Dane-binarne">Dane binarne<a class="anchor-link" href="#Dane-binarne">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[236]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+
+<span class="k">try</span><span class="o">(</span><span class="n">InputStream</span> <span class="n">stream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="s">&quot;/home/apohllo/Downloads/download.png&quot;</span><span class="o">))</span> <span class="o">{</span>
+    <span class="kt">byte</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">4096</span><span class="o">];</span>
+    <span class="kt">int</span> <span class="n">length</span><span class="o">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="k">while</span> <span class="o">((</span><span class="n">length</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">buffer</span><span class="o">))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">buffer</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="mi">97</span><span class="o">)</span> <span class="n">count</span><span class="o">++;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Liczba występień litery &lt;a&gt;: &quot;</span> <span class="o">+</span> <span class="n">count</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Problem IO: &quot;</span> <span class="o">+</span> <span class="n">ex</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Liczba występień litery &lt;a&gt;: 420
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[236]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>null</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Dane-tekstowe">Dane tekstowe<a class="anchor-link" href="#Dane-tekstowe">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[237]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+
+<span class="k">try</span> <span class="o">(</span><span class="n">BufferedReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span>
+        <span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="s">&quot;/home/apohllo/Downloads/po.txt&quot;</span><span class="o">))){</span>
+        
+    <span class="n">String</span> <span class="n">line</span><span class="o">;</span>
+    <span class="k">while</span><span class="o">((</span><span class="n">line</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">line</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Problem IO: &quot;</span> <span class="o">+</span> <span class="n">ex</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Smywiński-Pohl Aleksander  
+Wtorek 11:15
+
+1. Bernal Szymon
+2. Borkowski Szymon
+3. Czarny Szymon
+4. Geisler Wojciech
+5. Jopek Artur
+6. Kardaś Piotr
+7. Lewicki Wojciech
+8. Mandowski Miłosz
+9. Mazur Aleksandra
+10. Pęczek Paweł
+11. Reczek Wiktor
+12. Rejowski Tomasz
+13. Łażewski Stanisław
+
+Smywiński-Pohl Aleksander  
+Piątek 14:40
+
+1. Buta Mateusz
+2. Czajęcki Tomasz
+3. Czapiga Jakub
+4. Dej Filip
+5. Gwóźdź Jakub
+6. Koza Wojciech
+7. Kędziora Piotr
+8. Maleńczuk Marcin
+9. Pacia Maciej
+10. Rzońca Konrad
+11. Sobczyk Patryk
+12. Szczerba Adam
+13. Zadora Michał
+
+Smywiński-Pohl Aleksander  
+Piątek 16:15
+
+1. Cegielski Rafał
+2. Cupiał Eric
+3. Dłuś Mikołaj
+4. Frejek Grzegorz
+5. Janeczko Łukasz
+6. Janikowski Szymon
+7. Kmiecik Krzysztof
+8. Micek Maciej
+9. Osadnik Michał
+10. Socha Łukasz
+11. Wodecki Mateusz
+12. Wojtyś Piotr
+13. Zając Łukasz
+
+Smywiński-Pohl Aleksander  
+Piątek 17:50
+
+1. Buś Wojciech
+2. Janecki Szymon
+3. Klemens Wojciech
+4. Kołoczek Jakub
+5. Mendroch Paweł
+6. Placha Arkadiusz
+7. Pniak Mikołaj
+8. Radoń Konrad
+9. Szpyrka Mateusz
+10. Tonia Bartłomiej
+11. Łakomy Łukasz
+12. Śledź Michał
+13. Świerad Kamil
+
+Kaleta Zbigniew  
+Poniedziałek 17:50
+
+1. Bieniek Jarosław
+2. Drabina Radosław
+3. Dyrlaga Paweł
+4. Kulma Dawid
+5. Rudnik Michał
+6. Różak Grzegorz
+7. Stanik Łukasz
+8. Stopa Kacper
+9. Szaflarski Andrzej
+10. Szarek Mateusz
+11. Witek Dawid
+12. Ćwiklicki Piotr
+13. Łątka Bogdan
+
+Kaleta Zbigniew  
+Wtorek 16:15
+
+1. Boszczyk Piotr
+2. Czerski Jakub
+3. Droński Michał
+4. Gruszka Wojciech
+5. Karkocha Tomasz
+6. Klimowski Maciej
+7. Lippa Gustaw
+8. Michalski Tomasz
+9. Nowak Gabriel
+10. Sośniak Marcin
+11. Sroka Jakub
+12. Stachura Bartłomiej
+13. Wańczyk Wojciech
+
+Kaleta Zbigniew  
+Wtorek 17:50
+
+1. Chumak Tymofii
+2. Cudak Magdalena
+3. Dutkiewicz Julia
+4. Jarosz Kamil
+5. Konieczny Jakub
+6. Kuzicki Radosław
+7. Liberacki Jan
+8. Monasterski Mateusz
+9. Musiał Wojciech
+10. Sofiński Bartosz
+11. Yakimovich Mikita
+12. Zawalska Justyna
+13. Życiński Krystian
+
+Kaleta Zbigniew  
+Czwartek 16:15
+
+1. Bartkowicz Patrycja
+2. Chyży Joanna
+3. Kowalczyk Paulina
+4. Maczuga Paweł
+5. Moskal Maciej
+6. Muroń Artur
+7. Pięta Antoni
+8. Pych Rafał
+9. Soczek Witold
+10. Stępień Bartłomiej
+11. Szot Arkadiusz
+12. Wójtowicz Patryk
+13. Zdybel Tomasz
+
+Kaleta Zbigniew  
+Czwartek 17:50
+
+1. Bodera Jakub
+2. Bukalski Paweł
+3. Błachut Katarzyna
+4. Ciechański Ludwik
+5. Drewnik Aleksandra
+6. Janowski Jakub
+7. Janowski Miłosz
+8. Kurdziel Szymon
+9. Lubczyński Piotr
+10. Posłuszny Jakub
+11. Sołtysik Andrzej
+12. Szczerbiński Piotr
+
+Polak Stanisław  
+Poniedziałek 11:15
+
+1. Drozd Dawid
+2. Janczyk Piotr
+3. Janda Kacper
+4. Lepiarczyk Błażej
+5. Lichoń Szymon
+6. Lisiewski Filip
+7. Mykhaylovskyy Dmytro
+8. Savchenko Maryna
+9. Sroka Grzegorz
+10. Starz Jacek
+11. Swędrak Piotr
+12. Zembol Mateusz
+13. Łanecki Jakub
+
+Polak Stanisław  
+Poniedziałek 12:50
+
+1. Basiura Wojciech
+2. Bąk Karol
+3. Fudaliński Marek
+4. Janda Kamil
+5. Jasek Józef
+6. Kasprzycki Tomasz
+7. Kozioł Radosław
+8. Kądzielawa Kasper
+9. Okas Aleksander
+10. Pietrzyk Bartosz
+11. Plewa Julia
+12. Sokół Mateusz
+
+Polak Stanisław  
+Wtorek 8:0
+
+1. Kalfas Jakub
+2. Krakowski Krystian
+3. Kulig Łukasz
+4. Luśtyk Jakub
+5. Marondel Klaudia
+6. Olbrychtowicz Michał
+7. Sobczyk Tomasz
+8. Stachura Rafał
+9. Zalewski Piotr
+10. Zhyhallo Mykola
+11. Łęczycki Dawid
+
+Polak Stanisław  
+Wtorek 14:40
+
+1. Aman Marcin
+2. Duczymiński Filip
+3. Gędłek Paweł
+4. Matula Mikołaj
+5. Mikucki Aleksander
+6. Pajor Jakub
+7. Pham Marcin
+8. Rodzoń Jan
+9. Stanisz Michał
+10. Sus Wiktor
+11. Wojsławski Witold
+12. Śliz Paweł
+
+Polak Stanisław  
+Czwartek 11:15
+
+1. Cieloch Jakub
+2. Doległo Kamil
+3. Dyduch Dominik
+4. Gonera Aleksandra
+5. Grela Konrad
+6. Mucha Rafał
+7. Piekarz Karolina
+8. Pulnar Agnieszka
+9. Sharabai Serhii
+10. Starzyk Jakub
+11. Tuduj Paulina
+12. Wieczorek Szymon
+13. Żur Julia
+
+Polak Stanisław  
+Czwartek 14:40
+
+1. Gargas Marek
+2. Gołda Jan
+3. Kapała Jan
+4. Knapik Mateusz
+5. Makieła Krzysztof
+6. Masliukivskyi Oleksandr
+7. Mucha Maciej
+8. Wróblewski Mikołaj
+9. Węgrzyn Patryk
+10. Zeller Paweł
+11. Zemła Rafał
+12. Ziarko Jakub
+
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[237]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>null</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Czytanie-z-konsoli">Czytanie z konsoli<a class="anchor-link" href="#Czytanie-z-konsoli">&#182;</a></h1>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+
+<span class="k">try</span> <span class="o">(</span><span class="n">BufferedReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span>
+        <span class="k">new</span> <span class="n">InputStreamReader</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">)))</span> <span class="o">{</span>
+
+    <span class="n">String</span> <span class="n">line</span><span class="o">;</span>
+    <span class="k">while</span><span class="o">((</span><span class="n">line</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">line</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Problem IO: &quot;</span> <span class="o">+</span> <span class="n">ex</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Zapis-do-pliku">Zapis do pliku<a class="anchor-link" href="#Zapis-do-pliku">&#182;</a></h1>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[238]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+
+<span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">&quot;user.home&quot;</span><span class="o">)</span> <span class="o">+</span> <span class="n">File</span><span class="o">.</span><span class="na">separator</span> <span class="o">+</span>
+    <span class="s">&quot;Downloads&quot;</span> <span class="o">+</span> <span class="n">File</span><span class="o">.</span><span class="na">separator</span> <span class="o">+</span> <span class="s">&quot;output.txt&quot;</span><span class="o">);</span>
+<span class="k">try</span> <span class="o">(</span><span class="n">PrintWriter</span> <span class="n">output</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrintWriter</span><span class="o">(</span>
+        <span class="k">new</span> <span class="n">BufferedWriter</span><span class="o">(</span><span class="k">new</span> <span class="n">FileWriter</span><span class="o">(</span><span class="n">file</span><span class="o">))))</span> <span class="o">{</span>
+
+    <span class="n">output</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;W Szczebrzeszynie chrząszcz brzmi w trzcinie&quot;</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Problem IO: &quot;</span> <span class="o">+</span> <span class="n">ex</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[238]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>null</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Dekoratory">Dekoratory<a class="anchor-link" href="#Dekoratory">&#182;</a></h1><p><img src="img/babushka.jpg"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[239]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.zip.*</span><span class="o">;</span>
+
+<span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;/home/apohllo/Downloads/output.txt.gz&quot;</span><span class="o">);</span>
+
+<span class="n">BufferedWriter</span> <span class="n">writer</span> <span class="o">=</span> 
+    <span class="k">new</span> <span class="n">BufferedWriter</span><span class="o">(</span>
+        <span class="k">new</span> <span class="n">OutputStreamWriter</span><span class="o">(</span>
+            <span class="k">new</span> <span class="n">GZIPOutputStream</span><span class="o">(</span>
+                <span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="n">file</span><span class="o">))));</span>
+<span class="n">writer</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="s">&quot;W Szczebrzeszynie chrząszcz brzmi w trzcinie\n&quot;</span><span class="o">);</span>
+<span class="n">writer</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[239]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>null</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[240]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.zip.*</span><span class="o">;</span>
+
+<span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;/home/apohllo/Downloads/output.txt.gz&quot;</span><span class="o">);</span>
+<span class="n">LineNumberReader</span> <span class="n">reader</span> <span class="o">=</span> 
+    <span class="k">new</span> <span class="n">LineNumberReader</span><span class="o">(</span>
+        <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span>
+            <span class="k">new</span> <span class="n">InputStreamReader</span><span class="o">(</span>
+                <span class="k">new</span> <span class="n">GZIPInputStream</span><span class="o">(</span>
+                    <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="n">file</span><span class="o">)))));</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">readLine</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">reader</span><span class="o">.</span><span class="na">getLineNumber</span><span class="o">());</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>W Szczebrzeszynie chrząszcz brzmi w trzcinie
+1
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[240]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>null</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/decorator.png"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Kopiowanie---try-z-zasobami">Kopiowanie - <code>try</code> z zasobami<a class="anchor-link" href="#Kopiowanie---try-z-zasobami">&#182;</a></h1>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.zip.*</span><span class="o">;</span>
+
+<span class="k">try</span> <span class="o">(</span><span class="n">BufferedReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span>
+        <span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="s">&quot;/home/apohllo/Downloads/output.txt&quot;</span><span class="o">));</span>
+     <span class="n">PrintWriter</span> <span class="n">writer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrintWriter</span><span class="o">(</span>
+        <span class="k">new</span> <span class="n">BufferedWriter</span><span class="o">(</span>
+            <span class="k">new</span> <span class="n">FileWriter</span><span class="o">(</span><span class="s">&quot;/home/apohllo/Downloads/output.cpy&quot;</span><span class="o">))))</span> <span class="o">{</span>
+            
+    <span class="n">String</span> <span class="n">line</span><span class="o">;</span>
+    
+    <span class="k">while</span><span class="o">((</span><span class="n">line</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">writer</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">line</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Problem IO: &quot;</span> <span class="o">+</span> <span class="n">ex</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Wady-klasycznego-podej&#347;cia">Wady klasycznego podej&#347;cia<a class="anchor-link" href="#Wady-klasycznego-podej&#347;cia">&#182;</a></h1><ul>
+<li>brak metod do wykonywania popularnych operacji</li>
+<li>brak jednolitej obsługi nazw plików na różnych platformach</li>
+<li>brak jednolitego modelu atrybutów plików</li>
+<li>brak funkcji specyficznych dla określonej platformy</li>
+<li>brak obsługi nieblokujących operacji IO</li>
 </ul>
 
 </div>
@@ -12009,145 +13063,252 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Historia-Javy">Historia Javy<a class="anchor-link" href="#Historia-Javy">&#182;</a></h1><ul>
-<li>Java 1.0 - 1996, 212 klas</li>
-<li>Java 1.1 - 1997</li>
-<li>Java 1.2 - 1998, tzw. Java 2</li>
-<li>Java 1.3 - 2000, 1842 klasy</li>
-<li>Java 1.4 - 2002, 2991 klasy</li>
-<li>Java 5 - 2004, 3279 klas</li>
-<li>Java 6 - 2006, 3793 klasy</li>
-<li>Java 7 - 2011, 4024 klasy</li>
-<li>Java 8 - 2014, 4240 klasy</li>
-<li>Java 9 - 21.09.2017</li>
-</ul>
+<h1 id="Nowy-system-IO---NIO.2">Nowy system IO - NIO.2<a class="anchor-link" href="#Nowy-system-IO---NIO.2">&#182;</a></h1><p><img src="img/duke.png" style="height: 400px"/></p>
 
 </div>
 </div>
-</div><aside class="notes">
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.nio.file.*</span><span class="o">;</span>
 
+<span class="n">Files</span><span class="o">.</span><span class="na">copy</span><span class="o">(</span><span class="n">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;/home/apohllo/Downloads/output.txt&quot;</span><span class="o">),</span> 
+    <span class="n">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;/home/apohllo/Downloads/output1.cpy&quot;</span><span class="o">));</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.nio.file.*</span><span class="o">;</span>
+
+<span class="n">Files</span><span class="o">.</span><span class="na">copy</span><span class="o">(</span><span class="n">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;/home/apohllo/Downloads/output.txt&quot;</span><span class="o">),</span> 
+    <span class="n">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;/home/apohllo/Downloads/output1.cpy&quot;</span><span class="o">),</span>
+    <span class="n">StandardCopyOption</span><span class="o">.</span><span class="na">REPLACE_EXISTING</span><span class="o">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.nio.file.*</span><span class="o">;</span>
+
+<span class="n">Path</span> <span class="n">source</span> <span class="o">=</span> <span class="n">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;/&quot;</span><span class="o">,</span> <span class="s">&quot;home&quot;</span><span class="o">,</span> <span class="s">&quot;apohllo&quot;</span><span class="o">,</span> <span class="s">&quot;Downloads&quot;</span><span class="o">,</span> <span class="s">&quot;test.txt&quot;</span><span class="o">);</span>
+
+<span class="n">Files</span><span class="o">.</span><span class="na">createFile</span><span class="o">(</span><span class="n">source</span><span class="o">);</span>
+<span class="n">Files</span><span class="o">.</span><span class="na">deleteIfExists</span><span class="o">(</span><span class="n">source</span><span class="o">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.nio.file.*</span><span class="o">;</span>
+
+<span class="n">Path</span> <span class="n">source</span> <span class="o">=</span> <span class="n">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;/&quot;</span><span class="o">,</span> <span class="s">&quot;home&quot;</span><span class="o">,</span> <span class="s">&quot;apohllo&quot;</span><span class="o">,</span> <span class="s">&quot;Downloads&quot;</span><span class="o">,</span> <span class="s">&quot;test.txt&quot;</span><span class="o">);</span>
+<span class="n">Path</span> <span class="n">target1</span> <span class="o">=</span> <span class="n">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;/&quot;</span><span class="o">,</span> <span class="s">&quot;home&quot;</span><span class="o">,</span> <span class="s">&quot;apohllo&quot;</span><span class="o">,</span> <span class="s">&quot;Downloads&quot;</span><span class="o">,</span> <span class="s">&quot;test1.cpy&quot;</span><span class="o">);</span>
+<span class="n">Path</span> <span class="n">target2</span> <span class="o">=</span> <span class="n">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;/&quot;</span><span class="o">,</span> <span class="s">&quot;home&quot;</span><span class="o">,</span> <span class="s">&quot;apohllo&quot;</span><span class="o">,</span> <span class="s">&quot;Downloads&quot;</span><span class="o">,</span> <span class="s">&quot;test2.cpy&quot;</span><span class="o">);</span>
+
+<span class="n">Files</span><span class="o">.</span><span class="na">createFile</span><span class="o">(</span><span class="n">source</span><span class="o">);</span>
+<span class="n">Files</span><span class="o">.</span><span class="na">copy</span><span class="o">(</span><span class="n">source</span><span class="o">,</span> <span class="n">target1</span><span class="o">);</span>
+<span class="n">Files</span><span class="o">.</span><span class="na">move</span><span class="o">(</span><span class="n">source</span><span class="o">,</span> <span class="n">target2</span><span class="o">);</span>
+<span class="n">Files</span><span class="o">.</span><span class="na">deleteIfExists</span><span class="o">(</span><span class="n">source</span><span class="o">);</span>
+<span class="n">Files</span><span class="o">.</span><span class="na">deleteIfExists</span><span class="o">(</span><span class="n">target1</span><span class="o">);</span>
+<span class="n">Files</span><span class="o">.</span><span class="na">deleteIfExists</span><span class="o">(</span><span class="n">target2</span><span class="o">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.nio.file.*</span><span class="o">;</span>
+
+<span class="n">Path</span> <span class="n">target</span> <span class="o">=</span> <span class="n">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;/&quot;</span><span class="o">,</span> <span class="s">&quot;home&quot;</span><span class="o">,</span> <span class="s">&quot;apohllo&quot;</span><span class="o">,</span> <span class="s">&quot;Downloads&quot;</span><span class="o">,</span> <span class="s">&quot;output.txt.gz&quot;</span><span class="o">);</span>
+<span class="kt">long</span> <span class="n">size</span> <span class="o">=</span> <span class="n">Files</span><span class="o">.</span><span class="na">size</span><span class="o">(</span><span class="n">target</span><span class="o">);</span>
+
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Files</span><span class="o">.</span><span class="na">isDirectory</span><span class="o">(</span><span class="n">target</span><span class="o">));</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Files</span><span class="o">.</span><span class="na">isSymbolicLink</span><span class="o">(</span><span class="n">target</span><span class="o">));</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.nio.file.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.charset.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="n">Charset</span> <span class="n">charset</span> <span class="o">=</span> <span class="n">StandardCharsets</span><span class="o">.</span><span class="na">UTF_8</span><span class="o">;</span>
+<span class="n">Path</span> <span class="n">target</span> <span class="o">=</span> <span class="n">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;/&quot;</span><span class="o">,</span> <span class="s">&quot;home&quot;</span><span class="o">,</span> <span class="s">&quot;apohllo&quot;</span><span class="o">,</span> <span class="s">&quot;Downloads&quot;</span><span class="o">,</span> <span class="s">&quot;output.txt&quot;</span><span class="o">);</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">lines</span> <span class="o">=</span> <span class="n">Files</span><span class="o">.</span><span class="na">readAllLines</span><span class="o">(</span><span class="n">target</span><span class="o">,</span> <span class="n">charset</span><span class="o">);</span>
+<span class="kt">byte</span><span class="o">[]</span> <span class="n">bytes</span> <span class="o">=</span> <span class="n">Files</span><span class="o">.</span><span class="na">readAllBytes</span><span class="o">(</span><span class="n">target</span><span class="o">);</span>
+<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">29</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">16</span><span class="o">)</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">((</span><span class="kt">char</span><span class="o">)</span><span class="n">bytes</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">bytes</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+<span class="o">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.nio.file.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.charset.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+
+<span class="n">Charset</span> <span class="n">charset</span> <span class="o">=</span> <span class="n">StandardCharsets</span><span class="o">.</span><span class="na">UTF_8</span><span class="o">;</span>
+<span class="n">Path</span> <span class="n">source</span> <span class="o">=</span> <span class="n">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;/&quot;</span><span class="o">,</span> <span class="s">&quot;home&quot;</span><span class="o">,</span> <span class="s">&quot;apohllo&quot;</span><span class="o">,</span> <span class="s">&quot;Downloads&quot;</span><span class="o">,</span> <span class="s">&quot;output.txt&quot;</span><span class="o">);</span>
+<span class="n">BufferedReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="n">Files</span><span class="o">.</span><span class="na">newBufferedReader</span><span class="o">(</span><span class="n">source</span><span class="o">,</span> <span class="n">charset</span><span class="o">);</span>
+<span class="n">BufferedWriter</span> <span class="n">writer</span> <span class="o">=</span> <span class="n">Files</span><span class="o">.</span><span class="na">newBufferedWriter</span><span class="o">(</span><span class="n">source</span><span class="o">,</span> <span class="n">charset</span><span class="o">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.nio.file.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.charset.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+
+<span class="n">Path</span> <span class="n">source</span> <span class="o">=</span> <span class="n">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;/&quot;</span><span class="o">,</span> <span class="s">&quot;home&quot;</span><span class="o">,</span> <span class="s">&quot;apohllo&quot;</span><span class="o">,</span> <span class="s">&quot;Downloads&quot;</span><span class="o">,</span> <span class="s">&quot;output.txt&quot;</span><span class="o">);</span>
+
+<span class="n">InputStream</span> <span class="n">input</span> <span class="o">=</span> <span class="n">Files</span><span class="o">.</span><span class="na">newInputStream</span><span class="o">(</span><span class="n">source</span><span class="o">);</span>
+<span class="n">OutputStream</span> <span class="n">output</span> <span class="o">=</span> <span class="n">Files</span><span class="o">.</span><span class="na">newOutputStream</span><span class="o">(</span><span class="n">source</span><span class="o">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>1.1 - klasy wewnętrze oraz refleksja</li>
-<li>1.2 - wprowadzono kolekcje jako element języka</li>
-<li>1.3 - wprowadzono JVM HotSpot</li>
-<li>1.4 - mocno rozbudowano bibliotekę standardową, regexpy, XML, XSLT, logowanie, itp.</li>
-<li>5 - największe zemiany w języku: typy ogólne, typy wyliczeniowe, adnotacje, opakowywanie typów prosytch</li>
-<li>6 - współpraca z językami skryptowymi, Swing, </li>
-<li>Zastój związany z problemami firmy Sun. W 2011 roku została ona przejęta przez firmę Oracle.</li>
-<li>7 - pierwsze wydanie od Oracle, NIO, try z zasobami, uchwyty do metod</li>
-<li>8 - wyrażenia lambda, implementacja interpretera JavaScrip - Nashorn.</li>
-<li>9 - system modułowy, REPL, usprawnienia w kolekcjach</li>
-</ul>
+<h1 id="Path"><code>Path</code><a class="anchor-link" href="#Path">&#182;</a></h1><p><img src="img/path.jpg"/></p>
 
 </div>
 </div>
-</div>
-</aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Java-a-JavaScript">Java a JavaScript<a class="anchor-link" href="#Java-a-JavaScript">&#182;</a></h1><p><img src="img/javascript.jpg"/></p>
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.nio.charset.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.*</span><span class="o">;</span>
+
+<span class="n">URI</span> <span class="n">zipFile</span> <span class="o">=</span> <span class="n">URI</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&quot;jar:file:/home/apohllo/Downloads/chlopiec.zip&quot;</span><span class="o">);</span>
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">env</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+<span class="k">try</span> <span class="o">(</span><span class="n">FileSystem</span> <span class="n">subSystem</span> <span class="o">=</span>
+        <span class="n">FileSystems</span><span class="o">.</span><span class="na">newFileSystem</span><span class="o">(</span><span class="n">zipFile</span><span class="o">,</span> <span class="n">env</span><span class="o">))</span> <span class="o">{</span>
+
+    <span class="n">Path</span> <span class="n">pathForFile</span> <span class="o">=</span> <span class="n">subSystem</span><span class="o">.</span><span class="na">getPath</span><span class="o">(</span><span class="s">&quot;/hello.txt&quot;</span><span class="o">);</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+    <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;Ala ma kota w Szczebrzeszynie&quot;</span><span class="o">);</span>
+    
+    <span class="n">Files</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">pathForFile</span><span class="o">,</span> <span class="n">list</span><span class="o">,</span> <span class="n">Charset</span><span class="o">.</span><span class="na">defaultCharset</span><span class="o">(),</span>
+        <span class="n">StandardOpenOption</span><span class="o">.</span><span class="na">WRITE</span><span class="o">,</span> <span class="n">StandardOpenOption</span><span class="o">.</span><span class="na">CREATE</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Problem IO: &quot;</span> <span class="o">+</span> <span class="n">ex</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
 
 </div>
 </div>
+</div>
+
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Java-update">Java update<a class="anchor-link" href="#Java-update">&#182;</a></h1><p><img src="img/java_update.jpg" width="1200"/></p>
-
+<h1 id="Asynchroniczne-wej&#347;cie-i-wyj&#347;cie">Asynchroniczne wej&#347;cie i wyj&#347;cie<a class="anchor-link" href="#Asynchroniczne-wej&#347;cie-i-wyj&#347;cie">&#182;</a></h1>
 </div>
 </div>
-</div><aside class="notes">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Kiedy pojawia się notyfikacja o możliwości aktualizacji Javy, nie chodzi o zmianę języka Java. Co prawda język się rozwija, ale nie aż tak szybko. Chodzi o aktualizację <strong>wirtualnej maszyny Javy (JVM)</strong>, która umożliwia uruchamianie programów napisanych w Javie. Jest interpreterem byte-codu Javy ale również dostarcza zestaw podstawowych bibliotek, które są elementami języka. Dlatego granice pomiędzy Javą (językiem) a Javą (maszyną wirtualną) nie są zbyt ostre. Istotne jest również to, że istnieje wiele wirtualnych maszyn Javy - referencyjny JVM dostarczany jest przez Oracle (kiedyś Sun), ale istnieje również OpenJDK, czy Java SDK firmy IBM.</p>
+    <div class="input_area">
+<div class=" highlight hl-Java"><pre><span></span><span class="kn">import</span> <span class="nn">java.nio.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.channels.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.charset.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.nio.file.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.*</span><span class="o">;</span>
+
+<span class="k">try</span> <span class="o">(</span><span class="n">AsynchronousFileChannel</span> <span class="n">channel</span> <span class="o">=</span> 
+        <span class="n">AsynchronousFileChannel</span><span class="o">.</span><span class="na">open</span><span class="o">(</span>
+            <span class="n">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;/home/apohllo/Downloads/output.txt.gz&quot;</span><span class="o">)))</span> <span class="o">{</span>
+            
+    <span class="n">ByteBuffer</span> <span class="n">buffer</span> <span class="o">=</span> <span class="n">ByteBuffer</span><span class="o">.</span><span class="na">allocateDirect</span><span class="o">(</span><span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">100</span><span class="o">);</span> <span class="c1">// 100 MB</span>
+    <span class="n">Future</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">channel</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">buffer</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+    
+    <span class="c1">// można wykonać jakieś działania w trakcie wczytywania pliku</span>
+    
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Liczba wczytanych bajtów &quot;</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Problem IO: &quot;</span> <span class="o">+</span> <span class="n">ex</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
 
 </div>
 </div>
 </div>
-</aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Architektura-JVM">Architektura JVM<a class="anchor-link" href="#Architektura-JVM">&#182;</a></h1><p><img src="img/JVM.jpg" alt="Architektura JVM"></p>
 
-</div>
-</div>
-</div><aside class="notes">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Architektura JVM:</p>
-<ul>
-<li>class loader - ładuje klasy, zarówno te zdefiniowane w API Javy jak i klasy zdefiniowane przez użytkownika</li>
-<li>execution engine - odpowiedzialny za uruchomienie kodu bajtowego oraz zarządzanie uruchomionym kodem</li>
-<li>JVM interpreter - podstawowy mechanizm uruchamiania kodu, w oparciu o interpreter języka</li>
-<li>JIT compiler - alternatywny mechanizm polegający na kompilacji wybranych fragmentów kodu do kodu maszynowego</li>
-</ul>
-<p>JVM:</p>
-<ul>
-<li>posiada architekturę stosową, a nie rejestrową jak realny procesor</li>
-<li>udostępnia abstrakcje mechanizmów zarządzania kodem (ładowanie, garbage collector, etc.)</li>
-</ul>
-
-</div>
-</div>
-</div>
-</aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="J&#281;zyki-na-JVM">J&#281;zyki na JVM<a class="anchor-link" href="#J&#281;zyki-na-JVM">&#182;</a></h1><ul>
-<li>Scala</li>
-<li>Lisp, Clojure</li>
-<li>Pascal</li>
-<li>JRuby (Ruby)</li>
-<li>Jython (Python)</li>
-<li>Groovy</li>
-<li>JavaScript</li>
-<li>JIProlog (Prolog)</li>
-</ul>
-
-</div>
-</div>
-</div><aside class="notes">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Niektóre spośród tych języków od początku były projektowane dla JVM - Scala, Clojure, Groovy. Inne posiadają swoje <em>podstawowe</em> implementacje - np. Lisp, Ruby, Python - ale opracowano również biblioteki, które pozwalają na uruchamianie tych języków na JVMie.</p>
-
-</div>
-</div>
-</div>
-</aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Literatura">Literatura<a class="anchor-link" href="#Literatura">&#182;</a></h1><ul>
-<li><em>Java w pigułce</em>, Benjamin Evans, David Flanagan</li>
-<li><em>Thinking in Java</em> (wyd. polskie), Bruce Eckel</li>
-<li><em>Java. Efektywne programowanie</em> (wyd. II), Joshua Bloch</li>
-</ul>
-
-</div>
-</div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>

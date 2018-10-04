@@ -36,7 +36,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 
 <!-- Loading the mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -58,7 +58,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
     <!-- End of mathjax configuration -->
 
 <!-- Get Font-awesome from cdn -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -67,8 +67,8 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 *
 */
 /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1163,7 +1163,6 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2592,7 +2591,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3083,7 +3081,6 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8814,6 +8811,9 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
+[dir="rtl"] #ipython_notebook {
+  float: right !important;
+}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -9016,8 +9016,14 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
+[dir="rtl"] #tabs li {
+  float: right;
+}
 ul#tabs {
   margin-bottom: 4px;
+}
+[dir="rtl"] ul#tabs {
+  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -9040,6 +9046,16 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
+}
+[dir="rtl"] .list_toolbar .tree-buttons {
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-right {
+  padding-top: 1px;
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-left {
+  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9176,6 +9192,9 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
+[dir="rtl"] #tree-selector a {
+  float: right;
+}
 #button-select-all {
   min-width: 50px;
 }
@@ -9265,6 +9284,9 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
+[dir="rtl"] #new-menu {
+  text-align: right;
+}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9309,6 +9331,9 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
+}
+[dir="rtl"] #running .col-sm-8 {
+  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9605,6 +9630,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9625,11 +9651,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11300,7 +11321,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 20ex;
+  width: 21ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11612,6 +11633,7 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
+  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11625,6 +11647,9 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
+}
+.terminal-app .terminal .xterm-rows {
+  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11685,8 +11710,10 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11697,9 +11724,11 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11747,7 +11776,6 @@ ul.typeahead-list > li > a {
 /* Overrides of notebook CSS for static HTML export */
 .reveal {
   font-size: 160%;
-  overflow-y: scroll;
 }
 .reveal pre {
   width: inherit;
@@ -11777,6 +11805,41 @@ ul.typeahead-list > li > a {
 }
 .reveal .progress {
   position: static;
+}
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #727272;
+}
+.reveal .controls .navigate-left.enabled:hover,
+.reveal .controls .navigate-left.enabled.enabled:hover {
+  border-right-color: #dfdfdf;
+}
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #727272;
+}
+.reveal .controls .navigate-right.enabled:hover,
+.reveal .controls .navigate-right.enabled.enabled:hover {
+  border-left-color: #dfdfdf;
+}
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #727272;
+}
+.reveal .controls .navigate-up.enabled:hover,
+.reveal .controls .navigate-up.enabled.enabled:hover {
+  border-bottom-color: #dfdfdf;
+}
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #727272;
+}
+.reveal .controls .navigate-down.enabled:hover,
+.reveal .controls .navigate-down.enabled.enabled:hover {
+  border-top-color: #dfdfdf;
+}
+.reveal .progress span {
+  background: #727272;
 }
 div.input_area {
   padding: 0.06em;
@@ -11811,6 +11874,19 @@ a.anchor-link {
 .rendered_html p {
   text-align: inherit;
 }
+::-webkit-scrollbar
+{
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar *
+{
+  background:transparent;
+}
+::-webkit-scrollbar-thumb
+{
+  background: #727272 !important;
+}
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
@@ -11825,8 +11901,7 @@ a.anchor-link {
 <div class="reveal">
 <div class="slides">
 <section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11835,8 +11910,16 @@ a.anchor-link {
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/java_log.png" style="height: 600px" /></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11846,8 +11929,7 @@ a.anchor-link {
 </div>
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11857,43 +11939,61 @@ a.anchor-link {
 </div>
 </div>
 </aside></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Program-strukturalny">Program strukturalny<a class="anchor-link" href="#Program-strukturalny">&#182;</a></h1><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">SpaceProbe</span> <span class="p">{</span>
-    <span class="kt">double</span> <span class="n">spaceProbeSpeed</span><span class="p">;</span>
-    <span class="kt">double</span> <span class="n">spaceProbeWeight</span><span class="p">;</span>
-<span class="p">}</span>
+<h1 id="Program-strukturalny">Program strukturalny<a class="anchor-link" href="#Program-strukturalny">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">struct</span> <span class="n">SpaceProbe</span> <span class="o">{</span>
+    <span class="kt">double</span> <span class="n">spaceProbeSpeed</span><span class="o">;</span>
+    <span class="kt">double</span> <span class="n">spaceProbeWeight</span><span class="o">;</span>
+<span class="o">}</span>
 
-<span class="kt">double</span> <span class="n">thrustCorrectionForX</span><span class="p">(</span><span class="k">struct</span> <span class="n">SpaceProbe</span> <span class="n">spaceProbe</span><span class="p">){</span>
+<span class="kt">double</span> <span class="nf">thrustCorrectionForX</span><span class="o">(</span><span class="n">struct</span> <span class="n">SpaceProbe</span> <span class="n">spaceProbe</span><span class="o">){</span>
     <span class="c1">// operowanie na polach spaceProbeSpeed oraz spaceProbeWeight</span>
-<span class="p">}</span>
+<span class="o">}</span>
 
-<span class="kt">double</span> <span class="n">thrustCorrectionForY</span><span class="p">(</span><span class="k">struct</span> <span class="n">SpaceProbe</span> <span class="n">spaceProbe</span><span class="p">){</span>
+<span class="kt">double</span> <span class="nf">thrustCorrectionForY</span><span class="o">(</span><span class="n">struct</span> <span class="n">SpaceProbe</span> <span class="n">spaceProbe</span><span class="o">){</span>
     <span class="c1">// ...</span>
-<span class="p">}</span>
+<span class="o">}</span>
 
-<span class="kt">double</span> <span class="n">thrustCorrectionForZ</span><span class="p">(</span><span class="k">struct</span> <span class="n">SpaceProbe</span> <span class="n">spaceProbe</span><span class="p">){</span>
+<span class="kt">double</span> <span class="nf">thrustCorrectionForZ</span><span class="o">(</span><span class="n">struct</span> <span class="n">SpaceProbe</span> <span class="n">spaceProbe</span><span class="o">){</span>
     <span class="c1">// ...</span>
-<span class="p">}</span>
+<span class="o">}</span>
 </pre></div>
 
 </div>
 </div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Primitive-obsession">Primitive obsession<a class="anchor-link" href="#Primitive-obsession">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">SpaceProbe</span> <span class="o">{</span>
+<h1 id="Primitive-obsession">Primitive obsession<a class="anchor-link" href="#Primitive-obsession">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">SpaceProbe</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="kt">double</span> <span class="n">speedX</span><span class="o">;</span>
     <span class="kd">private</span> <span class="kt">double</span> <span class="n">speedY</span><span class="o">;</span>
     <span class="kd">private</span> <span class="kt">double</span> <span class="n">speedZ</span><span class="o">;</span>
     <span class="kd">private</span> <span class="kt">double</span> <span class="n">weight</span><span class="o">;</span>
-
+    
     <span class="kd">public</span> <span class="kt">double</span> <span class="nf">thrustCorrectionForX</span><span class="o">(</span><span class="kt">double</span> <span class="n">positionX</span><span class="o">,</span> 
                       <span class="kt">double</span> <span class="n">positionY</span><span class="o">,</span> <span class="kt">double</span> <span class="n">positionZ</span><span class="o">){</span>
         <span class="c1">//...</span>
@@ -11903,10 +12003,11 @@ a.anchor-link {
 
 </div>
 </div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11915,16 +12016,24 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</aside></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Klasa-Speed">Klasa <code>Speed</code><a class="anchor-link" href="#Klasa-Speed">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+<h1 id="Klasa-Speed">Klasa <code>Speed</code><a class="anchor-link" href="#Klasa-Speed">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>
     <span class="kd">public</span> <span class="n">String</span> <span class="n">unit</span><span class="o">;</span>
-
+    
     <span class="kd">public</span> <span class="nf">Speed</span><span class="o">(</span><span class="kt">int</span> <span class="n">value</span><span class="o">,</span> <span class="n">String</span> <span class="n">unit</span><span class="o">){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
         <span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="n">unit</span><span class="o">;</span>
@@ -11934,10 +12043,11 @@ a.anchor-link {
 
 </div>
 </div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11947,7 +12057,7 @@ a.anchor-link {
 <li>Klasa posiada również publiczny konstruktor, który akceptuje dwa parametry. Te parametry wykorzystywane są do
 <em>inicjalizacji</em> obiektów klasy <code>Speed</code>.</li>
 <li>W konstruktorze występuje słowo kluczowe <code>this</code> - pozwala ono odróżnić zmienne lokalne <code>value</code> i <code>unit</code> od 
-zmiennych <em>instancyjne</em> <code>value</code> i <code>unit</code>. Poprzedzenie nazwy zmiennej tym słowem, oznacza, że odnosimy się 
+zmiennych <em>instancyjnych</em> <code>value</code> i <code>unit</code>. Poprzedzenie nazwy zmiennej tym słowem, oznacza, że odnosimy się 
 do zmiennych, których właścicielem jest obiekt.</li>
 <li>Jedna składowa wektora typu int została wprowadzona dla uproszczenia przykładu.</li>
 </ul>
@@ -11955,22 +12065,23 @@ do zmiennych, których właścicielem jest obiekt.</li>
 </div>
 </div>
 </div>
-</aside><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+</aside></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">Speed</span> <span class="n">speed1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="s">&quot;km/h&quot;</span><span class="o">);</span>
-<span class="n">Speed</span> <span class="n">speed2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="mi">20</span><span class="o">,</span> <span class="s">&quot;m/s&quot;</span><span class="o">);</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">Speed</span> <span class="n">speed1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="s2">&quot;km/h&quot;</span><span class="o">);</span>
+<span class="n">Speed</span> <span class="n">speed2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="mi">20</span><span class="o">,</span> <span class="s2">&quot;m/s&quot;</span><span class="o">);</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11984,8 +12095,7 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 </div>
 </div>
 </aside></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11994,20 +12104,17 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 </div>
 </div>
 </div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">speed1</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="mi">20</span><span class="o">;</span>
-<span class="n">speed2</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="s">&quot;km/h&quot;</span><span class="o">;</span>
-</pre></div>
+<p>speed1.value = 20;
+speed2.unit = "km/h";</p>
 
 </div>
 </div>
 </div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12016,20 +12123,17 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 </div>
 </div>
 </div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">speed1</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span><span class="o">;</span>
-<span class="n">speed2</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="s">&quot;ala ma kota&quot;</span><span class="o">;</span>
-</pre></div>
+<p>speed1.value = -10;
+speed2.unit = "ala ma kota";</p>
 
 </div>
 </div>
 </div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12038,12 +12142,12 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 </div>
 </div>
 </div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">enum</span> <span class="n">SpeedUnit</span> <span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">enum</span> <span class="n">SpeedUnit</span> <span class="o">{</span>
     <span class="n">MS</span><span class="o">,</span>
     <span class="n">KMH</span>
 <span class="o">}</span>
@@ -12051,16 +12155,18 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>
     <span class="kd">public</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">;</span>
-
+    
     <span class="kd">public</span> <span class="nf">Speed</span><span class="o">(</span><span class="kt">int</span> <span class="n">value</span><span class="o">,</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
         <span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="n">unit</span><span class="o">;</span>
@@ -12070,21 +12176,20 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
+</div>
+
 </div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">Speed</span> <span class="n">speed1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span><span class="o">);</span>
-<span class="n">Speed</span> <span class="n">speed2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="mi">20</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">);</span>
-</pre></div>
+<p>Speed speed1 = new Speed(10, SpeedUnit.KMH);
+Speed speed2 = new Speed(20, SpeedUnit.MS);</p>
 
 </div>
 </div>
 </div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12093,18 +12198,26 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 </div>
 </div>
 </div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Modyfikator-private">Modyfikator <code>private</code><a class="anchor-link" href="#Modyfikator-private">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">SpaceProbe</span> <span class="o">{</span>
+<h1 id="Modyfikator-private">Modyfikator <code>private</code><a class="anchor-link" href="#Modyfikator-private">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">SpaceProbe</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="n">Speed</span> <span class="n">speed</span><span class="o">;</span>
-
+    
     <span class="kd">public</span> <span class="nf">SpaceProbe</span><span class="o">(</span><span class="n">Speed</span> <span class="n">speed</span><span class="o">){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">speed</span> <span class="o">=</span> <span class="n">speed</span><span class="o">;</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="nf">getSpeed</span><span class="o">(){</span>
         <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">speed</span><span class="o">;</span>
     <span class="o">}</span>
@@ -12113,36 +12226,41 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">SpaceProbe</span> <span class="n">probe1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SpaceProbe</span><span class="o">(</span><span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span><span class="o">));</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">SpaceProbe</span> <span class="n">probe1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SpaceProbe</span><span class="o">(</span><span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span><span class="o">));</span>
 
 <span class="n">probe1</span><span class="o">.</span><span class="na">speed</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">);</span> <span class="c1">// niedozwolone, pole jest prywatne!</span>
 </pre></div>
 
 </div>
 </div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">Speed</span> <span class="n">speed1</span> <span class="o">=</span> <span class="n">probe1</span><span class="o">.</span><span class="na">getSpeed</span><span class="o">();</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">Speed</span> <span class="n">speed1</span> <span class="o">=</span> <span class="n">probe1</span><span class="o">.</span><span class="na">getSpeed</span><span class="o">();</span>
 
 <span class="n">speed1</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">;</span>         <span class="c1">// zmienia się jednostka prędkości sondy!</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12152,15 +12270,23 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 </div>
 </div>
 </aside></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Modyfikator-final---Speed-jako-ValueObject">Modyfikator <code>final</code> - <code>Speed</code> jako ValueObject<a class="anchor-link" href="#Modyfikator-final---Speed-jako-ValueObject">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+<h1 id="Modyfikator-final---Speed-jako-ValueObject">Modyfikator <code>final</code> - <code>Speed</code> jako ValueObject<a class="anchor-link" href="#Modyfikator-final---Speed-jako-ValueObject">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>
     <span class="kd">public</span> <span class="kd">final</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">;</span>
-
+    
     <span class="kd">public</span> <span class="nf">Speed</span><span class="o">(</span><span class="kt">int</span> <span class="n">value</span><span class="o">,</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
         <span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="n">unit</span><span class="o">;</span>
@@ -12170,13 +12296,15 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">SpaceProbe</span> <span class="n">probe1</span> <span class="o">=</span> <span class="n">newSpaceProbe</span><span class="o">(</span><span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span><span class="o">));</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">SpaceProbe</span> <span class="n">probe1</span> <span class="o">=</span> <span class="n">newSpaceProbe</span><span class="o">(</span><span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span><span class="o">));</span>
 <span class="n">Speed</span> <span class="n">speed1</span> <span class="o">=</span> <span class="n">probe1</span><span class="o">.</span><span class="na">getSpeed</span><span class="o">();</span>
 
 <span class="n">speed1</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">;</span>                 <span class="c1">// niedozwolone!!!</span>
@@ -12184,9 +12312,10 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
+</div>
+
 </div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12196,26 +12325,60 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 </div>
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>ValueObject nie może zmienić swojej wartości - jest jak liczba, znak, etc. Przykładem może być konkretna temperatura 20 stopni C.</li>
-<li>Inny obiekt korzystający z ValueObject może zminić wartość <em>parametru wyrażanego za pomocą</em> ValueObject. Np. temperatura pokoju moze zmienić się z 20 na 22. Ale same valueObjects się nie zmienią. </li>
+<li>Inny obiekt korzystający z ValueObject może zminić wartość <em>parametru wyrażanego za pomocą</em> ValueObject. Np. temperatura pokoju moze zmienić się z 20 na 22. Ale same valueObjects się nie zmienią. </li>
 </ul>
 
 </div>
 </div>
 </div>
-</aside></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</aside></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Modyfikator-private">Modyfikator <code>private</code><a class="anchor-link" href="#Modyfikator-private">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+<h1 id="Ale-po-co?">Ale po co?<a class="anchor-link" href="#Ale-po-co?">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="TODO-:-)">TODO :-)<a class="anchor-link" href="#TODO-:-)">&#182;</a></h1>
+</div>
+</div>
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Zwrócenie wartości modyfikowalnej z obiektu. Zmodyfikowanie jej poza obiektem.</p>
+
+</div>
+</div>
+</div>
+</aside></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Modyfikator-private">Modyfikator <code>private</code><a class="anchor-link" href="#Modyfikator-private">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">;</span>
 
@@ -12228,15 +12391,17 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">SpaceProbe</span>
-    <span class="kd">private</span> <span class="n">Speed</span> <span class="n">speed</span><span class="o">;</span>
 
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">SpaceProbe</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Speed</span> <span class="n">speed</span><span class="o">;</span>
+    
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accelerate</span><span class="o">(</span><span class="n">Speed</span> <span class="n">delta</span><span class="o">){</span>
         <span class="n">speed</span><span class="o">.</span><span class="na">value</span> <span class="o">+=</span> <span class="n">delta</span><span class="o">.</span><span class="na">value</span><span class="o">;</span>                              <span class="c1">// niedozwolone!</span>
     <span class="o">}</span>
@@ -12245,10 +12410,11 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12260,15 +12426,15 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 </div>
 </div>
 </aside></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="n">Speed</span> <span class="nf">add</span><span class="o">(</span><span class="n">Speed</span> <span class="n">that</span><span class="o">){</span>
         <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">==</span> <span class="n">that</span><span class="o">.</span><span class="na">unit</span><span class="o">){</span>
-            <span class="k">return</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">+</span> <span class="n">that</span><span class="o">.</span><span class="na">value</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">);</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nf">Speed</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">+</span> <span class="n">that</span><span class="o">.</span><span class="na">value</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">);</span>
         <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
             <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
         <span class="o">}</span>
@@ -12278,18 +12444,21 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">SpaceProbe</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">SpaceProbe</span>
     <span class="kd">private</span> <span class="n">Speed</span> <span class="n">speed</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">MAXIMUM_SPEED</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
 
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accelerate</span><span class="o">(</span><span class="n">Speed</span> <span class="n">delta</span><span class="o">){</span>
         <span class="n">Speed</span> <span class="n">newSpeed</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">speed</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">delta</span><span class="o">);</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">newSpeed</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">newSpeed</span><span class="o">.</span><span class="na">value</span> <span class="o">&lt;</span> <span class="n">MAXIMUM_SPEED</span><span class="o">){</span>
             <span class="k">this</span><span class="o">.</span><span class="na">speed</span> <span class="o">=</span> <span class="n">newSpeed</span><span class="o">;</span>
         <span class="o">}</span>
     <span class="o">}</span>
@@ -12298,9 +12467,10 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
+</div>
+
 </div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12309,14 +12479,22 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 </div>
 </div>
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Modyfikator-protected">Modyfikator <code>protected</code><a class="anchor-link" href="#Modyfikator-protected">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+<h1 id="Modyfikator-protected">Modyfikator <code>protected</code><a class="anchor-link" href="#Modyfikator-protected">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
     <span class="kd">protected</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">;</span>
-
+    
     <span class="kd">public</span> <span class="nf">Speed</span><span class="o">(</span><span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="n">unit</span><span class="o">;</span>
     <span class="o">}</span>
@@ -12325,23 +12503,25 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed1D</span> <span class="kd">extends</span> <span class="n">Speed</span> <span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed1D</span> <span class="kd">extends</span> <span class="n">Speed</span> <span class="o">{</span>
     <span class="kd">protected</span> <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>
 
     <span class="kd">public</span> <span class="nf">Speed1D</span><span class="o">(</span><span class="kt">int</span> <span class="n">value</span><span class="o">,</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">){</span>
         <span class="kd">super</span><span class="o">(</span><span class="n">unit</span><span class="o">);</span>
         <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="n">Speed1D</span> <span class="nf">add</span><span class="o">(</span><span class="n">Speed1D</span> <span class="n">delta</span><span class="o">){</span>
         <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">==</span> <span class="n">delta</span><span class="o">.</span><span class="na">unit</span><span class="o">){</span>
-            <span class="k">return</span> <span class="k">new</span> <span class="n">Speed1D</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">+</span> <span class="n">delta</span><span class="o">.</span><span class="na">value</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">);</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nf">Speed1D</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">+</span> <span class="n">delta</span><span class="o">.</span><span class="na">value</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">);</span>
         <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
             <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
         <span class="o">}</span>
@@ -12351,13 +12531,15 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
-</div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">Speed1D</span> <span class="n">speed1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed1D</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span><span class="o">);</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">Speed1D</span> <span class="n">speed1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed1D</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span><span class="o">);</span>
 <span class="n">Speed1D</span> <span class="n">speed2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed1D</span><span class="o">(</span><span class="mi">20</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span><span class="o">);</span>
 
 <span class="n">Speed1D</span> <span class="n">speed3</span> <span class="o">=</span> <span class="n">speed1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">speed2</span><span class="o">);</span>
@@ -12365,13 +12547,15 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed3D</span> <span class="kd">extends</span> <span class="n">Speed</span> <span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed3D</span> <span class="kd">extends</span> <span class="n">Speed</span> <span class="o">{</span>
     <span class="kd">protected</span> <span class="kt">int</span> <span class="n">valueX</span><span class="o">;</span>
     <span class="kd">protected</span> <span class="kt">int</span> <span class="n">valueY</span><span class="o">;</span>
     <span class="kd">protected</span> <span class="kt">int</span> <span class="n">valueZ</span><span class="o">;</span>
@@ -12382,10 +12566,10 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
         <span class="k">this</span><span class="o">.</span><span class="na">valueY</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span>
         <span class="k">this</span><span class="o">.</span><span class="na">valueZ</span> <span class="o">=</span> <span class="n">z</span><span class="o">;</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="n">Speed3D</span> <span class="nf">add</span><span class="o">(</span><span class="n">Speed3D</span> <span class="n">delta</span><span class="o">){</span>
         <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">==</span> <span class="n">delta</span><span class="o">.</span><span class="na">unit</span><span class="o">){</span>
-            <span class="k">return</span> <span class="k">new</span> <span class="n">Speed3D</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">valueX</span> <span class="o">+</span> <span class="n">delta</span><span class="o">.</span><span class="na">valueX</span><span class="o">,</span> 
+            <span class="k">return</span> <span class="k">new</span> <span class="nf">Speed3D</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">valueX</span> <span class="o">+</span> <span class="n">delta</span><span class="o">.</span><span class="na">valueX</span><span class="o">,</span> 
                 <span class="k">this</span><span class="o">.</span><span class="na">valueY</span> <span class="o">+</span> <span class="n">delta</span><span class="o">.</span><span class="na">valueY</span><span class="o">,</span>
                 <span class="k">this</span><span class="o">.</span><span class="na">valueZ</span> <span class="o">+</span> <span class="n">delta</span><span class="o">.</span><span class="na">valueZ</span><span class="o">,</span> 
                 <span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">);</span>
@@ -12398,9 +12582,10 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
+</div>
+
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12409,17 +12594,25 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Dost&#281;p-pakietowy">Dost&#281;p pakietowy<a class="anchor-link" href="#Dost&#281;p-pakietowy">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">agh.cs.lecture</span><span class="o">;</span>
+<h1 id="Dost&#281;p-pakietowy">Dost&#281;p pakietowy<a class="anchor-link" href="#Dost&#281;p-pakietowy">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kn">package</span> <span class="n">agh</span><span class="o">.</span><span class="na">cs</span><span class="o">.</span><span class="na">lecture</span><span class="o">;</span>
 
 <span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
     <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>
     <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">;</span>
-
+    
     <span class="kd">public</span> <span class="nf">Speed</span><span class="o">(</span><span class="kt">int</span> <span class="n">value</span><span class="o">,</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
         <span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="n">unit</span><span class="o">;</span>
@@ -12429,17 +12622,19 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">agh.cs.lecture</span><span class="o">;</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kn">package</span> <span class="n">agh</span><span class="o">.</span><span class="na">cs</span><span class="o">.</span><span class="na">lecture</span><span class="o">;</span>
 
 <span class="kd">class</span> <span class="nc">SpaceProbe</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="n">Speed</span> <span class="n">speed</span><span class="o">;</span>
-
+    
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accelerate</span><span class="o">(</span><span class="n">Speed</span> <span class="n">delta</span><span class="o">){</span>
         <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">speed</span><span class="o">.</span><span class="na">unit</span> <span class="o">==</span> <span class="n">delta</span><span class="o">.</span><span class="na">unit</span><span class="o">){</span>           <span class="c1">// dozwolone</span>
             <span class="c1">//..</span>
@@ -12450,13 +12645,15 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
-</div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">com.mycompany</span><span class="o">;</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">mycompany</span><span class="o">;</span>
 
 <span class="kd">class</span> <span class="nc">SpaceShip</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="n">Speed</span> <span class="n">speed</span><span class="o">;</span>
@@ -12471,9 +12668,10 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
+</div>
+
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12482,19 +12680,27 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Metody-dost&#281;powe---&quot;gettery&quot;">Metody dost&#281;powe - "gettery"<a class="anchor-link" href="#Metody-dost&#281;powe---&quot;gettery&quot;">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+<h1 id="Metody-dost&#281;powe---&quot;gettery&quot;">Metody dost&#281;powe - "gettery"<a class="anchor-link" href="#Metody-dost&#281;powe---&quot;gettery&quot;">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">;</span>
-
+    
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getValue</span><span class="o">(){</span>
         <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">value</span><span class="o">;</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="n">SpeedUnit</span> <span class="nf">getUnit</span><span class="o">(){</span>
         <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">;</span>
     <span class="o">}</span>
@@ -12503,34 +12709,44 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Dost&#281;p-dziedzinowy">Dost&#281;p dziedzinowy<a class="anchor-link" href="#Dost&#281;p-dziedzinowy">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+<h1 id="Dost&#281;p-dziedzinowy">Dost&#281;p dziedzinowy<a class="anchor-link" href="#Dost&#281;p-dziedzinowy">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">;</span>
-
+    
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getValueInMS</span><span class="o">(){</span>
         <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">){</span>
             <span class="k">return</span> <span class="n">value</span><span class="o">;</span>
         <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="n">convert</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">value</span><span class="o">);</span>
+            <span class="k">return</span> <span class="nf">convert</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">value</span><span class="o">);</span>
         <span class="o">}</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getValueInKMH</span><span class="o">(){</span>
         <span class="c1">//...</span>
     <span class="o">}</span>
-
+    
     <span class="kd">private</span> <span class="kt">int</span> <span class="nf">convert</span><span class="o">(</span><span class="n">SpeedUnit</span> <span class="n">from</span><span class="o">,</span> <span class="n">SpeedUnit</span> <span class="n">to</span><span class="o">,</span> <span class="kt">int</span> <span class="n">value</span><span class="o">){</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">from</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMS</span> <span class="o">&amp;&amp;</span> <span class="n">to</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">)</span>
-            <span class="k">return</span> <span class="n">Math</span><span class="o">.</span><span class="na">round</span><span class="o">(</span><span class="n">value</span> <span class="o">/</span> <span class="mf">3.6</span><span class="o">);</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span><span class="o">(...){</span>
-            <span class="c1">//...</span>
-
+        <span class="k">if</span><span class="o">(</span><span class="n">from</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMS</span> <span class="o">&amp;&amp;</span> <span class="n">to</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">Math</span><span class="o">.</span><span class="na">round</span><span class="o">(</span><span class="n">value</span> <span class="s">/ 3.6);</span>
+<span class="s">        } else if(...){</span>
+<span class="s">            /</span><span class="o">/...</span>
+            
         <span class="o">}</span>
     <span class="o">}</span>
 <span class="o">}</span>
@@ -12538,20 +12754,30 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Metody-dost&#281;powe---&quot;settery&quot;">Metody dost&#281;powe - "settery"<a class="anchor-link" href="#Metody-dost&#281;powe---&quot;settery&quot;">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+<h1 id="Metody-dost&#281;powe---&quot;settery&quot;">Metody dost&#281;powe - "settery"<a class="anchor-link" href="#Metody-dost&#281;powe---&quot;settery&quot;">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">;</span>
-
+    
     <span class="kd">public</span> <span class="nf">setValue</span><span class="o">(</span><span class="kt">int</span> <span class="n">value</span><span class="o">){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="nf">setUnit</span><span class="o">(</span><span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">convert</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">,</span> <span class="n">unit</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">value</span><span class="o">);</span>
         <span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="n">unit</span><span class="o">;</span>
@@ -12561,10 +12787,11 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12573,29 +12800,37 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 </div>
 </div>
 </div>
-</aside></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</aside></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Utrzymywanie-jednolitej-reprezentacji">Utrzymywanie jednolitej reprezentacji<a class="anchor-link" href="#Utrzymywanie-jednolitej-reprezentacji">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+<h1 id="Utrzymywanie-jednolitej-reprezentacji">Utrzymywanie jednolitej reprezentacji<a class="anchor-link" href="#Utrzymywanie-jednolitej-reprezentacji">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">valueInMs</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">;</span>
-
+    
     <span class="kd">public</span> <span class="nf">Speed</span><span class="o">(</span><span class="kt">int</span> <span class="n">value</span><span class="o">,</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">valueInMs</span> <span class="o">=</span> <span class="n">convert</span><span class="o">(</span><span class="n">unit</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">,</span> <span class="n">value</span><span class="o">);</span>
         <span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="n">unit</span><span class="o">;</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="nf">getValue</span><span class="o">(){</span>
-        <span class="k">return</span> <span class="n">convert</span><span class="o">(</span><span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">valueInMs</span><span class="o">);</span>
+        <span class="k">return</span> <span class="nf">convert</span><span class="o">(</span><span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">valueInMs</span><span class="o">);</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="nf">setValue</span><span class="o">(</span><span class="kt">int</span> <span class="n">value</span><span class="o">){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">valueInMs</span> <span class="o">=</span> <span class="n">convert</span><span class="o">(</span><span class="n">unit</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">,</span> <span class="n">value</span><span class="o">);</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="nf">setUnit</span><span class="o">(</span><span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="n">unit</span><span class="o">;</span>
     <span class="o">}</span>
@@ -12604,26 +12839,36 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="ValueObject---konwersja">ValueObject - konwersja<a class="anchor-link" href="#ValueObject---konwersja">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+<h1 id="ValueObject---konwersja">ValueObject - konwersja<a class="anchor-link" href="#ValueObject---konwersja">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>
     <span class="kd">private</span> <span class="kd">final</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">;</span>
-
+    
     <span class="kd">public</span> <span class="nf">Speed</span><span class="o">(</span><span class="kt">int</span> <span class="n">value</span><span class="o">,</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
         <span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="n">unit</span><span class="o">;</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="n">Speed</span> <span class="nf">convertToMs</span><span class="o">(){</span>
         <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">){</span>
             <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
         <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-            <span class="k">return</span> <span class="k">new</span> <span class="n">Speed</span><span class="o">(</span><span class="n">convert</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">value</span><span class="o">),</span> 
+            <span class="k">return</span> <span class="k">new</span> <span class="nf">Speed</span><span class="o">(</span><span class="n">convert</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">value</span><span class="o">),</span> 
                              <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">);</span>
         <span class="o">}</span>
     <span class="o">}</span>
@@ -12632,34 +12877,46 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</div>
+
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Shadowing">Shadowing<a class="anchor-link" href="#Shadowing">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">enum</span> <span class="n">SpeedUnit</span> <span class="o">{</span> <span class="n">MS</span><span class="o">,</span> <span class="n">KMH</span> <span class="o">}</span>
+<h1 id="Shadowing">Shadowing<a class="anchor-link" href="#Shadowing">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">enum</span> <span class="n">SpeedUnit</span> <span class="o">{</span> <span class="n">MS</span><span class="o">,</span> <span class="n">KMH</span> <span class="o">}</span>
 </pre></div>
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">;</span>
 
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">;</span>
+    
     <span class="kd">public</span> <span class="nf">Speed</span><span class="o">(</span><span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="n">unit</span><span class="o">;</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="n">SpeedUnit</span> <span class="nf">getSuperUnit</span><span class="o">(){</span>
         <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">;</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="n">SpeedUnit</span> <span class="nf">getUnit</span><span class="o">(){</span>
         <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">;</span>
     <span class="o">}</span>
@@ -12668,22 +12925,24 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
-</div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed1D</span> <span class="kd">extends</span> <span class="n">Speed</span><span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed1D</span> <span class="kd">extends</span> <span class="n">Speed</span><span class="o">{</span>
     <span class="kd">private</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">;</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>
-
+    
     <span class="kd">public</span> <span class="nf">Speed1D</span><span class="o">(</span><span class="kt">int</span> <span class="n">value</span><span class="o">,</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">){</span>
         <span class="kd">super</span><span class="o">(</span><span class="n">unit</span><span class="o">);</span>
         <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
         <span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span><span class="o">;</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="n">SpeedUnit</span> <span class="nf">getUnit</span><span class="o">(){</span>
         <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">unit</span><span class="o">;</span>
     <span class="o">}</span>
@@ -12692,22 +12951,25 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">Speed1D</span> <span class="n">speed1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed1D</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">);</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">Speed1D</span> <span class="n">speed1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed1D</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">);</span>
 <span class="n">speed1</span><span class="o">.</span><span class="na">getUnit</span><span class="o">();</span>
 <span class="n">speed1</span><span class="o">.</span><span class="na">getSuperUnit</span><span class="o">();</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12715,23 +12977,66 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="n">unit</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="nf">Speed</span><span class="o">(</span><span class="n">String</span> <span class="n">unit</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="n">unit</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Speed1D</span> <span class="kd">extends</span> <span class="n">Speed</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="n">unit</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="nf">Speed1D</span><span class="o">(</span><span class="n">String</span> <span class="n">unit</span><span class="o">,</span> <span class="kt">int</span> <span class="n">value</span><span class="o">){</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">unit</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="s2">&quot;KMH&quot;</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">Speed</span> <span class="n">speed1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Speed1D</span><span class="o">(</span><span class="s2">&quot;MPH&quot;</span><span class="o">,</span> <span class="mi">10</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">speed1</span><span class="o">.</span><span class="na">unit</span><span class="o">);</span>
+<span class="n">Speed1D</span> <span class="n">speed2</span> <span class="o">=</span> <span class="o">(</span><span class="n">Speed1D</span><span class="o">)</span> <span class="n">speed1</span><span class="o">;</span>
+<span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">speed2</span><span class="o">.</span><span class="na">unit</span><span class="o">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Zmienne-statyczne">Zmienne statyczne<a class="anchor-link" href="#Zmienne-statyczne">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+<h1 id="Zmienne-statyczne">Zmienne statyczne<a class="anchor-link" href="#Zmienne-statyczne">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">;</span>
-
+    
     <span class="kd">private</span> <span class="kt">int</span> <span class="nf">convert</span><span class="o">(</span><span class="n">SpeedUnit</span> <span class="n">from</span><span class="o">,</span> <span class="n">SpeedUnit</span> <span class="n">to</span><span class="o">,</span> <span class="kt">int</span> <span class="n">value</span><span class="o">){</span>
         <span class="k">if</span><span class="o">(</span><span class="n">from</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span> <span class="o">&amp;&amp;</span> <span class="n">to</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span><span class="o">){</span>
             <span class="k">return</span> <span class="n">value</span> <span class="o">*</span> <span class="mf">3.6</span><span class="o">;</span>
         <span class="o">}</span> <span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">from</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span> <span class="o">&amp;&amp;</span> <span class="n">to</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">){</span>
-            <span class="k">return</span> <span class="n">value</span> <span class="o">/</span> <span class="mf">3.6</span><span class="o">;</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-            <span class="c1">//...</span>
+            <span class="k">return</span> <span class="n">value</span> <span class="s">/ 3.6;</span>
+<span class="s">        } else {</span>
+<span class="s">            /</span><span class="o">/...</span>
         <span class="o">}</span>
     <span class="o">}</span>
 <span class="o">}</span>
@@ -12739,25 +13044,27 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">ms2kmhRatio</span> <span class="o">=</span> <span class="mf">3.6</span><span class="o">;</span>
 
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">ms2kmhRatio</span> <span class="o">=</span> <span class="mf">3.6</span><span class="o">;</span>
+    
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">;</span>
-
+    
     <span class="kd">private</span> <span class="kt">int</span> <span class="nf">convert</span><span class="o">(</span><span class="n">SpeedUnit</span> <span class="n">from</span><span class="o">,</span> <span class="n">SpeedUnit</span> <span class="n">to</span><span class="o">,</span> <span class="kt">int</span> <span class="n">value</span><span class="o">){</span>
         <span class="k">if</span><span class="o">(</span><span class="n">from</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span> <span class="o">&amp;&amp;</span> <span class="n">to</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span><span class="o">){</span>
             <span class="k">return</span> <span class="n">value</span> <span class="o">*</span> <span class="n">ms2kmhRatio</span><span class="o">;</span>
         <span class="o">}</span> <span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">from</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span> <span class="o">&amp;&amp;</span> <span class="n">to</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">){</span>
-            <span class="k">return</span> <span class="n">value</span> <span class="o">/</span> <span class="n">ms2kmhRatio</span><span class="o">;</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-            <span class="c1">//...</span>
+            <span class="k">return</span> <span class="n">value</span> <span class="s">/ ms2kmhRatio;</span>
+<span class="s">        } else {</span>
+<span class="s">            /</span><span class="o">/...</span>
         <span class="o">}</span>
     <span class="o">}</span>
 <span class="o">}</span>
@@ -12765,9 +13072,10 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
+</div>
+
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12776,24 +13084,32 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Modyfikator-static">Modyfikator <code>static</code><a class="anchor-link" href="#Modyfikator-static">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
+<h1 id="Modyfikator-static">Modyfikator <code>static</code><a class="anchor-link" href="#Modyfikator-static">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">ms2kmhRatio</span> <span class="o">=</span> <span class="mf">3.6</span><span class="o">;</span>
-
+    
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">value</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">SpeedUnit</span> <span class="n">unit</span><span class="o">;</span>
-
+    
     <span class="kd">private</span> <span class="kt">int</span> <span class="nf">convert</span><span class="o">(</span><span class="n">SpeedUnit</span> <span class="n">from</span><span class="o">,</span> <span class="n">SpeedUnit</span> <span class="n">to</span><span class="o">,</span> <span class="kt">int</span> <span class="n">value</span><span class="o">){</span>
         <span class="k">if</span><span class="o">(</span><span class="n">from</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span> <span class="o">&amp;&amp;</span> <span class="n">to</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span><span class="o">){</span>
             <span class="k">return</span> <span class="n">value</span> <span class="o">*</span> <span class="n">ms2kmhRatio</span><span class="o">;</span>
         <span class="o">}</span> <span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">from</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">KMH</span> <span class="o">&amp;&amp;</span> <span class="n">to</span> <span class="o">==</span> <span class="n">SpeedUnit</span><span class="o">.</span><span class="na">MS</span><span class="o">){</span>
-            <span class="k">return</span> <span class="n">value</span> <span class="o">/</span> <span class="n">ms2kmhRatio</span><span class="o">;</span>
-        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-            <span class="c1">//...</span>
+            <span class="k">return</span> <span class="n">value</span> <span class="s">/ ms2kmhRatio;</span>
+<span class="s">        } else {</span>
+<span class="s">            /</span><span class="o">/...</span>
         <span class="o">}</span>
     <span class="o">}</span>
 <span class="o">}</span>
@@ -12801,9 +13117,10 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12812,14 +13129,22 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Antywzorzec">Antywzorzec<a class="anchor-link" href="#Antywzorzec">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">SpaceShip</span> <span class="o">{</span>
+<h1 id="Antywzorzec">Antywzorzec<a class="anchor-link" href="#Antywzorzec">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">SpaceShip</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">SpaceShip</span><span class="o">&gt;</span> <span class="n">ships</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
-
+    
     <span class="kd">public</span> <span class="nf">SpaceShip</span><span class="o">(){</span>
         <span class="n">ships</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
     <span class="o">}</span>
@@ -12828,15 +13153,17 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nf">Space</span><span class="o">()</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">SpaceShip</span><span class="o">&gt;</span> <span class="n">ships</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
 
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nf">Space</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">SpaceShip</span><span class="o">&gt;</span> <span class="n">ships</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
+    
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">SpaceShip</span> <span class="n">ship</span><span class="o">){</span>
         <span class="n">ships</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">ship</span><span class="o">);</span>
     <span class="o">}</span>
@@ -12851,33 +13178,57 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
+</div>
+
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Model-prywatno&#347;ci-w-Ruby">Model prywatno&#347;ci w Ruby<a class="anchor-link" href="#Model-prywatno&#347;ci-w-Ruby">&#182;</a></h1><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Speed</span>
-  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">unit</span><span class="p">)</span>
-    <span class="vi">@value</span> <span class="o">=</span> <span class="n">value</span>
-    <span class="vi">@unit</span> <span class="o">=</span> <span class="n">unit</span>
-  <span class="k">end</span>
+<p><img src="img/ruby-horizontal.svg" style="width: 800px" /></p>
 
-  <span class="k">def</span> <span class="nf">to_s</span>
-    <span class="s2">&quot;</span><span class="si">#{</span><span class="vi">@value</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="vi">@unit</span><span class="si">}</span><span class="s2">&quot;</span>
-  <span class="k">end</span>
-
-  <span class="k">def</span> <span class="nf">+</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
-    <span class="no">Speed</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="vi">@value</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="vi">@value</span><span class="p">,</span> <span class="vi">@unit</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="vi">@unit</span><span class="p">)</span> <span class="c1"># niepoprawna składnia!</span>
-  <span class="k">end</span>
-<span class="k">end</span>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Model-prywatno&#347;ci-w-Rubim">Model prywatno&#347;ci w Rubim<a class="anchor-link" href="#Model-prywatno&#347;ci-w-Rubim">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span>
+  <span class="kt">def</span> <span class="nf">initialize</span><span class="o">(</span><span class="n">value</span><span class="o">,</span> <span class="n">unit</span><span class="o">)</span>
+    <span class="nd">@value</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="nd">@unit</span> <span class="o">=</span> <span class="n">unit</span>
+  <span class="n">end</span>
+  
+  <span class="kt">def</span> <span class="n">to_s</span>
+    <span class="s2">&quot;#{@value} #{@unit}&quot;</span>
+  <span class="n">end</span>
+  
+  <span class="kt">def</span> <span class="o">+(</span><span class="n">other</span><span class="o">)</span>
+    <span class="k">if</span> <span class="nd">@unit</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="nd">@unit</span>
+      <span class="n">Speed</span><span class="o">.</span><span class="na">new</span><span class="o">(</span><span class="nd">@value</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="nd">@value</span><span class="o">,</span> <span class="nd">@unit</span><span class="o">)</span> <span class="err">#</span> <span class="n">to</span> <span class="n">nie</span> <span class="n">zadziała</span><span class="o">!</span>
+    <span class="k">else</span>
+      <span class="n">self</span> <span class="err">#</span> <span class="n">lepiej</span> <span class="n">rzucić</span> <span class="n">wyjątek</span>
+    <span class="n">end</span>
+  <span class="n">end</span>
+<span class="n">end</span>
 </pre></div>
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12886,30 +13237,35 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 </div>
 </div>
 </div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Speed</span>
-  <span class="kp">attr_reader</span> <span class="ss">:unit</span><span class="p">,</span> <span class="ss">:value</span>
-
-  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">unit</span><span class="p">)</span>
-    <span class="vi">@value</span> <span class="o">=</span> <span class="n">value</span>
-    <span class="vi">@unit</span> <span class="o">=</span> <span class="n">unit</span>
-  <span class="k">end</span>
-
-  <span class="k">def</span> <span class="nf">+</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
-    <span class="no">Speed</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="vi">@value</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="vi">@unit</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
-  <span class="k">end</span>
-<span class="k">end</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span>
+  <span class="n">attr_reader</span> <span class="o">:</span><span class="n">unit</span><span class="o">,</span> <span class="o">:</span><span class="n">value</span>
+    
+  <span class="kt">def</span> <span class="nf">initialize</span><span class="o">(</span><span class="n">value</span><span class="o">,</span> <span class="n">unit</span><span class="o">)</span>
+    <span class="nd">@value</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="nd">@unit</span> <span class="o">=</span> <span class="n">unit</span>
+  <span class="n">end</span>
+    
+  <span class="kt">def</span> <span class="o">+(</span><span class="n">other</span><span class="o">)</span>
+    <span class="k">if</span> <span class="nd">@unit</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="na">unit</span>
+      <span class="n">Speed</span><span class="o">.</span><span class="na">new</span><span class="o">(</span><span class="nd">@value</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="na">value</span><span class="o">,</span> <span class="nd">@unit</span><span class="o">)</span>
+    <span class="k">else</span>
+      <span class="n">self</span>
+    <span class="n">end</span>
+  <span class="n">end</span>
+<span class="n">end</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12918,75 +13274,82 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 </div>
 </div>
 </div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SpaceShip</span>
-  <span class="k">def</span> <span class="nf">initalize</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>
-    <span class="vi">@speed</span> <span class="o">=</span> <span class="n">speed</span>
-  <span class="k">end</span>
-
-  <span class="k">def</span> <span class="nf">accelerate</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>
-    <span class="vi">@speed</span> <span class="o">+=</span> <span class="n">speed</span>
-  <span class="k">end</span>
-<span class="k">end</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">SpaceShip</span>
+  <span class="kt">def</span> <span class="nf">initalize</span><span class="o">(</span><span class="n">speed</span><span class="o">)</span>
+    <span class="nd">@speed</span> <span class="o">=</span> <span class="n">speed</span>
+  <span class="n">end</span>
+    
+  <span class="kt">def</span> <span class="nf">accelerate</span><span class="o">(</span><span class="n">speed</span><span class="o">)</span>
+    <span class="nd">@speed</span> <span class="o">+=</span> <span class="n">speed</span>
+  <span class="n">end</span>
+<span class="n">end</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Speed</span>
-  <span class="kp">attr_reader</span> <span class="ss">:unit</span>
-
-  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">unit</span><span class="p">)</span>
-    <span class="vi">@unit</span> <span class="o">=</span> <span class="n">unit</span>
-  <span class="k">end</span>
-<span class="k">end</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span>
+  <span class="n">attr_reader</span> <span class="o">:</span><span class="n">unit</span>
+  
+  <span class="kt">def</span> <span class="nf">initialize</span><span class="o">(</span><span class="n">unit</span><span class="o">)</span>
+    <span class="nd">@unit</span> <span class="o">=</span> <span class="n">unit</span>
+  <span class="n">end</span>
+<span class="n">end</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Speed1D</span>
-  <span class="kp">attr_reader</span> <span class="ss">:value</span>
-
-  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-    <span class="k">super</span><span class="p">(</span><span class="n">unit</span><span class="p">)</span>
-    <span class="vi">@value</span> <span class="o">=</span> <span class="n">value</span>
-    <span class="vi">@unit</span> <span class="o">=</span> <span class="ss">:KMH</span>
-  <span class="k">end</span>
-<span class="k">end</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed1D</span> <span class="o">&lt;</span> <span class="n">Speed</span>
+  <span class="n">attr_reader</span> <span class="o">:</span><span class="n">value</span>
+  
+  <span class="kt">def</span> <span class="nf">initialize</span><span class="o">(</span><span class="n">unit</span><span class="o">,</span> <span class="n">value</span><span class="o">)</span>
+    <span class="kd">super</span><span class="o">(</span><span class="n">unit</span><span class="o">)</span>
+    <span class="nd">@value</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="nd">@unit</span> <span class="o">=</span> <span class="o">:</span><span class="n">KMH</span>
+  <span class="n">end</span>
+<span class="n">end</span>
 </pre></div>
 
 </div>
 </div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">speed1</span> <span class="o">=</span> <span class="no">Speed1D</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="ss">:MS</span><span class="p">)</span>
-<span class="n">speed1</span><span class="o">.</span><span class="n">unit</span> <span class="c1">#=&gt; :KMH</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">speed1</span> <span class="o">=</span> <span class="n">Speed1D</span><span class="o">.</span><span class="na">new</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="o">:</span><span class="n">MS</span><span class="o">)</span>
+<span class="n">speed1</span><span class="o">.</span><span class="na">unit</span> <span class="err">#</span><span class="o">=&gt;</span> <span class="o">:</span><span class="n">KMH</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12994,9 +13357,94 @@ Wywołuje ono konstruktor z takimi samymi parametrami jak te zdefiniowane w klas
 
 </div>
 </div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Zunifikowany-dost&#281;p-do-atrybut&#243;w">Zunifikowany dost&#281;p do atrybut&#243;w<a class="anchor-link" href="#Zunifikowany-dost&#281;p-do-atrybut&#243;w">&#182;</a></h2>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span>
+  <span class="n">attr_accessor</span> <span class="o">:</span><span class="n">unit</span>
+  
+  <span class="kt">def</span> <span class="nf">initialize</span><span class="o">(</span><span class="n">unit</span><span class="o">)</span>
+    <span class="nd">@unit</span> <span class="o">=</span> <span class="n">unit</span>
+  <span class="n">end</span>
+<span class="n">end</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">speed1</span> <span class="o">=</span> <span class="n">Speed</span><span class="o">(:</span><span class="n">KMH</span><span class="o">)</span>
+<span class="n">speed1</span><span class="o">.</span><span class="na">unit</span> <span class="err">#</span><span class="o">=&gt;</span> <span class="o">:</span><span class="n">KMH</span>
+<span class="n">speed1</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="o">:</span><span class="n">MPH</span>
+<span class="n">speed1</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span>
+<span class="n">speed1</span><span class="o">.</span><span class="na">unit</span> <span class="err">#</span><span class="o">=&gt;</span> <span class="s2">&quot;abc&quot;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Speed</span>
+  <span class="n">attr_reader</span> <span class="o">:</span><span class="n">unit</span>
+  <span class="n">VALID_UNITS</span> <span class="o">=</span> <span class="o">[:</span><span class="n">KMH</span><span class="o">,</span> <span class="o">:</span><span class="n">MPH</span><span class="o">]</span>
+
+  <span class="kt">def</span> <span class="nf">initialize</span><span class="o">(</span><span class="n">unit</span><span class="o">)</span>
+    <span class="nd">@unit</span> <span class="o">=</span> <span class="n">unit</span>
+  <span class="n">end</span>
+
+  <span class="kt">def</span> <span class="n">unit</span><span class="o">=(</span><span class="n">new_value</span><span class="o">)</span>
+    <span class="k">if</span> <span class="n">VALID_UNITS</span><span class="o">.</span><span class="na">include</span><span class="o">?(</span><span class="n">new_value</span><span class="o">)</span>
+      <span class="nd">@unit</span> <span class="o">=</span> <span class="n">new_value</span>
+    <span class="n">end</span>
+  <span class="n">end</span>
+<span class="n">end</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">speed1</span> <span class="o">=</span> <span class="n">Speed</span><span class="o">(:</span><span class="n">KMH</span><span class="o">)</span>
+<span class="n">speed1</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="o">:</span><span class="n">MPH</span>
+<span class="n">speed1</span><span class="o">.</span><span class="na">unit</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span>
+<span class="n">speed1</span><span class="o">.</span><span class="na">unit</span> <span class="err">#</span><span class="o">=&gt;</span> <span class="o">:</span><span class="n">MPH</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13029,8 +13477,7 @@ require(
             progress: true,
             history: true,
 
-            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-            transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+            transition: "slide",
 
             // Optional libraries used to extend on reveal.js
             dependencies: [
@@ -13050,13 +13497,25 @@ require(
 
         Reveal.addEventListener('slidechanged', update);
 
-        var update_scroll = function(event){
-          $(".reveal").scrollTop(0);
-        };
+        function setScrollingSlide() {
+            var scroll = false
+            if (scroll === true) {
+              var h = $('.reveal').height() * 0.95;
+              $('section.present').find('section')
+                .filter(function() {
+                  return $(this).height() > h;
+                })
+                .css('height', 'calc(95vh)')
+                .css('overflow-y', 'scroll')
+                .css('margin-top', '20px');
+            }
+        }
 
-        Reveal.addEventListener('slidechanged', update_scroll);
+        // check and set the scrolling slide every time the slide change
+        Reveal.addEventListener('slidechanged', setScrollingSlide);
 
     }
+
 );
 </script>
 

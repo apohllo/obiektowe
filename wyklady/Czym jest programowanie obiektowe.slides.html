@@ -36,7 +36,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 
 <!-- Loading the mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -58,7 +58,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
     <!-- End of mathjax configuration -->
 
 <!-- Get Font-awesome from cdn -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -67,8 +67,8 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 *
 */
 /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1163,7 +1163,6 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2592,7 +2591,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3083,7 +3081,6 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8814,6 +8811,9 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
+[dir="rtl"] #ipython_notebook {
+  float: right !important;
+}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -9016,8 +9016,14 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
+[dir="rtl"] #tabs li {
+  float: right;
+}
 ul#tabs {
   margin-bottom: 4px;
+}
+[dir="rtl"] ul#tabs {
+  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -9040,6 +9046,16 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
+}
+[dir="rtl"] .list_toolbar .tree-buttons {
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-right {
+  padding-top: 1px;
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-left {
+  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9176,6 +9192,9 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
+[dir="rtl"] #tree-selector a {
+  float: right;
+}
 #button-select-all {
   min-width: 50px;
 }
@@ -9265,6 +9284,9 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
+[dir="rtl"] #new-menu {
+  text-align: right;
+}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9309,6 +9331,9 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
+}
+[dir="rtl"] #running .col-sm-8 {
+  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9605,6 +9630,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9625,11 +9651,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11300,7 +11321,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 20ex;
+  width: 21ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11612,6 +11633,7 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
+  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11625,6 +11647,9 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
+}
+.terminal-app .terminal .xterm-rows {
+  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11685,8 +11710,10 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11697,9 +11724,11 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11747,7 +11776,6 @@ ul.typeahead-list > li > a {
 /* Overrides of notebook CSS for static HTML export */
 .reveal {
   font-size: 160%;
-  overflow-y: scroll;
 }
 .reveal pre {
   width: inherit;
@@ -11777,6 +11805,41 @@ ul.typeahead-list > li > a {
 }
 .reveal .progress {
   position: static;
+}
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #727272;
+}
+.reveal .controls .navigate-left.enabled:hover,
+.reveal .controls .navigate-left.enabled.enabled:hover {
+  border-right-color: #dfdfdf;
+}
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #727272;
+}
+.reveal .controls .navigate-right.enabled:hover,
+.reveal .controls .navigate-right.enabled.enabled:hover {
+  border-left-color: #dfdfdf;
+}
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #727272;
+}
+.reveal .controls .navigate-up.enabled:hover,
+.reveal .controls .navigate-up.enabled.enabled:hover {
+  border-bottom-color: #dfdfdf;
+}
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #727272;
+}
+.reveal .controls .navigate-down.enabled:hover,
+.reveal .controls .navigate-down.enabled.enabled:hover {
+  border-top-color: #dfdfdf;
+}
+.reveal .progress span {
+  background: #727272;
 }
 div.input_area {
   padding: 0.06em;
@@ -11811,6 +11874,19 @@ a.anchor-link {
 .rendered_html p {
   text-align: inherit;
 }
+::-webkit-scrollbar
+{
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar *
+{
+  background:transparent;
+}
+::-webkit-scrollbar-thumb
+{
+  background: #727272 !important;
+}
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
@@ -11825,30 +11901,27 @@ a.anchor-link {
 <div class="reveal">
 <div class="slides">
 <section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Czym-jest-programowanie-obiektowe?">Czym jest programowanie obiektowe?<a class="anchor-link" href="#Czym-jest-programowanie-obiektowe?">&#182;</a></h1><h2 id="Programowanie-imperatywne,-funkcyjne-i-obiektowe">Programowanie imperatywne, funkcyjne i obiektowe<a class="anchor-link" href="#Programowanie-imperatywne,-funkcyjne-i-obiektowe">&#182;</a></h2><p><br/></p>
-<h2 id="dr-in&#380;.-Aleksander-Smywi&#324;ski-Pohl">dr in&#380;. Aleksander Smywi&#324;ski-Pohl<a class="anchor-link" href="#dr-in&#380;.-Aleksander-Smywi&#324;ski-Pohl">&#182;</a></h2><h2 id="apohllo@o2.pl">apohllo@o2.pl<a class="anchor-link" href="#apohllo@o2.pl">&#182;</a></h2><h2 id="http://apohllo.pl"><a href="http://apohllo.pl">http://apohllo.pl</a><a class="anchor-link" href="#http://apohllo.pl">&#182;</a></h2>
+<h2 id="dr-in&#380;.-Aleksander-Smywi&#324;ski-Pohl">dr in&#380;. Aleksander Smywi&#324;ski-Pohl<a class="anchor-link" href="#dr-in&#380;.-Aleksander-Smywi&#324;ski-Pohl">&#182;</a></h2><h2 id="apohllo@agh.edu.pl">apohllo@agh.edu.pl<a class="anchor-link" href="#apohllo@agh.edu.pl">&#182;</a></h2><h2 id="http://apohllo.pl/dydaktyka/programowanie-obiektowe"><a href="http://apohllo.pl/dydaktyka/programowanie-obiektowe">http://apohllo.pl/dydaktyka/programowanie-obiektowe</a><a class="anchor-link" href="#http://apohllo.pl/dydaktyka/programowanie-obiektowe">&#182;</a></h2>
 </div>
 </div>
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Nie można nigdy zapominać o tym, że programy zawsze są interepretowane przez komputer. Jeden paradygmat programowania nie daje nam większych możliwości niż inny, w sensie tego co da się osiągnąć za pomocą komputera. Różnica polega na drodze jaką trzeba pokonać aby to osiągnąć. A także na łatwości <strong>wykrywania błędów</strong> oraz <strong>rozszerzania</strong> istniejących możliwości programu.</p>
+<p>Nie można nigdy zapominać o tym, że programy zawsze są interepretowane przez komputer. Jeden paradygmat programowania nie daje nam większych możliwości niż inny, w sensie tego co da się osiągnąć za pomocą komputera. Różnica polega na drodze jaką trzeba pokonać aby to osiągnąć. A także na łatwości <strong>wykrywania błędów</strong> oraz <strong>rozszerzania</strong> istniejących własności programu.</p>
 
 </div>
 </div>
 </div>
 </aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11857,8 +11930,7 @@ a.anchor-link {
 </div>
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11870,9 +11942,8 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</aside></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11888,8 +11959,7 @@ a.anchor-link {
 </div>
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11898,9 +11968,8 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</aside></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11917,9 +11986,19 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Obecnie programowanie imperatywne w pewnym stopniu wraca do łask za sprawą data science - szybciej jest napisać skrypt przetwarzający dane w stylu imperatywnym. Oczywiście efektem ubocznym jest gorsza jakość kodu, która jednak nie jest kluczowa w tym zastoswoaniu.</p>
+
+</div>
+</div>
+</div>
+</aside></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11928,66 +12007,75 @@ a.anchor-link {
 </div>
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Ewaluacja (obliczenie wyniku) funkcji w czystych językach funkcyjnych dla określonych argumentów (danych) zawsze daje ten sam wynik. Funkcja z języków funkcyjnych modelowana jest na bazie funkcji w matematyce. W językach funkcyjnych nie występują <em>zmienne</em>, w tym sensie, że w danym kontekście określona "zmienna" może być tylko zainicjowana - nie można przypisać jej innej wartości. Nie oznacza to, że zmienna ta przez cały cykl życia programu ma identyczną wartość, ale przy określonym wywołaniu funkcji ma określona wartość.</p>
-<p>Istotnym problemem w językach funkcyjnych są wywołania, które dają skutki uboczne - np. wyświetlenie czegoś na ekranie,
-zapisanie do bazy danych, utworzenie pliku. W językach czysto funkcyjnych realizowane jest to za pomocą mechanizmu monad.</p>
+<p>Istotnym problemem w językach funkcyjnych są wywołania, które dają skutki uboczne - np. wyświetlenie czegoś na ekranie, zapisanie do bazy danych, utworzenie pliku. W językach czysto funkcyjnych realizowane jest to za pomocą mechanizmu monad. Mechniazm ten w uproszczeniu sprowadza się do tego, że otoczenie programu (np. standardowe wyjście) traktowane jest jako specjalna struktura danych, która ulega zmianie po każdym wywołaniu funkcji posiadającej skutki uboczne. Powoduje to utworzenie nowej struktury. Dlatego z punktu widzenia programu funkcyjnego nigdy nie mamy do czynienia z "tym samym" otoczeniem, ponieważ każda interakcja z nim tworzy "nowe otoczenie".</p>
 
 </div>
 </div>
 </div>
-</aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</aside></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Haskell---j&#281;zyk-funkcyjny">Haskell - j&#281;zyk funkcyjny<a class="anchor-link" href="#Haskell---j&#281;zyk-funkcyjny">&#182;</a></h1><div class="highlight"><pre><span></span><span class="nf">silnia</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
-<span class="nf">silnia</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">1</span>
-<span class="nf">silnia</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">silnia</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<h1 id="Haskell---j&#281;zyk-funkcyjny">Haskell - j&#281;zyk funkcyjny<a class="anchor-link" href="#Haskell---j&#281;zyk-funkcyjny">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">silnia</span> <span class="o">::</span> <span class="n">Int</span> <span class="o">-&gt;</span> <span class="n">Int</span>
+<span class="n">silnia</span> <span class="mi">0</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">silnia</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">silnia</span><span class="o">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="o">)</span>
 
-<span class="nf">silnia</span> <span class="mi">5</span> <span class="o">--&gt;</span> <span class="mi">120</span>
+<span class="n">silnia</span> <span class="mi">5</span> <span class="o">--&gt;</span> <span class="mi">120</span>
 
-<span class="nf">znak</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
-<span class="nf">znak</span> <span class="n">x</span> 
-  <span class="o">|</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">=</span> <span class="mi">0</span>
-  <span class="o">|</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="o">-</span><span class="mi">1</span>
-  <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="mi">1</span>
+<span class="n">znak</span> <span class="o">::</span> <span class="n">Int</span> <span class="o">-&gt;</span> <span class="n">Int</span>
+<span class="n">znak</span> <span class="n">x</span> 
+  <span class="o">|</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="o">|</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+  <span class="o">|</span> <span class="n">otherwise</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="nf">znak</span> <span class="mi">10</span> <span class="o">--&gt;</span> <span class="mi">1</span>
-<span class="nf">znak</span> <span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">znak</span> <span class="mi">10</span> <span class="o">--&gt;</span> <span class="mi">1</span>
+<span class="n">znak</span> <span class="o">(-</span><span class="mi">10</span><span class="o">)</span> <span class="o">--&gt;</span> <span class="o">-</span><span class="mi">1</span>
 </pre></div>
 
 </div>
 </div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="nf">pierwiastki</span> <span class="ow">::</span> <span class="kt">Double</span> <span class="ow">-&gt;</span> <span class="kt">Double</span> <span class="ow">-&gt;</span> <span class="kt">Double</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Double</span><span class="p">]</span>
-<span class="nf">pierwiastki</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span>
-  <span class="o">|</span> <span class="n">delta</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="kt">[]</span>
-  <span class="o">|</span> <span class="n">delta</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">=</span> <span class="p">[</span><span class="o">-</span> <span class="n">b</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)]</span>
-  <span class="o">|</span> <span class="n">delta</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">=</span> <span class="p">[(</span><span class="o">-</span> <span class="n">b</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span> <span class="n">b</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)]</span>
-  <span class="kr">where</span>
-    <span class="n">delta</span> <span class="ow">=</span> <span class="n">b</span> <span class="o">^</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span>
 
-<span class="nf">pierwiastki</span> <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span> <span class="mi">1</span> <span class="mi">2</span>
-<span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="o">-</span><span class="mf">0.6666666666666666</span><span class="p">]</span>
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">pierwiastki</span> <span class="o">::</span> <span class="n">Double</span> <span class="o">-&gt;</span> <span class="n">Double</span> <span class="o">-&gt;</span> <span class="n">Double</span> <span class="o">-&gt;</span> <span class="o">[</span><span class="n">Double</span><span class="o">]</span>
+<span class="n">pierwiastki</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span>
+  <span class="o">|</span> <span class="n">delta</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">=</span> <span class="o">[]</span>
+  <span class="o">|</span> <span class="n">delta</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">=</span> <span class="o">[-</span> <span class="n">b</span> <span class="s">/ (2 * a)]</span>
+<span class="s">  | delta &gt; 0 = [(- b - sqrt(delta)) /</span> <span class="o">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="o">),</span> <span class="o">(-</span> <span class="n">b</span> <span class="o">+</span> <span class="n">sqrt</span><span class="o">(</span><span class="n">delta</span><span class="o">))</span> <span class="o">/</span> <span class="o">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="o">)]</span>
+  <span class="n">where</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">b</span> <span class="o">^</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span>
+    
+<span class="n">pierwiastki</span> <span class="o">(-</span><span class="mi">3</span><span class="o">)</span> <span class="mi">1</span> <span class="mi">2</span>
+<span class="o">[</span><span class="mf">1.0</span><span class="o">,-</span><span class="mf">0.6666666666666666</span><span class="o">]</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11997,25 +12085,26 @@ zapisanie do bazy danych, utworzenie pliku. W językach czysto funkcyjnych reali
 </div>
 </div>
 </aside></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="nf">rownanie_kwadratowe</span> <span class="ow">::</span> <span class="kt">Double</span> <span class="ow">-&gt;</span> <span class="kt">Double</span> <span class="ow">-&gt;</span> <span class="kt">Double</span> <span class="ow">-&gt;</span> <span class="kt">Double</span> <span class="ow">-&gt;</span> <span class="kt">Double</span>
-<span class="nf">rownanie_kwadratowe</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">^</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">rownanie_kwadratowe</span> <span class="o">::</span> <span class="n">Double</span> <span class="o">-&gt;</span> <span class="n">Double</span> <span class="o">-&gt;</span> <span class="n">Double</span> <span class="o">-&gt;</span> <span class="n">Double</span> <span class="o">-&gt;</span> <span class="n">Double</span>
+<span class="n">rownanie_kwadratowe</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="n">x</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">^</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span>
 
-<span class="nf">jakas_funkcja_kwadratowa</span> <span class="ow">::</span> <span class="kt">Double</span> <span class="ow">-&gt;</span> <span class="kt">Double</span>
-<span class="nf">jakas_funkcja_kwadratowa</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">rownanie_kwadratowe</span> <span class="mi">1</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="mi">5</span> <span class="n">x</span>
-<span class="nf">jakas_funkcja_kwadratowa</span> <span class="mi">10</span> <span class="c1">-- &gt; 95.0</span>
+<span class="n">jakas_funkcja_kwadratowa</span> <span class="o">::</span> <span class="n">Double</span> <span class="o">-&gt;</span> <span class="n">Double</span>
+<span class="n">jakas_funkcja_kwadratowa</span> <span class="n">x</span> <span class="o">=</span> <span class="n">rownanie_kwadratowe</span> <span class="mi">1</span> <span class="o">(-</span><span class="mi">1</span><span class="o">)</span> <span class="mi">5</span> <span class="n">x</span>
+<span class="n">jakas_funkcja_kwadratowa</span> <span class="mi">10</span> <span class="o">--</span> <span class="o">&gt;</span> <span class="mf">95.0</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12025,25 +12114,26 @@ zapisanie do bazy danych, utworzenie pliku. W językach czysto funkcyjnych reali
 </div>
 </div>
 </aside></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="nf">razy_dwa</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
-<span class="nf">razy_dwa</span> <span class="n">x</span> <span class="ow">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">razy_dwa</span> <span class="o">::</span> <span class="n">Int</span> <span class="o">-&gt;</span> <span class="n">Int</span>
+<span class="n">razy_dwa</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
 
-<span class="nf">map</span> <span class="n">razy_dwa</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span> <span class="c1">-- &gt; [2,4,6,8,10,12,14,16,18,20]</span>
+<span class="n">map</span> <span class="n">razy_dwa</span> <span class="o">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="o">]</span> <span class="o">--</span> <span class="o">&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">8</span><span class="o">,</span><span class="mi">10</span><span class="o">,</span><span class="mi">12</span><span class="o">,</span><span class="mi">14</span><span class="o">,</span><span class="mi">16</span><span class="o">,</span><span class="mi">18</span><span class="o">,</span><span class="mi">20</span><span class="o">]</span>
 
-<span class="nf">map</span> <span class="p">(</span><span class="nf">\</span><span class="n">x</span> <span class="ow">-&gt;</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span> <span class="c1">-- &gt; [3,6,9,12,15,18,21,24,27,30]</span>
+<span class="n">map</span> <span class="o">(</span><span class="err">\</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">3</span><span class="o">)</span> <span class="o">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="o">]</span> <span class="o">--</span> <span class="o">&gt;</span> <span class="o">[</span><span class="mi">3</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">9</span><span class="o">,</span><span class="mi">12</span><span class="o">,</span><span class="mi">15</span><span class="o">,</span><span class="mi">18</span><span class="o">,</span><span class="mi">21</span><span class="o">,</span><span class="mi">24</span><span class="o">,</span><span class="mi">27</span><span class="o">,</span><span class="mi">30</span><span class="o">]</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12053,9 +12143,8 @@ zapisanie do bazy danych, utworzenie pliku. W językach czysto funkcyjnych reali
 </div>
 </div>
 </div>
-</aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</aside></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12072,87 +12161,203 @@ zapisanie do bazy danych, utworzenie pliku. W językach czysto funkcyjnych reali
 
 </div>
 </div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Program-obiektowe">Program obiektowe<a class="anchor-link" href="#Program-obiektowe">&#182;</a></h2><h3 id="Obiekty-+-interakcje-=-programy">Obiekty + interakcje = programy<a class="anchor-link" href="#Obiekty-+-interakcje-=-programy">&#182;</a></h3>
-</div>
-</div>
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Program obiektowy stara się odzwierciedlać jeden z najbardziej podstawowych sposobów myślenia o świecie - myślenie wykorzystujące <em>obiekty</em>. W tym ujęciu obiekt jest podstawowym elementem rzeczywistości - posiada unikalna tożsamość,
-ale może zmieniać swój <em>stan</em>. Interakcje obiektu ze światem zewnętrznym odbywają się za pomocą wymiany komunikatów.
-Istotnymi momentami w cyklu życia obiektu są inicjacja - utworzenie obiektu oraz destrukcja - moment, w którym obiekt przestaje istnieć. Pomiędzy nimi obiekt może ulegać różnym przemianom, ale zachowuje swoją tożsamość.</p>
+<p>Funkcyjny styl programowania również zyskuje w kontekście data science, ponieważ stan obliczeń realizowanych np. w klastrze Spark powinien być odtwarzalny, tzn. jeśli który węzeł klastra nie wykona obliczenia, to można je bez problemu przenieść na inny węzeł. Byłoby to znacznie trudniejsze, gdyby obliczenie wywoływało skutki uboczne istotne z punktu widzenia wykonywanych obliczeń (np. wysłanie wiadomości e-mail).</p>
 
 </div>
 </div>
 </div>
 </aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Kahoot-nr-1">Kahoot nr 1<a class="anchor-link" href="#Kahoot-nr-1">&#182;</a></h1><p><a href="https://kahoot.it/">https://kahoot.it/</a></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Programy-obiektowe">Programy obiektowe<a class="anchor-link" href="#Programy-obiektowe">&#182;</a></h1><h3 id="Obiekty-+-wymiana-komunikat&#243;w-=-programy">Obiekty + wymiana komunikat&#243;w = programy<a class="anchor-link" href="#Obiekty-+-wymiana-komunikat&#243;w-=-programy">&#182;</a></h3>
+</div>
+</div>
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Program obiektowy stara się odzwierciedlać jeden z najbardziej podstawowych sposobów myślenia o świecie - myślenie wykorzystujące <em>obiekty</em>. W tym ujęciu obiekt jest podstawowym elementem rzeczywistości - posiada unikalną tożsamość,
+ale może zmieniać swój <em>stan</em>. Interakcje obiektu ze światem zewnętrznym odbywają się za pomocą wymiany komunikatów.</p>
+
+</div>
+</div>
+</div>
+</aside></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Cykl-&#380;ycia-obiektu">Cykl &#380;ycia obiektu<a class="anchor-link" href="#Cykl-&#380;ycia-obiektu">&#182;</a></h1><p><img src="img/frog.jpg"/></p>
+
+</div>
+</div>
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Istotnymi momentami w cyklu życia obiektu są inicjacja - utworzenie obiektu oraz destrukcja - moment, w którym obiekt przestaje istnieć. Pomiędzy nimi obiekt może ulegać różnym przemianom, ale zachowuje swoją tożsamość. Podobnie jak żaba na rysunku - najpierw jest skrzekiem, potem kijanką, której w pewnym momencie wyrastają nogi, potem zaś jest żabą z ogonem, a na końcu dorosłą żabą, która może "tworzyć nowe żaby". Pomimo różnego stanu jest to ciągle "ta sama żaba".</p>
+<p>W dużym uproszczeniu można by powiedzieć, że obiekt to po prostu pewien obszar pamięci danych, zatem utworzenie obiektu to alokacja pamięci, jego destrukcja, to zwolnienie tej pamięci, a wszystki co jest pomiędzy, to po prostu zmiany stanu pamięci. Różnica dotyczy jednak faktu, że w trakcie tworzenie obiektu, jego destrukcji oraz pomiędzy tymi momentami może następować wiele wymian komunikatów, co zasadniczo zmienia sposób myślenia o tym jak rozumiemy ten "obszar pamięci". Myślenie obiektowy narzuca nam zupełnie inny sposób myślenia - odrywamy się od myślenia w kategoriach sprzętu i przechodzimy do myślenia w kategoriach obiektów i ich interakcji.</p>
+
+</div>
+</div>
+</div>
+</aside></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Frog</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">numberOfLegs</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="nf">Frog</span><span class="o">(){</span>
+        <span class="n">numberOfLegs</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">Frog</span> <span class="n">kermit</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Frog</span><span class="o">();</span>
+<span class="n">kermit</span><span class="o">.</span><span class="na">numberOfLegs</span><span class="o">;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Wymiana-komunikat&#243;w">Wymiana komunikat&#243;w<a class="anchor-link" href="#Wymiana-komunikat&#243;w">&#182;</a></h1><p><img src="img/kermit_talking.gif"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Frog</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">numberOfLegs</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="nf">Frog</span><span class="o">(){</span>
+        <span class="n">numberOfLegs</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">grow</span><span class="o">(){</span>
+        <span class="n">numberOfLegs</span> <span class="o">+=</span> <span class="mi">2</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">Frog</span> <span class="n">kermit</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Frog</span><span class="o">();</span>
+<span class="n">kermit</span><span class="o">.</span><span class="na">grow</span><span class="o">();</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">kermit</span><span class="o">.</span><span class="na">numberOfLegs</span><span class="o">);</span>
+<span class="n">kermit</span><span class="o">.</span><span class="na">grow</span><span class="o">();</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">kermit</span><span class="o">.</span><span class="na">numberOfLegs</span><span class="o">);</span>
+<span class="n">kermit</span><span class="o">.</span><span class="na">grow</span><span class="o">();</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">kermit</span><span class="o">.</span><span class="na">numberOfLegs</span><span class="o">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/6legs.jpg"/></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Typowe-cechy-j&#281;zyk&#243;w-obiektowych">Typowe cechy j&#281;zyk&#243;w obiektowych<a class="anchor-link" href="#Typowe-cechy-j&#281;zyk&#243;w-obiektowych">&#182;</a></h1><ul>
-<li>abstrakcja</li>
-<li>ukrywanie implementacji</li>
-<li>przesyłanie komunikatów</li>
-<li>polimorfizm</li>
-<li>dziedziczenie</li>
+<li><em>abstrakcja</em> (od typów sprzętowych)</li>
+<li><em>ukrywanie implementacji</em> (przed innymi obiektami)</li>
+<li><em>przesyłanie komunikatów</em> (pomiędzy obiektami)</li>
+<li><em>polimorfizm</em> (zachowania)</li>
+<li><em>dziedziczenie</em> (interfesju i/lub implementacji)</li>
 </ul>
 
 </div>
 </div>
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><em>Abstrakcja</em> - w kontraście do konkretnych typów dostępnych na danej maszynie cyfrowej, pozwala tworzyć nowe typy danych, którch zachowanie definiowane jest przez użytkownika.</p>
-<p><em>Ukrywanie implementacji</em> (hermetyzacja) - zmiana stanu obiektu odbywa się poprzez zdefiniowany interfejs (zbiór metod).</p>
-<p><em>Przesyłanie komunikatów</em> - obiekty komunikują się ze sobą wysyłając komunikaty. Wykonanie określonego zadania może zostać zrealizowane poprzez przekazanie komunikatów do innego obiektu lub obiektów (delegowanie komunikatów).</p>
-<p><em>Polimorfizm</em> - możliwość zastępowania jednych obiektów, innymi o ile implementują ten sam interfejs.</p>
-<p><em>Dziedziczenie</em> - mechanizm pozwalający na ograniczanie powtarzania kodu, poprzez określanie wspólnego zachowania obiektu w klasie nadrzędnej.</p>
-<p>W trakcie kolejnych wykładów będziemy przyglądać się tym pojęciom i sposobie ich realizacji w różnych językach programowania.</p>
+<p><em>Abstrakcja</em> - w kontraście do konkretnych typów dostępnych na danej maszynie cyfrowej (np. typ całkowity o długości 64bitów bez znaku), pozwala tworzyć nowe typy danych, którch zachowanie definiowane jest przez użytkownika.</p>
+<p><em>Ukrywanie implementacji</em> (hermetyzacja) - zmiana stanu obiektu odbywa się poprzez zdefiniowany interfejs (zbiór metod). Inne obiekty nie mają "bezpośredniego" (innego niż przez wywoływanie metod) dostępu do wewnętrznego stanu obiektu.</p>
+<p><em>Przesyłanie komunikatów</em> - obiekty komunikują się ze sobą wysyłając komunikaty. Wykonanie określonego zadania może zostać zrealizowane poprzez przekazanie komunikatów do innego obiektu lub obiektów (delegowanie komunikatów). Obiekt często "nie wiem" z jakim innym obiektem (jakiego typu) się komunikuje. Jedyne co musi wiedzieć, to jaki jest interfejs komunikacyjny - jaki jest format wiadomości wysyłanej i odbieranej.</p>
+<p><em>Polimorfizm</em> - możliwość zastępowania jednych obiektów, innymi o ile implementują ten sam interfejs. Pozwala na dużą elastyczność programowania, ponieważ możmy zastąpić jeden obiekt innym, np. o bardziej pożądanych cechach. Możemy również odroczyć decyzję o użyciu konkretnej implementacji do momentu kiedy program zostanie uruchomiony.</p>
+<p><em>Dziedziczenie</em> - mechanizm pozwalający na ograniczanie powtarzania kodu, poprzez określanie wspólnego zachowania dla grup obiektów, które mogą podobne pod jednym względem, ale różnić się pod innym względem.</p>
+<p>W trakcie kolejnych wykładów będziemy przyglądać się tym pojęciom i sposobom ich realizacji w różnych językach programowania.</p>
 
 </div>
 </div>
 </div>
 </aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Abstrakcja">Abstrakcja<a class="anchor-link" href="#Abstrakcja">&#182;</a></h1><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">complex</span> <span class="p">{</span>
-  <span class="kt">double</span> <span class="n">re</span><span class="p">;</span>
-  <span class="kt">double</span> <span class="n">im</span><span class="p">;</span>
-<span class="p">}</span>
+<h1 id="Abstrakcja">Abstrakcja<a class="anchor-link" href="#Abstrakcja">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">struct</span> <span class="n">complex</span> <span class="o">{</span>
+  <span class="kt">double</span> <span class="n">re</span><span class="o">;</span>
+  <span class="kt">double</span> <span class="n">im</span><span class="o">;</span>
+<span class="o">}</span>
 
-<span class="k">struct</span> <span class="n">complex</span> <span class="n">cpx_add</span><span class="p">(</span><span class="k">struct</span> <span class="n">complex</span> <span class="n">arg1</span><span class="p">,</span> <span class="k">struct</span> <span class="n">complex</span> <span class="n">arg2</span><span class="p">){</span>
-  <span class="k">struct</span> <span class="n">complex</span> <span class="n">result</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">complex</span><span class="p">));</span>
-  <span class="n">result</span><span class="p">.</span><span class="n">re</span> <span class="o">=</span> <span class="n">arg1</span><span class="p">.</span><span class="n">re</span> <span class="o">+</span> <span class="n">arg2</span><span class="p">.</span><span class="n">re</span><span class="p">;</span>
-  <span class="n">result</span><span class="p">.</span><span class="n">im</span> <span class="o">=</span> <span class="n">arg1</span><span class="p">.</span><span class="n">im</span> <span class="o">+</span> <span class="n">arg2</span><span class="p">.</span><span class="n">im</span><span class="p">;</span>
-  <span class="n">resturn</span> <span class="n">result</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="n">struct</span> <span class="n">complex</span> <span class="nf">cpx_add</span><span class="o">(</span><span class="n">struct</span> <span class="n">complex</span> <span class="n">arg1</span><span class="o">,</span> <span class="n">struct</span> <span class="n">complex</span> <span class="n">arg2</span><span class="o">){</span>
+  <span class="n">struct</span> <span class="n">complex</span> <span class="n">result</span> <span class="o">=</span> <span class="n">malloc</span><span class="o">(</span><span class="n">sizeof</span><span class="o">(</span><span class="n">complex</span><span class="o">));</span>
+  <span class="n">result</span><span class="o">.</span><span class="na">re</span> <span class="o">=</span> <span class="n">arg1</span><span class="o">.</span><span class="na">re</span> <span class="o">+</span> <span class="n">arg2</span><span class="o">.</span><span class="na">re</span><span class="o">;</span>
+  <span class="n">result</span><span class="o">.</span><span class="na">im</span> <span class="o">=</span> <span class="n">arg1</span><span class="o">.</span><span class="na">im</span> <span class="o">+</span> <span class="n">arg2</span><span class="o">.</span><span class="na">im</span><span class="o">;</span>
+  <span class="n">resturn</span> <span class="n">result</span><span class="o">;</span>
+<span class="o">}</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12161,50 +12366,62 @@ Istotnymi momentami w cyklu życia obiektu są inicjacja - utworzenie obiektu or
 </div>
 </div>
 </div>
-</aside></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</aside></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Abstrakcja-w-j&#281;zykach-obiektowych">Abstrakcja w j&#281;zykach obiektowych<a class="anchor-link" href="#Abstrakcja-w-j&#281;zykach-obiektowych">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Complex</span> <span class="o">{</span>
+<h1 id="Abstrakcja-w-j&#281;zykach-obiektowych">Abstrakcja w j&#281;zykach obiektowych<a class="anchor-link" href="#Abstrakcja-w-j&#281;zykach-obiektowych">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Complex</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kt">double</span> <span class="n">re</span><span class="o">;</span>
     <span class="kd">public</span> <span class="kt">double</span> <span class="n">im</span><span class="o">;</span>
-
+    
     <span class="kd">public</span> <span class="nf">Complex</span><span class="o">(</span><span class="kt">double</span> <span class="n">re</span><span class="o">,</span> <span class="kt">double</span> <span class="n">im</span><span class="o">){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">re</span> <span class="o">=</span> <span class="n">re</span><span class="o">;</span>
         <span class="k">this</span><span class="o">.</span><span class="na">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">;</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="n">Complex</span> <span class="nf">add</span><span class="o">(</span><span class="n">Complex</span> <span class="n">other</span><span class="o">){</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="n">Complex</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">re</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="na">re</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">im</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="na">im</span><span class="o">);</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Complex</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">re</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="na">re</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">im</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="na">im</span><span class="o">);</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">(){</span>
-        <span class="k">return</span> <span class="s">&quot;Re: &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">re</span> <span class="o">+</span> <span class="s">&quot;, Im: &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">im</span><span class="o">;</span>
+        <span class="k">return</span> <span class="s2">&quot;Re: &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">re</span> <span class="o">+</span> <span class="s2">&quot;, Im: &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">im</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
+<span class="kc">null</span>
 </pre></div>
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">Complex</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Complex</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">);</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">Complex</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Complex</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">);</span>
 <span class="n">Complex</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Complex</span><span class="o">(-</span><span class="mi">2</span><span class="o">,-</span><span class="mi">1</span><span class="o">);</span>
-<span class="n">Complex</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">b</span><span class="o">);</span>            <span class="c1">// -&gt; Complex(1,1)</span>
+<span class="n">Complex</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">b</span><span class="o">);</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12214,35 +12431,20 @@ Istotnymi momentami w cyklu życia obiektu są inicjacja - utworzenie obiektu or
 </div>
 </div>
 </aside></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Cykl-&#380;ycia-obiektu">Cykl &#380;ycia obiektu<a class="anchor-link" href="#Cykl-&#380;ycia-obiektu">&#182;</a></h1><p><img src="img/Vehicle-life-cycle.jpg" width="1000"/></p>
-
+<h1 id="Hermetyzacja">Hermetyzacja<a class="anchor-link" href="#Hermetyzacja">&#182;</a></h1>
 </div>
 </div>
-</div><aside class="notes">
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Programowanie obiektowe wzoruje się na zwykłych obiektach znanych nam z życia codziennego. Przykładem może być samochód. W trakcie produkcji samochodu nadawany jest mu numer VIN, który jest unikalny dla każdego samochodu. Jest on wybity na karoserii, dlatego zniszczenie karoserii można uznać za koniec cyklu życia samochodu. W trakcie cyklu życia jego stan  może ulec różnym zmianom: zmienia się cechy takie jak poziom paliwa, czy płynu hamulcowego, samochód może stać lub się poruszać, wybite okno może zostać zastąpione innym, kolor samochodu może zostać zmieniony, może zmienić się jego właściciel oraz tablice rejestracyjne. Ale tożsamość samochodu jest cały czas taka sama.</p>
-<p>Programowanie obiektowe czerpie z tego sposobu myślenia i wprowadza je w dziedzinę programowania.</p>
-
-</div>
-</div>
-</div>
-</aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Cechy-oraz-zwi&#261;zki-obiektu">Cechy oraz zwi&#261;zki obiektu<a class="anchor-link" href="#Cechy-oraz-zwi&#261;zki-obiektu">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Car</span> <span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Car</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="n">String</span> <span class="n">vin</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">Color</span> <span class="n">color</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">Person</span> <span class="n">owner</span><span class="o">;</span>
@@ -12252,23 +12454,23 @@ Istotnymi momentami w cyklu życia obiektu są inicjacja - utworzenie obiektu or
 
 </div>
 </div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Cechy oraz związki w programowaniu obietkowym reprezentowane są najczęściej za pomocą <em>atrybutów</em>.
-Cechy mogą mieć charakter statyczny - np. VIN oraz dynamiczny - np. prędkość. Zmiana wartości cech powinna obywać się za pomocą dobrze zdefiniowanego interfejsu, dlatego atrybuty najczęściej są <em>prywatne</em>. Oznacza to, że tylko obiekt sam oraz obiekty tej samej klasy mogą modyfikować wartości jego atrybutów.</p>
+Cechy mogą mieć charakter statyczny - np. VIN oraz dynamiczny - np. prędkość. Zmiana wartości cech powinna obywać się za pomocą dobrze zdefiniowanego interfejsu, dlatego atrybuty najczęściej są <em>prywatne</em>. Oznacza to, że tylko sam obiekt oraz obiekty tej samej klasy mogą modyfikować wartości jego atrybutów.</p>
 <p>Nazwy cech i związków powinny być rzeczownikami. W Javie nazwa klasy pisana jest wielką literą, natomiast atrbuty pisane są małą literą. W obu przypadkach stosowana jest notacja wielbłądzia</p>
 
 </div>
 </div>
 </div>
-</aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</aside></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12278,8 +12480,7 @@ Cechy mogą mieć charakter statyczny - np. VIN oraz dynamiczny - np. prędkoś�
 </div>
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12289,13 +12490,12 @@ Cechy mogą mieć charakter statyczny - np. VIN oraz dynamiczny - np. prędkoś�
 </div>
 </div>
 </aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Rodzaje-notacji---dygresja">Rodzaje notacji - dygresja<a class="anchor-link" href="#Rodzaje-notacji---dygresja">&#182;</a></h1><ul>
-<li><code>PascalCase</code> - notacja Pascala</li>
+<li><code>PascalCase</code> - notacja Pascalowska</li>
 <li><code>camelCase</code> - notacja wielbłądzia</li>
 <li><code>snake_case</code> - notacja z pokreśleniami (wężowa?)</li>
 <li><code>lisp-case</code> - notacja lispowa (choć bardziej odpowiada nam szaszłykowa)</li>
@@ -12304,97 +12504,83 @@ Cechy mogą mieć charakter statyczny - np. VIN oraz dynamiczny - np. prędkoś�
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Powstawanie-obiektu">Powstawanie obiektu<a class="anchor-link" href="#Powstawanie-obiektu">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">enum</span> <span class="n">Color</span> <span class="o">{</span>
-    <span class="n">Red</span><span class="o">,</span>
-    <span class="n">Green</span><span class="o">,</span>
-    <span class="n">Blue</span>
-<span class="o">}</span>
-</pre></div>
-
+<h1 id="Hermetyzacja">Hermetyzacja<a class="anchor-link" href="#Hermetyzacja">&#182;</a></h1>
 </div>
 </div>
 </div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">surname</span><span class="o">;</span>
-
-    <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">surname</span><span class="o">){</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">surname</span> <span class="o">=</span> <span class="n">surname</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">(){</span>
-        <span class="k">return</span> <span class="s">&quot;imię: &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">+</span> <span class="s">&quot;, nazwisko: &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">surname</span><span class="o">;</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Car</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Color</span> <span class="n">color</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">paint</span><span class="o">(</span><span class="n">Color</span> <span class="n">newColor</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">color</span> <span class="o">=</span> <span class="n">newColor</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
 
 </div>
 </div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</div>
+
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">Person</span> <span class="n">baltazar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="o">(</span><span class="s">&quot;Baltazar&quot;</span><span class="o">,</span> <span class="s">&quot;Gąbka&quot;</span><span class="o">);</span>
-</pre></div>
+<p>Ukrywanie implementacji oznacza, że <em>zmiany stanu</em> obiektu realizowane są za pomocą ściśle zdefiniowanego interfejsu. Inne obiekty nie mogą swobodnie manipulować atrybutami. Dzięki temu ogranicza się liczbę punktów styku pomiędzy obiektami, co pozytywnie wpływa na możliwość późniejszej modyfikacji zachowania obiektu.</p>
 
 </div>
 </div>
-</div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</div>
+</aside></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Powstawanie-obiektu">Powstawanie obiektu<a class="anchor-link" href="#Powstawanie-obiektu">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Car</span> <span class="o">{</span>
+<h1 id="Hermetyzacja-a-powstawanie-obiektu">Hermetyzacja a powstawanie obiektu<a class="anchor-link" href="#Hermetyzacja-a-powstawanie-obiektu">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Car</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="n">String</span> <span class="n">vin</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="n">Color</span> <span class="n">color</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="n">Person</span> <span class="n">owner</span><span class="o">;</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">speed</span><span class="o">;</span>
 
-    <span class="kd">public</span> <span class="nf">Car</span><span class="o">(</span><span class="n">String</span> <span class="n">vin</span><span class="o">,</span> <span class="n">Color</span> <span class="n">color</span><span class="o">,</span> <span class="n">Person</span> <span class="n">owner</span><span class="o">){</span>
+    <span class="kd">public</span> <span class="nf">Car</span><span class="o">(</span><span class="n">String</span> <span class="n">vin</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">vin</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">!=</span> <span class="mi">17</span><span class="o">)</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="s2">&quot;Invalid VIN!&quot;</span><span class="o">);</span>
         <span class="k">this</span><span class="o">.</span><span class="na">vin</span> <span class="o">=</span> <span class="n">vin</span><span class="o">;</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">color</span> <span class="o">=</span> <span class="n">color</span><span class="o">;</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">owner</span> <span class="o">=</span> <span class="n">owner</span><span class="o">;</span>
         <span class="k">this</span><span class="o">.</span><span class="na">speed</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
     <span class="o">}</span>
 
     <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">(){</span>
-        <span class="k">return</span> <span class="s">&quot;VIN: &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">vin</span> <span class="o">+</span> <span class="s">&quot;, kolor: &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">color</span> <span class="o">+</span>
-            <span class="s">&quot;, właściciel: &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">owner</span> <span class="o">+</span> <span class="s">&quot;, prędkość: &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">speed</span><span class="o">;</span>
+        <span class="k">return</span> <span class="s2">&quot;VIN: &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">vin</span> <span class="o">+</span> <span class="s2">&quot;, prędkość: &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">speed</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
+
+<span class="n">Car</span> <span class="n">brandNewCar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Car</span><span class="o">(</span><span class="s2">&quot;1FTWW33P34EB00251&quot;</span><span class="o">);</span>
 </pre></div>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">Car</span> <span class="n">baltazarsCar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Car</span><span class="o">(</span><span class="s">&quot;24-564&quot;</span><span class="o">,</span> <span class="n">Color</span><span class="o">.</span><span class="na">Green</span><span class="o">,</span> <span class="n">baltazar</span><span class="o">);</span>
-</pre></div>
 
-</div>
-</div>
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12403,77 +12589,108 @@ Tworzenie obiektów tylko za pomocą konstruktora umożliwia zabezpieczenie się
 Wywołanie konstruktora następuje w Javie za pomocą słowa kluczowego <code>new</code>, które odpowiedzialne jest za zaalokowanie odpowiedniej struktury pamięci oraz inicjalizację obiektu. W Javie nie występują destruktory, a za zwalnianie pamięci
 odpowiedzialny jest śmieciarz (garbage collector).</p>
 <p>Konstruktor najczęściej jest <em>publiczny</em>, co oznacza, że inne obiekty mogą tworzyć obiekt danego rodzaju.
-Przykładowo - nowoutworzony samochód ma domyślnie prędkość określoną na 0, a pozostałe atrybuty określane są w "fabryce".
-Wartość <code>null</code> to specjalna wartość pusta, która w tym kontekście oznacza, że samochód nie ma właściciela.</p>
+Przykładowo - nowoutworzony samochód ma domyślnie prędkość określoną na 0, a numer VIN określany jest w "fabryce".
+Konstruktor weryfikuje poprawność numeru VIN - jeśli jest on niepoprawny, to rzucany jest <em>wyjątek</em>.</p>
 
 </div>
 </div>
 </div>
-</aside></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</aside></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="https://i.ytimg.com/vi/dGc5HYKlTcA/hqdefault.jpg" alt="Baltazar Gąbka"></p>
-
+<h1 id="Wymiana-komunikat&#243;w---odczyt-oraz-zmiana-stanu">Wymiana komunikat&#243;w - odczyt oraz zmiana stanu<a class="anchor-link" href="#Wymiana-komunikat&#243;w---odczyt-oraz-zmiana-stanu">&#182;</a></h1>
 </div>
 </div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Komunikaty---odczyt-oraz-zmiana-stanu">Komunikaty - odczyt oraz zmiana stanu<a class="anchor-link" href="#Komunikaty---odczyt-oraz-zmiana-stanu">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Car</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">vin</span><span class="o">;</span> <span class="kd">private</span> <span class="n">Color</span> <span class="n">color</span><span class="o">;</span> 
-    <span class="kd">private</span> <span class="n">Person</span> <span class="n">owner</span><span class="o">;</span> <span class="kd">private</span> <span class="kt">int</span> <span class="n">speed</span><span class="o">;</span>
-
-    <span class="kd">public</span> <span class="nf">Car</span><span class="o">(</span><span class="n">String</span> <span class="n">vin</span><span class="o">,</span> <span class="n">Color</span> <span class="n">color</span><span class="o">,</span> <span class="n">Person</span> <span class="n">owner</span><span class="o">){</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">vin</span> <span class="o">=</span> <span class="n">vin</span><span class="o">;</span> <span class="k">this</span><span class="o">.</span><span class="na">color</span> <span class="o">=</span> <span class="n">color</span><span class="o">;</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">owner</span> <span class="o">=</span> <span class="n">owner</span><span class="o">;</span> <span class="k">this</span><span class="o">.</span><span class="na">speed</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Car</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">vin</span><span class="o">;</span> 
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">speed</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="nf">Car</span><span class="o">(</span><span class="n">String</span> <span class="n">vin</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">vin</span> <span class="o">=</span> <span class="n">vin</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">speed</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getSpeed</span><span class="o">(){</span>
         <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">speed</span><span class="o">;</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">(){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">speed</span> <span class="o">=</span> <span class="mi">30</span><span class="o">;</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">stop</span><span class="o">(){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">speed</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
     <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sell</span><span class="o">(</span><span class="n">Person</span> <span class="n">newOwner</span><span class="o">){</span>
-       <span class="k">this</span><span class="o">.</span><span class="na">owner</span> <span class="o">=</span> <span class="n">newOwner</span><span class="o">;</span>
-    <span class="o">}</span>
 <span class="o">}</span>
+<span class="n">Car</span> <span class="n">car</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Car</span><span class="o">(</span><span class="s2">&quot;1FTWW33P34EB00251&quot;</span><span class="o">);</span>
 </pre></div>
 
 </div>
 </div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">Car</span> <span class="n">car</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Car</span><span class="o">(</span><span class="s">&quot;24-564&quot;</span><span class="o">,</span> <span class="n">Color</span><span class="o">.</span><span class="na">Green</span><span class="o">,</span> <span class="n">baltazar</span><span class="o">);</span>
-<span class="n">car</span><span class="o">.</span><span class="na">getSpeed</span><span class="o">();</span> <span class="c1">// -&gt; 0</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">Car</span> <span class="n">car</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Car</span><span class="o">(</span><span class="s2">&quot;1FTWW33P34EB00251&quot;</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">car</span><span class="o">.</span><span class="na">getSpeed</span><span class="o">());</span> 
 <span class="n">car</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
-<span class="n">car</span><span class="o">.</span><span class="na">getSpeed</span><span class="o">();</span> <span class="c1">// -&gt; 30</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">car</span><span class="o">.</span><span class="na">getSpeed</span><span class="o">());</span>
 <span class="n">car</span><span class="o">.</span><span class="na">stop</span><span class="o">();</span>
-<span class="n">car</span><span class="o">.</span><span class="na">getSpeed</span><span class="o">();</span> <span class="c1">// -&gt; 0</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">car</span><span class="o">.</span><span class="na">getSpeed</span><span class="o">());</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0
+30
+0
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[37]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>No Outputs</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12483,30 +12700,37 @@ Wartość <code>null</code> to specjalna wartość pusta, która w tym kontekśc
 </div>
 </div>
 </aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Polimorfizm---brak-mechanizmu-w-j&#281;zyku-C">Polimorfizm - brak mechanizmu w j&#281;zyku C<a class="anchor-link" href="#Polimorfizm---brak-mechanizmu-w-j&#281;zyku-C">&#182;</a></h1><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">matrix</span> <span class="p">{</span>
+<h1 id="Polimorfizm---uzasadnienie">Polimorfizm - uzasadnienie<a class="anchor-link" href="#Polimorfizm---uzasadnienie">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">struct</span> <span class="n">list</span> <span class="o">{</span>
     <span class="c1">//...</span>
-<span class="p">}</span>
-<span class="k">struct</span> <span class="n">tensor</span> <span class="p">{</span>
+<span class="o">}</span>
+<span class="n">struct</span> <span class="n">set</span> <span class="o">{</span>
     <span class="c1">//...</span>
-<span class="p">}</span>
+<span class="o">}</span>
 
-<span class="k">struct</span> <span class="n">matrix</span> <span class="n">matrix_add</span><span class="p">(</span><span class="k">struct</span> <span class="n">matrix</span> <span class="n">matrix_1</span><span class="p">,</span> <span class="k">struct</span> <span class="n">matrix</span> <span class="n">matrix_2</span><span class="p">);</span>
-<span class="k">struct</span> <span class="n">tensor</span> <span class="nf">matrix_add</span><span class="p">(</span><span class="k">struct</span> <span class="n">matrix</span> <span class="n">matrix_1</span><span class="p">,</span> <span class="k">struct</span> <span class="n">tensor</span> <span class="n">tensor_2</span><span class="p">);</span>
-<span class="k">struct</span> <span class="n">tensor</span> <span class="nf">tensor_add</span><span class="p">(</span><span class="k">struct</span> <span class="n">tensor</span> <span class="n">tensor_1</span><span class="p">,</span> <span class="k">struct</span> <span class="n">matrix</span> <span class="n">matrix_2</span><span class="p">);</span>
-<span class="k">struct</span> <span class="n">tensor</span> <span class="nf">tensor_add</span><span class="p">(</span><span class="k">struct</span> <span class="n">tensor</span> <span class="n">tensor_1</span><span class="p">,</span> <span class="k">struct</span> <span class="n">tensor</span> <span class="n">tensor_2</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">list_add</span><span class="o">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">value</span><span class="o">);</span>
+<span class="kt">void</span> <span class="n">set</span> <span class="nf">set_add</span><span class="o">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">value</span><span class="o">);</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12516,64 +12740,160 @@ Brak polimorfizmu oznacza, że dla każdego typu danych musimy implementować os
 </div>
 </div>
 </div>
-</aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</aside></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Polimorfizm---interfejsy">Polimorfizm - interfejsy<a class="anchor-link" href="#Polimorfizm---interfejsy">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">interface</span> <span class="nc">ITensor</span> <span class="o">{</span>
-    <span class="n">ITensor</span> <span class="nf">add</span><span class="o">(</span><span class="n">ITensor</span> <span class="n">other</span><span class="o">);</span>
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">Matrix</span> <span class="kd">implements</span> <span class="n">ITensor</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="n">ITensor</span> <span class="nf">add</span><span class="o">(</span><span class="n">ITensor</span> <span class="n">other</span><span class="o">){</span>
-        <span class="c1">//...</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">class</span> <span class="nc">Tensor</span> <span class="kd">implements</span> <span class="n">ITensor</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="n">ITensor</span> <span class="nf">add</span><span class="o">(</span><span class="n">ITensor</span> <span class="n">other</span><span class="o">){</span>
-        <span class="c1">//...</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</pre></div>
-
+<h1 id="Polimorfizm---interfejsy">Polimorfizm - interfejsy<a class="anchor-link" href="#Polimorfizm---interfejsy">&#182;</a></h1>
 </div>
 </div>
 </div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">ITensor</span><span class="o">[]</span> <span class="n">tensors</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ITensor</span><span class="o">[</span><span class="mi">4</span><span class="o">];</span>
-<span class="n">tensors</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Matrix</span><span class="o">();</span>
-<span class="n">tensors</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Matrix</span><span class="o">();</span>
-<span class="n">tensors</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Tensor</span><span class="o">();</span>
-<span class="n">tensors</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Tensor</span><span class="o">();</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">interface</span> <span class="nc">Container</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">Object</span> <span class="n">element</span><span class="o">);</span>
+<span class="o">}</span>
 
-<span class="n">tensors</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">add</span><span class="o">(</span><span class="n">tensors</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
-<span class="n">tensors</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">add</span><span class="o">(</span><span class="n">tensors</span><span class="o">[</span><span class="mi">2</span><span class="o">]);</span>
+<span class="kd">class</span> <span class="nc">OrderedList</span> <span class="kd">implements</span> <span class="n">Container</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">Object</span> <span class="n">element</span><span class="o">){</span>
+        <span class="c1">//...</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">FastSet</span> <span class="kd">implements</span> <span class="n">Container</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">Object</span> <span class="n">element</span><span class="o">){</span>
+        <span class="c1">//...</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="kc">null</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[45]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>No Outputs</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">Container</span><span class="o">[]</span> <span class="n">containers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Container</span><span class="o">[</span><span class="mi">2</span><span class="o">];</span>
+<span class="n">containers</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FastSet</span><span class="o">();</span>
+<span class="n">containers</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OrderedList</span><span class="o">();</span>
+
+<span class="k">for</span><span class="o">(</span><span class="n">Container</span> <span class="n">container</span> <span class="o">:</span> <span class="n">containers</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">container</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="kc">null</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[49]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>No Outputs</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Polimorfmizm w Javie realizowany jest za pomocą interfejsów oraz dziedziczenia. W tym przypadku mamy polimorfizm zapewniany przez interfejs. <code>tensors[0]</code> i <code>tensors[1]</code> są instancjami klasy <code>Matrix</code> a <code>tensors[2]</code> i <code>tensors[3]</code> instancjami klasy <code>ITensor</code>. Obie klas <em>implementują</em> ten sam interfejs <code>ITensor</code>, dzięki czemu można dodwać do siebie odpowiednie elementy bez konieczności definiowania wszystkich możliwych par argumentów.</p>
+<p>Polimorfmizm w Javie realizowany jest za pomocą interfejsów oraz dziedziczenia. W tym przypadku mamy polimorfizm zapewniany przez interfejs. <code>containers[0]</code> jest instancją klasy <code>FastSet</code> a <code>containers[1]</code> instancją klasy <code>OrderedList</code>. Obie klas <em>implementują</em> ten sam interfejs <code>Container</code>, dzięki czemu można dodawać elementy bez wnikania w to, z którą klasą mamy faktycznie do czynienia.</p>
 
 </div>
 </div>
 </div>
 </aside></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Arystoteles-i-dziedziczenie">Arystoteles i dziedziczenie<a class="anchor-link" href="#Arystoteles-i-dziedziczenie">&#182;</a></h1><p><img src="img/Arystoteles.jpeg" /></p>
+
+</div>
+</div>
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Arystoteles jest bez wątpienia jednym z największych myślicieli wszech czasów. Wprowadził on wiele ważnych koncepcji w dziedzinie nie tylko filozofii, ale również astronomii, fizyki, biologii czy poetyki. Wśród tych pojęć jest pojędzie <strong>definicji</strong>.</p>
+
+</div>
+</div>
+</div>
+</aside></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Definicja-w-uj&#281;ciu-Arystotelesa">Definicja w uj&#281;ciu Arystotelesa<a class="anchor-link" href="#Definicja-w-uj&#281;ciu-Arystotelesa">&#182;</a></h1><p><font color="green">Człowiek</font> to <font color="red">zwierzę</font> <font color="blue">rozumne</font>.</p>
+<ul>
+<li><font color="red">zwierzę</font> - <em>genus proximum</em></li>
+<li><font color="blue">rozumne</font> - <em>differentia specifica</em></li>
+</ul>
+
+</div>
+</div>
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Genus proximum to tzw. rodzaj najbliższy, czyli bardziej ogólny typ obiektu, który jednak jest "najbardziej specyficzny". 
+Differentia specifica to tzw. różnica gatunkowa, czyli to co wyróżnia definiowany obiekt spośród obiektów należących do danego rodzaju.</p>
+
+</div>
+</div>
+</div>
+</aside></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12581,54 +12901,91 @@ Brak polimorfizmu oznacza, że dla każdego typu danych musimy implementować os
 
 </div>
 </div>
-</div><aside class="notes">
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Porfiriusz napisał komentarz (Isagoga) do <em>Kategorii</em> Arystotelesa. <em>Language wars</em> w XXI przypominają średniowieczne spory filozoficzne.</p>
+<p>Porfiriusz (III-IV wiek n.e.) napisał komentarz do "Kategorii" Arystotelesa, w którym pojawia się słynne drzewo Porfiriusza, czyli klasyfikacja najbardziej ogólnych pojęć.
+Awerroes (XII w n.e.) był również komentatorem Arystotelesa. Ilustracja przedstawia wyimaginowaną rozmowę pomiędzy nimi.</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Drzewo-Porifirusza">Drzewo Porifirusza<a class="anchor-link" href="#Drzewo-Porifirusza">&#182;</a></h1><p><img src="img/porfiriusz.jpg" /></p>
+
+</div>
+</div>
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Language wars</em> w XXI przypominają średniowieczne spory filozoficzne.</p>
 
 </div>
 </div>
 </div>
 </aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Dziedziczenie---klasa-Vehicle">Dziedziczenie - klasa <code>Vehicle</code><a class="anchor-link" href="#Dziedziczenie---klasa-Vehicle">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Vehicle</span> <span class="o">{</span>
+<h1 id="Dziedziczenie---klasa-Vehicle">Dziedziczenie - klasa <code>Vehicle</code><a class="anchor-link" href="#Dziedziczenie---klasa-Vehicle">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Vehicle</span> <span class="o">{</span>
     <span class="kd">protected</span> <span class="kt">int</span> <span class="n">speed</span><span class="o">;</span>
-
+    
     <span class="kd">public</span> <span class="nf">Vehicle</span><span class="o">(){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">speed</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">(){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">speed</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">stop</span><span class="o">(){</span>
         <span class="k">this</span><span class="o">.</span><span class="na">speed</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
     <span class="o">}</span>
-
+    
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getSpeed</span><span class="o">(){</span>
         <span class="k">return</span> <span class="n">speed</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
+<span class="kc">null</span>
 </pre></div>
 
 </div>
 </div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Dziedziczenie---klasa-Car">Dziedziczenie - klasa <code>Car</code><a class="anchor-link" href="#Dziedziczenie---klasa-Car">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Car</span> <span class="kd">extends</span> <span class="n">Vehicle</span> <span class="o">{</span>
+<h1 id="Dziedziczenie---klasa-Car">Dziedziczenie - klasa <code>Car</code><a class="anchor-link" href="#Dziedziczenie---klasa-Car">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Car</span> <span class="kd">extends</span> <span class="n">Vehicle</span> <span class="o">{</span>
     <span class="kd">private</span> <span class="n">String</span> <span class="n">vin</span><span class="o">;</span>
 
     <span class="kd">public</span> <span class="nf">Car</span><span class="o">(</span><span class="n">String</span> <span class="n">vin</span><span class="o">){</span>
@@ -12640,28 +12997,32 @@ Brak polimorfizmu oznacza, że dla każdego typu danych musimy implementować os
         <span class="k">this</span><span class="o">.</span><span class="na">speed</span> <span class="o">+=</span> <span class="n">delta</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
+<span class="kc">null</span>
 </pre></div>
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">Car</span> <span class="n">car</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Car</span><span class="o">(</span><span class="s">&quot;44332211&quot;</span><span class="o">);</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">Car</span> <span class="n">car</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Car</span><span class="o">(</span><span class="s2">&quot;1FTWW33P34EB00251&quot;</span><span class="o">);</span>
 <span class="n">car</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
-<span class="n">car</span><span class="o">.</span><span class="na">accelerate</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
-<span class="n">car</span><span class="o">.</span><span class="na">getSpeed</span><span class="o">();</span>                    <span class="c1">//-&gt; 20</span>
+<span class="n">car</span><span class="o">.</span><span class="na">accelerate</span><span class="o">(</span><span class="mi">20</span><span class="o">);</span>
+<span class="n">car</span><span class="o">.</span><span class="na">getSpeed</span><span class="o">();</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12671,9 +13032,110 @@ Brak polimorfizmu oznacza, że dla każdego typu danych musimy implementować os
 </div>
 </div>
 </div>
+</aside></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Dziedziczenie-wielobazowe">Dziedziczenie wielobazowe<a class="anchor-link" href="#Dziedziczenie-wielobazowe">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">interface</span> <span class="nc">IVehicle</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">start</span><span class="o">();</span>
+    <span class="kt">void</span> <span class="nf">stop</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">interface</span> <span class="nc">ICar</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">accelerate</span><span class="o">(</span><span class="kt">int</span> <span class="n">delta</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Car</span> <span class="kd">implements</span> <span class="n">IVehicle</span><span class="o">,</span> <span class="n">ICar</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// ...</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">stop</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// ...</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">accelerate</span><span class="o">(</span><span class="kt">int</span> <span class="n">delta</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//...</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>W Javie dziedziczenie jest jednobazowe, co oznacza, że klasa może dziedziczyć co najwyżej z <strong>jednej</strong> klasy. Jeśli jednak chcemy aby klasa posiadała więcej zachowań możemy wykorzystać dziedziczenie interfejsu. Tzn. klasa może implementować wiele interfejsów, ale nie oznacza to, że dziedziczona jest implementacja.</p>
+
+</div>
+</div>
+</div>
+</aside></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Klasa-Object">Klasa <code>Object</code><a class="anchor-link" href="#Klasa-Object">&#182;</a></h1>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Object</span> <span class="o">{</span>
+    <span class="n">Object</span> <span class="nf">clone</span><span class="o">();</span>
+    <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="n">Object</span> <span class="n">other</span><span class="o">);</span>
+    <span class="kt">void</span> <span class="nf">finalize</span><span class="o">();</span>
+    <span class="n">Class</span> <span class="nf">getClass</span><span class="o">();</span>
+    <span class="kt">int</span> <span class="nf">hashCode</span><span class="o">();</span>
+    <span class="n">String</span> <span class="nf">toString</span><span class="o">();</span>
+    <span class="c1">//...</span>
+<span class="o">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Jeśli jawnie nie wskażemy klasy z której dziedziczy dana klasa, to będzie to klasa <code>Object</code>. Klasa ta posiada najważniejsze metody, takie jak <code>equals</code> czy <code>toString</code>, co do których istnieje wymóg, aby implementowały je wszystkie klasy. Jeśli jakaś klasa nie nadpisze istniejącej implementacji, to wykorzystywana jest implementacja z klasy Object (pod warunkiem, że któraś z wyższych klas nie dostarcza własnej implementacji).</p>
+
+</div>
+</div>
+</div>
 </aside></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Kahoot-nr-2">Kahoot nr 2<a class="anchor-link" href="#Kahoot-nr-2">&#182;</a></h1><p><a href="https://kahoot.it/">https://kahoot.it/</a></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12706,8 +13168,7 @@ require(
             progress: true,
             history: true,
 
-            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-            transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+            transition: "slide",
 
             // Optional libraries used to extend on reveal.js
             dependencies: [
@@ -12727,13 +13188,25 @@ require(
 
         Reveal.addEventListener('slidechanged', update);
 
-        var update_scroll = function(event){
-          $(".reveal").scrollTop(0);
-        };
+        function setScrollingSlide() {
+            var scroll = false
+            if (scroll === true) {
+              var h = $('.reveal').height() * 0.95;
+              $('section.present').find('section')
+                .filter(function() {
+                  return $(this).height() > h;
+                })
+                .css('height', 'calc(95vh)')
+                .css('overflow-y', 'scroll')
+                .css('margin-top', '20px');
+            }
+        }
 
-        Reveal.addEventListener('slidechanged', update_scroll);
+        // check and set the scrolling slide every time the slide change
+        Reveal.addEventListener('slidechanged', setScrollingSlide);
 
     }
+
 );
 </script>
 

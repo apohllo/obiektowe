@@ -36,7 +36,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 
 <!-- Loading the mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -58,7 +58,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
     <!-- End of mathjax configuration -->
 
 <!-- Get Font-awesome from cdn -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -67,8 +67,8 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 *
 */
 /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1163,7 +1163,6 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2592,7 +2591,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3083,7 +3081,6 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8814,6 +8811,9 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
+[dir="rtl"] #ipython_notebook {
+  float: right !important;
+}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -9016,8 +9016,14 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
+[dir="rtl"] #tabs li {
+  float: right;
+}
 ul#tabs {
   margin-bottom: 4px;
+}
+[dir="rtl"] ul#tabs {
+  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -9040,6 +9046,16 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
+}
+[dir="rtl"] .list_toolbar .tree-buttons {
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-right {
+  padding-top: 1px;
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-left {
+  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9176,6 +9192,9 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
+[dir="rtl"] #tree-selector a {
+  float: right;
+}
 #button-select-all {
   min-width: 50px;
 }
@@ -9265,6 +9284,9 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
+[dir="rtl"] #new-menu {
+  text-align: right;
+}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9309,6 +9331,9 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
+}
+[dir="rtl"] #running .col-sm-8 {
+  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9605,6 +9630,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9625,11 +9651,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11300,7 +11321,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 20ex;
+  width: 21ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11612,6 +11633,7 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
+  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11625,6 +11647,9 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
+}
+.terminal-app .terminal .xterm-rows {
+  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11685,8 +11710,10 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11697,9 +11724,11 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11747,7 +11776,6 @@ ul.typeahead-list > li > a {
 /* Overrides of notebook CSS for static HTML export */
 .reveal {
   font-size: 160%;
-  overflow-y: scroll;
 }
 .reveal pre {
   width: inherit;
@@ -11777,6 +11805,41 @@ ul.typeahead-list > li > a {
 }
 .reveal .progress {
   position: static;
+}
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #727272;
+}
+.reveal .controls .navigate-left.enabled:hover,
+.reveal .controls .navigate-left.enabled.enabled:hover {
+  border-right-color: #dfdfdf;
+}
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #727272;
+}
+.reveal .controls .navigate-right.enabled:hover,
+.reveal .controls .navigate-right.enabled.enabled:hover {
+  border-left-color: #dfdfdf;
+}
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #727272;
+}
+.reveal .controls .navigate-up.enabled:hover,
+.reveal .controls .navigate-up.enabled.enabled:hover {
+  border-bottom-color: #dfdfdf;
+}
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #727272;
+}
+.reveal .controls .navigate-down.enabled:hover,
+.reveal .controls .navigate-down.enabled.enabled:hover {
+  border-top-color: #dfdfdf;
+}
+.reveal .progress span {
+  background: #727272;
 }
 div.input_area {
   padding: 0.06em;
@@ -11811,6 +11874,19 @@ a.anchor-link {
 .rendered_html p {
   text-align: inherit;
 }
+::-webkit-scrollbar
+{
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar *
+{
+  background:transparent;
+}
+::-webkit-scrollbar-thumb
+{
+  background: #727272 !important;
+}
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
@@ -11825,8 +11901,7 @@ a.anchor-link {
 <div class="reveal">
 <div class="slides">
 <section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11835,73 +11910,96 @@ a.anchor-link {
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Obs&#322;uga-b&#322;&#281;d&#243;w-w-j&#281;zyku-C">Obs&#322;uga b&#322;&#281;d&#243;w w j&#281;zyku C<a class="anchor-link" href="#Obs&#322;uga-b&#322;&#281;d&#243;w-w-j&#281;zyku-C">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kt">FILE</span> <span class="o">*</span> <span class="nf">open_file</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">file_name</span><span class="p">){</span>
-    <span class="kt">FILE</span> <span class="o">*</span> <span class="n">file</span><span class="p">;</span>
-    <span class="k">if</span><span class="p">(</span> <span class="n">access</span><span class="p">(</span> <span class="n">file_name</span><span class="p">,</span> <span class="n">F_OK</span> <span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="n">fopen</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="p">(</span><span class="kt">FILE</span> <span class="o">*</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
+<h1 id="Wyj&#261;tki">Wyj&#261;tki<a class="anchor-link" href="#Wyj&#261;tki">&#182;</a></h1><p><img src="img/monster1.jpg" /></p>
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kt">char</span> <span class="o">*</span> <span class="nf">read_file</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">file_name</span><span class="p">,</span> <span class="n">count</span><span class="p">){</span>
-    <span class="kt">FILE</span> <span class="o">*</span> <span class="n">file</span> <span class="o">=</span> <span class="n">open_file</span><span class="p">(</span><span class="n">file_name</span><span class="p">);</span>
-    <span class="kt">char</span> <span class="o">*</span> <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span> <span class="o">*</span> <span class="n">count</span><span class="p">);</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">file</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Nie można otworzyć pliku %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">file_name</span><span class="p">);</span>
-        <span class="k">return</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="n">fread</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">),</span> <span class="n">count</span><span class="p">,</span> <span class="n">file</span><span class="p">);</span>
-        <span class="n">fclose</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
-        <span class="n">retrun</span> <span class="n">result</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-</div>
-</div>
-</div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">read_files</span><span class="p">(){</span>
-    <span class="kt">char</span> <span class="o">*</span> <span class="n">text</span> <span class="o">=</span> <span class="n">read_file</span><span class="p">(</span><span class="s">&quot;file1.txt&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">text</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span> 
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="k">return</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">text</span> <span class="o">=</span> <span class="n">read_file</span><span class="p">(</span><span class="s">&quot;file2.txt&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">text</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="k">return</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
+<h1 id="Obs&#322;uga-b&#322;&#281;d&#243;w-w-j&#281;zyku-C">Obs&#322;uga b&#322;&#281;d&#243;w w j&#281;zyku C<a class="anchor-link" href="#Obs&#322;uga-b&#322;&#281;d&#243;w-w-j&#281;zyku-C">&#182;</a></h1><p><img src="img/c-logo.png"/></p>
 
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">FILE</span> <span class="o">*</span> <span class="n">open_file</span><span class="o">(</span><span class="kd">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">file_name</span><span class="o">){</span>
+    <span class="n">FILE</span> <span class="o">*</span> <span class="n">file</span><span class="o">;</span>
+    <span class="k">if</span><span class="o">(</span> <span class="n">access</span><span class="o">(</span> <span class="n">file_name</span><span class="o">,</span> <span class="n">F_OK</span> <span class="o">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">)</span> <span class="o">{</span>
+        <span class="n">fopen</span><span class="o">(</span><span class="n">file_name</span><span class="o">,</span> <span class="s2">&quot;r&quot;</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="o">(</span><span class="n">FILE</span> <span class="o">*)-</span><span class="mi">1</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kt">char</span> <span class="o">*</span> <span class="n">read_file</span><span class="o">(</span><span class="kd">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">file_name</span><span class="o">,</span> <span class="n">count</span><span class="o">){</span>
+    <span class="n">FILE</span> <span class="o">*</span> <span class="n">file</span> <span class="o">=</span> <span class="n">open_file</span><span class="o">(</span><span class="n">file_name</span><span class="o">);</span>
+    <span class="kt">char</span> <span class="o">*</span> <span class="n">result</span> <span class="o">=</span> <span class="o">(</span><span class="kt">char</span><span class="o">*)</span> <span class="n">malloc</span><span class="o">(</span><span class="n">sizeof</span><span class="o">(</span><span class="kt">char</span><span class="o">)</span> <span class="o">*</span> <span class="n">count</span><span class="o">);</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">file</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="o">){</span>
+        <span class="n">printf</span><span class="o">(</span><span class="s2">&quot;Nie można otworzyć pliku %s\n&quot;</span><span class="o">,</span> <span class="n">file_name</span><span class="o">);</span>
+        <span class="k">return</span> <span class="o">(</span><span class="kt">char</span> <span class="o">*)</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="n">fread</span><span class="o">(</span><span class="n">result</span><span class="o">,</span> <span class="n">sizeof</span><span class="o">(</span><span class="kt">char</span><span class="o">),</span> <span class="n">count</span><span class="o">,</span> <span class="n">file</span><span class="o">);</span>
+        <span class="n">fclose</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+        <span class="n">retrun</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kt">void</span> <span class="nf">read_files</span><span class="o">(){</span>
+    <span class="kt">char</span> <span class="o">*</span> <span class="n">text</span> <span class="o">=</span> <span class="n">read_file</span><span class="o">(</span><span class="s2">&quot;file1.txt&quot;</span><span class="o">,</span> <span class="mi">10</span><span class="o">);</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">text</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="o">){</span> 
+        <span class="n">printf</span><span class="o">(</span><span class="s2">&quot;%s&quot;</span><span class="o">,</span> <span class="n">text</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="k">return</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="n">text</span> <span class="o">=</span> <span class="n">read_file</span><span class="o">(</span><span class="s2">&quot;file2.txt&quot;</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">text</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="o">){</span>
+        <span class="n">printf</span><span class="o">(</span><span class="s2">&quot;%s&quot;</span><span class="o">,</span> <span class="n">text</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="k">return</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11910,25 +12008,36 @@ a.anchor-link {
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Wyj&#261;tki-w-Javie">Wyj&#261;tki w Javie<a class="anchor-link" href="#Wyj&#261;tki-w-Javie">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">FileReader</span> <span class="nf">openFile</span><span class="o">(</span><span class="n">String</span> <span class="n">fileName</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="n">fileName</span><span class="o">);</span>
+<h1 id="Wyj&#261;tki-w-Javie">Wyj&#261;tki w Javie<a class="anchor-link" href="#Wyj&#261;tki-w-Javie">&#182;</a></h1><p><img src="img/java_log.png" style="height: 600px;"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">public</span> <span class="n">FileReader</span> <span class="nf">openFile</span><span class="o">(</span><span class="n">String</span> <span class="n">fileName</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">FileReader</span><span class="o">(</span><span class="n">fileName</span><span class="o">);</span>
 <span class="o">}</span>
 </pre></div>
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">char</span><span class="o">[]</span> <span class="nf">readFile</span><span class="o">(</span><span class="n">String</span> <span class="n">fileName</span><span class="o">,</span> <span class="kt">int</span> <span class="n">count</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">public</span> <span class="kt">char</span><span class="o">[]</span> <span class="nf">readFile</span><span class="o">(</span><span class="n">String</span> <span class="n">fileName</span><span class="o">,</span> <span class="kt">int</span> <span class="n">count</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
     <span class="n">FileReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="n">openFile</span><span class="o">(</span><span class="n">fileName</span><span class="o">);</span>
     <span class="kt">char</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="n">count</span><span class="o">];</span>
     <span class="n">reader</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">buffer</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">count</span><span class="o">);</span>
@@ -11938,30 +12047,33 @@ a.anchor-link {
 
 </div>
 </div>
-</div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">readFiles</span><span class="o">(){</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">readFiles</span><span class="o">(){</span>
     <span class="kt">char</span><span class="o">[]</span> <span class="n">buffer</span><span class="o">;</span>
     <span class="k">try</span> <span class="o">{</span>
-        <span class="n">buffer</span> <span class="o">=</span> <span class="n">readFile</span><span class="o">(</span><span class="s">&quot;plik1.txt&quot;</span><span class="o">,</span><span class="mi">10</span><span class="o">);</span>
+        <span class="n">buffer</span> <span class="o">=</span> <span class="n">readFile</span><span class="o">(</span><span class="s2">&quot;plik1.txt&quot;</span><span class="o">,</span><span class="mi">10</span><span class="o">);</span>
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">buffer</span><span class="o">);</span>
-        <span class="n">buffer</span> <span class="o">=</span> <span class="n">readFile</span><span class="o">(</span><span class="s">&quot;plik2.txt&quot;</span><span class="o">,</span><span class="mi">20</span><span class="o">);</span>
+        <span class="n">buffer</span> <span class="o">=</span> <span class="n">readFile</span><span class="o">(</span><span class="s2">&quot;plik2.txt&quot;</span><span class="o">,</span><span class="mi">20</span><span class="o">);</span>
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">buffer</span><span class="o">);</span>
     <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Problem z odczytaniem pliku &quot;</span> <span class="o">+</span> <span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s2">&quot;Problem z odczytaniem pliku &quot;</span> <span class="o">+</span> <span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11970,42 +12082,70 @@ a.anchor-link {
 </div>
 </div>
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Instrukcja-throw">Instrukcja <code>throw</code><a class="anchor-link" href="#Instrukcja-throw">&#182;</a></h1><div class="highlight"><pre><span></span><span class="k">if</span><span class="o">(</span><span class="n">Files</span><span class="o">.</span><span class="na">exists</span><span class="o">(</span><span class="n">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">fileName</span><span class="o">))){</span>
+<h1 id="Instrukcja-throw">Instrukcja <code>throw</code><a class="anchor-link" href="#Instrukcja-throw">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="k">if</span><span class="o">(</span><span class="n">Files</span><span class="o">.</span><span class="na">exists</span><span class="o">(</span><span class="n">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">fileName</span><span class="o">))){</span>
     <span class="c1">// do the work</span>
 <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-    <span class="k">throw</span> <span class="k">new</span> <span class="n">FileNotFoundException</span><span class="o">(</span><span class="n">fileName</span> <span class="o">+</span> <span class="s">&quot; nie istnieje&quot;</span><span class="o">);</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">FileNotFoundException</span><span class="o">(</span><span class="n">fileName</span> <span class="o">+</span> <span class="s2">&quot; nie istnieje&quot;</span><span class="o">);</span>
 <span class="o">}</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Instrukcja-throws">Instrukcja <code>throws</code><a class="anchor-link" href="#Instrukcja-throws">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">FileReader</span> <span class="nf">openFile</span><span class="o">(</span><span class="n">String</span> <span class="n">fileName</span><span class="o">)</span> <span class="n">thorws</span> <span class="n">FileNotFoundException</span> <span class="o">{</span>
+<h1 id="Instrukcja-throws">Instrukcja <code>throws</code><a class="anchor-link" href="#Instrukcja-throws">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">public</span> <span class="n">FileReader</span> <span class="nf">openFile</span><span class="o">(</span><span class="n">String</span> <span class="n">fileName</span><span class="o">)</span> <span class="n">thorws</span> <span class="n">FileNotFoundException</span> <span class="o">{</span>
     <span class="c1">// ...</span>
-    <span class="k">throw</span> <span class="k">new</span> <span class="n">FileNotFoundException</span><span class="o">(</span><span class="n">fileName</span> <span class="o">+</span> <span class="s">&quot; nie istnieje&quot;</span><span class="o">);</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">FileNotFoundException</span><span class="o">(</span><span class="n">fileName</span> <span class="o">+</span> <span class="s2">&quot; nie istnieje&quot;</span><span class="o">);</span>
     <span class="c1">// ...</span>
 <span class="o">}</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Instrukcja-try-...-catch-...-finally">Instrukcja <code>try ... catch ... finally</code><a class="anchor-link" href="#Instrukcja-try-...-catch-...-finally">&#182;</a></h1><div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">{</span>
+<h1 id="Instrukcja-try-...-catch-...-finally">Instrukcja <code>try ... catch ... finally</code><a class="anchor-link" href="#Instrukcja-try-...-catch-...-finally">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="k">try</span> <span class="o">{</span>
     <span class="c1">// kod, który może rzucić wyjątek</span>
 <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">FileNotFoundException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
     <span class="c1">// kod obsługi błędu</span>
@@ -12016,19 +12156,21 @@ a.anchor-link {
 
 </div>
 </div>
-</div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">FileReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">FileReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
 <span class="kt">char</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="mi">100</span><span class="o">];</span>
 <span class="k">try</span> <span class="o">{</span>
     <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="n">fileName</span><span class="o">);</span>
     <span class="n">reader</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">buffer</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">);</span>
 <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">FileNotFoundException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">fileName</span> <span class="o">+</span> <span class="s">&quot; nie istnieje. Sprawdź nazwę pliku.&quot;</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">fileName</span> <span class="o">+</span> <span class="s2">&quot; nie istnieje. Sprawdź nazwę pliku.&quot;</span><span class="o">);</span>
 <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
     <span class="n">reader</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
 <span class="o">}</span>
@@ -12036,10 +12178,11 @@ a.anchor-link {
 
 </div>
 </div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12049,12 +12192,21 @@ a.anchor-link {
 </div>
 </div>
 </aside></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Resource-acquisition-is-initialization-(RAII)">Resource acquisition is initialization (RAII)<a class="anchor-link" href="#Resource-acquisition-is-initialization-(RAII)">&#182;</a></h1><div class="highlight"><pre><span></span><span class="n">FileReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<h1 id="Resource-acquisition-is-initialization-(RAII)">Resource acquisition is initialization (RAII)<a class="anchor-link" href="#Resource-acquisition-is-initialization-(RAII)">&#182;</a></h1><p><img src="img/sheeps.jpg"/></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">FileReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
 <span class="kt">char</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="mi">100</span><span class="o">];</span>
 <span class="k">try</span> <span class="o">{</span>
     <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="n">fileName</span><span class="o">);</span>
@@ -12072,10 +12224,11 @@ a.anchor-link {
 
 </div>
 </div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12085,35 +12238,60 @@ a.anchor-link {
 </div>
 </div>
 </aside></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Instrukcja-try-z-zasobami">Instrukcja <code>try</code> z zasobami<a class="anchor-link" href="#Instrukcja-try-z-zasobami">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kt">char</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="mi">100</span><span class="o">];</span>
-<span class="k">try</span><span class="o">(</span><span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="s">&quot;file1.txt&quot;</span><span class="o">))</span> <span class="o">{</span>
+<h1 id="Instrukcja-try-z-zasobami">Instrukcja <code>try</code> z zasobami<a class="anchor-link" href="#Instrukcja-try-z-zasobami">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kt">char</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="mi">100</span><span class="o">];</span>
+<span class="k">try</span><span class="o">(</span><span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="s2">&quot;file1.txt&quot;</span><span class="o">))</span> <span class="o">{</span>
     <span class="n">reader</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">buffer</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">);</span>
 <span class="o">}</span>
 </pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Obiekty użyte w tej konstrukcji muszą implementować interfejs <code>AutoCloseable</code></strong></p>
 
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Rodzaje-wyj&#261;tk&#243;w">Rodzaje wyj&#261;tk&#243;w<a class="anchor-link" href="#Rodzaje-wyj&#261;tk&#243;w">&#182;</a></h1><h3 id="b&#322;&#261;d-w-kodzie-programu">b&#322;&#261;d w kodzie programu<a class="anchor-link" href="#b&#322;&#261;d-w-kodzie-programu">&#182;</a></h3><p>np. <code>NullPointerException</code></p>
+<h1 id="Rodzaje-wyj&#261;tk&#243;w">Rodzaje wyj&#261;tk&#243;w<a class="anchor-link" href="#Rodzaje-wyj&#261;tk&#243;w">&#182;</a></h1><p><img src="img/butterfiles.jpg"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="b&#322;&#261;d-w-kodzie-programu">b&#322;&#261;d w kodzie programu<a class="anchor-link" href="#b&#322;&#261;d-w-kodzie-programu">&#182;</a></h3><p>np. <code>NullPointerException</code></p>
 <h3 id="b&#322;&#261;d-zwi&#261;zany-ze-z&#322;amaniem-kontraktu">b&#322;&#261;d zwi&#261;zany ze z&#322;amaniem kontraktu<a class="anchor-link" href="#b&#322;&#261;d-zwi&#261;zany-ze-z&#322;amaniem-kontraktu">&#182;</a></h3><p>np. niepoprawny plik JSON, brakujący wymagane pole w bazie danych</p>
 <h3 id="b&#322;&#261;d-zwi&#261;zany-z-dost&#281;pem-do-zasob&#243;w">b&#322;&#261;d zwi&#261;zany z dost&#281;pem do zasob&#243;w<a class="anchor-link" href="#b&#322;&#261;d-zwi&#261;zany-z-dost&#281;pem-do-zasob&#243;w">&#182;</a></h3><p>np. brak połączenia z internetem, z bazą danych, problem z dostępem do pliku</p>
 
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12129,8 +12307,7 @@ a.anchor-link {
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12139,8 +12316,7 @@ a.anchor-link {
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12149,12 +12325,12 @@ a.anchor-link {
 </div>
 </div>
 </div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="k">try</span> <span class="o">{</span>
     <span class="c1">// ...</span>
 <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">EOFException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
     <span class="c1">// obsługa błędu EOFException</span>
@@ -12167,13 +12343,15 @@ a.anchor-link {
 
 </div>
 </div>
-</div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="k">try</span> <span class="o">{</span>
     <span class="c1">// ...</span>
 <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
     <span class="c1">// obsługa wszystkich wyjątków</span>
@@ -12186,13 +12364,15 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
 </div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="k">try</span> <span class="o">{</span>
     <span class="c1">// ...</span>
 <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">FileNotFoundException</span> <span class="o">|</span> <span class="n">EOFException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
     <span class="c1">// wspólny kod obsługi błędów FileNotFoundException i EOFException</span>
@@ -12201,9 +12381,10 @@ a.anchor-link {
 
 </div>
 </div>
+</div>
+
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12215,8 +12396,7 @@ a.anchor-link {
 </div>
 </div>
 </div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12230,9 +12410,8 @@ a.anchor-link {
 
 </div>
 </div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12242,9 +12421,8 @@ a.anchor-link {
 
 </div>
 </div>
-</div></div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12257,12 +12435,29 @@ a.anchor-link {
 </div>
 </div>
 </div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Ad.-1---antywzorce">Ad. 1 - antywzorce<a class="anchor-link" href="#Ad.-1---antywzorce">&#182;</a></h1><div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">{</span> 
+<h1 id="Antywzorce">Antywzorce<a class="anchor-link" href="#Antywzorce">&#182;</a></h1><p><img src="img/pizza.jpg"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Ad.-1---antywzorce">Ad. 1 - antywzorce<a class="anchor-link" href="#Ad.-1---antywzorce">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="k">try</span> <span class="o">{</span> 
     <span class="c1">// kod rzucający wyjątki</span>
 <span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
     <span class="c1">// nic nie rób</span>
@@ -12271,10 +12466,11 @@ a.anchor-link {
 
 </div>
 </div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12284,12 +12480,12 @@ a.anchor-link {
 </div>
 </div>
 </aside><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="k">try</span> <span class="o">{</span>
     <span class="c1">// kod rzucający wyjątki</span>
 <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">FileNotFoundException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">logger</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="n">ex</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
@@ -12299,10 +12495,11 @@ a.anchor-link {
 
 </div>
 </div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12312,12 +12509,20 @@ a.anchor-link {
 </div>
 </div>
 </aside></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Ad.-2---antywzorce">Ad. 2 - antywzorce<a class="anchor-link" href="#Ad.-2---antywzorce">&#182;</a></h1><div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">{</span>
+<h1 id="Ad.-2---antywzorce">Ad. 2 - antywzorce<a class="anchor-link" href="#Ad.-2---antywzorce">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="k">try</span> <span class="o">{</span>
     <span class="c1">// kod rzucający wyjątki</span>
 <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">FileNotFoundException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">logger</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="n">ex</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
@@ -12327,10 +12532,11 @@ a.anchor-link {
 
 </div>
 </div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12340,27 +12546,28 @@ a.anchor-link {
 </div>
 </div>
 </aside><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">TransferDetails</span> <span class="nf">parse</span><span class="o">(</span><span class="n">String</span> <span class="n">transferSpecification</span><span class="o">)</span> 
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">public</span> <span class="n">TransferDetails</span> <span class="nf">parse</span><span class="o">(</span><span class="n">String</span> <span class="n">transferSpecification</span><span class="o">)</span> 
         <span class="kd">throws</span> <span class="n">InvalidTransferSpecification</span> <span class="o">{</span>
     <span class="k">try</span> <span class="o">{</span>
         <span class="c1">// kod rzucający wyjątek XMLParserError</span>
     <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">XMLParserError</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">throw</span> <span class="k">new</span> <span class="n">InvalidTransferSpecification</span><span class="o">(</span><span class="n">transferSpecification</span><span class="o">);</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">InvalidTransferSpecification</span><span class="o">(</span><span class="n">transferSpecification</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12370,19 +12577,27 @@ a.anchor-link {
 </div>
 </div>
 </aside></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="exception-chaining---poprawne-rozwi&#261;zanie"><em>exception chaining</em> - poprawne rozwi&#261;zanie<a class="anchor-link" href="#exception-chaining---poprawne-rozwi&#261;zanie">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Parser</span> <span class="o">{</span>
+<h1 id="exception-chaining---poprawne-rozwi&#261;zanie"><em>exception chaining</em> - poprawne rozwi&#261;zanie<a class="anchor-link" href="#exception-chaining---poprawne-rozwi&#261;zanie">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">Parser</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="n">TransferDetails</span> <span class="nf">parse</span><span class="o">(</span><span class="n">String</span> <span class="n">transferSpecification</span><span class="o">)</span> 
             <span class="kd">throws</span> <span class="n">InvalidTransferSpecification</span> <span class="o">{</span>
         <span class="k">try</span> <span class="o">{</span>
             <span class="c1">// kod rzucający wyjątek XMLParserError</span>
         <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">XMLParserError</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
             <span class="c1">//                                                          vvvvvv</span>
-            <span class="k">throw</span> <span class="k">new</span> <span class="n">InvalidTransferSpecification</span><span class="o">(</span><span class="n">transferSpecification</span><span class="o">,</span> <span class="n">ex</span><span class="o">);</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">InvalidTransferSpecification</span><span class="o">(</span><span class="n">transferSpecification</span><span class="o">,</span> <span class="n">ex</span><span class="o">);</span>
         <span class="o">}</span>
     <span class="o">}</span>
 <span class="o">}</span>
@@ -12390,33 +12605,45 @@ a.anchor-link {
 
 </div>
 </div>
+</div>
+
 </div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-
-<pre><code>InvalidTransferSpecification: ...
-at Parser.parse()
-at System.main()
-Caused by: XMLParserError: ...
-at XMLParser.readHeader()
-at XMLParser.parse()</code></pre>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="nl">InvalidTransferSpecification:</span> <span class="o">...</span>
+<span class="n">at</span> <span class="n">Parser</span><span class="o">.</span><span class="na">parse</span><span class="o">()</span>
+<span class="n">at</span> <span class="n">System</span><span class="o">.</span><span class="na">main</span><span class="o">()</span>
+<span class="n">Caused</span> <span class="nl">by:</span> <span class="nl">XMLParserError:</span> <span class="o">...</span>
+<span class="n">at</span> <span class="n">XMLParser</span><span class="o">.</span><span class="na">readHeader</span><span class="o">()</span>
+<span class="n">at</span> <span class="n">XMLParser</span><span class="o">.</span><span class="na">parse</span><span class="o">()</span>
+</pre></div>
 
 </div>
 </div>
+</div>
+
 </div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Ad.-2---antywzroce">Ad. 2 - antywzroce<a class="anchor-link" href="#Ad.-2---antywzroce">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">doSomeCalculation</span><span class="o">(){</span>
+<h1 id="Ad.-2---antywzroce">Ad. 2 - antywzroce<a class="anchor-link" href="#Ad.-2---antywzroce">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">doSomeCalculation</span><span class="o">(){</span>
     <span class="k">try</span> <span class="o">{</span>
         <span class="k">for</span><span class="o">(</span><span class="n">Element</span> <span class="n">element</span> <span class="o">:</span> <span class="n">elements</span><span class="o">)</span> <span class="o">{</span>
             <span class="k">if</span><span class="o">(</span><span class="n">element</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
-                <span class="k">throw</span> <span class="n">EmptyElementException</span><span class="o">();</span>
+                <span class="k">throw</span> <span class="nf">EmptyElementException</span><span class="o">();</span>
             <span class="o">}</span>
         <span class="o">}</span>
     <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">EmptyElementException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
@@ -12427,28 +12654,48 @@ at XMLParser.parse()</code></pre>
 
 </div>
 </div>
+</div>
+
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Ad.-3-obs&#322;uga-zasob&#243;w">Ad. 3 obs&#322;uga zasob&#243;w<a class="anchor-link" href="#Ad.-3-obs&#322;uga-zasob&#243;w">&#182;</a></h1><p>Najprościej zrobić to używając konstrukcji <code>try</code> z zasobami:</p>
-<div class="highlight"><pre><span></span><span class="kt">char</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="mi">100</span><span class="o">];</span>
-<span class="k">try</span><span class="o">(</span><span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="s">&quot;file1.txt&quot;</span><span class="o">))</span> <span class="o">{</span>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kt">char</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="mi">100</span><span class="o">];</span>
+<span class="k">try</span><span class="o">(</span><span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileReader</span><span class="o">(</span><span class="s2">&quot;file1.txt&quot;</span><span class="o">))</span> <span class="o">{</span>
     <span class="n">reader</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">buffer</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">);</span>
 <span class="o">}</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Uwaga-na-sekcj&#281;&#160;finally">Uwaga na sekcj&#281;&#160;<code>finally</code><a class="anchor-link" href="#Uwaga-na-sekcj&#281;&#160;finally">&#182;</a></h1><div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">{</span>
+<h1 id="Uwaga-na-sekcj&#281;-finally">Uwaga na sekcj&#281; <code>finally</code><a class="anchor-link" href="#Uwaga-na-sekcj&#281;-finally">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="k">try</span> <span class="o">{</span>
     <span class="c1">// kod z wyjątkami</span>
 <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
     <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
@@ -12457,10 +12704,11 @@ at XMLParser.parse()</code></pre>
 
 </div>
 </div>
+</div>
+
 </div><aside class="notes">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12470,12 +12718,12 @@ at XMLParser.parse()</code></pre>
 </div>
 </div>
 </aside><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">{</span>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="k">try</span> <span class="o">{</span>
     <span class="c1">// kod z wyjątkami</span>
 <span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">SomeException</span> <span class="n">ex</span><span class="o">){</span>
     <span class="n">ex</span><span class="o">.</span><span class="na">getSuppressedException</span><span class="o">();</span>
@@ -12484,13 +12732,23 @@ at XMLParser.parse()</code></pre>
 
 </div>
 </div>
+</div>
+
 </div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Nie-deklaruj-(bardzo)-wielu-wyj&#261;tk&#243;w">Nie deklaruj (bardzo) wielu wyj&#261;tk&#243;w<a class="anchor-link" href="#Nie-deklaruj-(bardzo)-wielu-wyj&#261;tk&#243;w">&#182;</a></h1><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">launchICBM</span><span class="o">()</span> <span class="n">thorws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">DatabaseException</span><span class="o">,</span> <span class="n">NetworkException</span><span class="o">,</span> 
+<h1 id="Nie-deklaruj-(bardzo)-wielu-wyj&#261;tk&#243;w">Nie deklaruj (bardzo) wielu wyj&#261;tk&#243;w<a class="anchor-link" href="#Nie-deklaruj-(bardzo)-wielu-wyj&#261;tk&#243;w">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">public</span> <span class="nf">launchICBM</span><span class="o">()</span> <span class="n">thorws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">DatabaseException</span><span class="o">,</span> <span class="n">NetworkException</span><span class="o">,</span> 
     <span class="n">NullPointerException</span><span class="o">,</span> <span class="n">ArithmeticException</span><span class="o">,</span> <span class="n">WorldDoesNotExistException</span> <span class="o">{</span>
     <span class="c1">// launch ICBM</span>
 <span class="o">}</span>
@@ -12498,26 +12756,25 @@ at XMLParser.parse()</code></pre>
 
 </div>
 </div>
+</div>
+
 </div><div class="fragment">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">launchICBM</span><span class="o">()</span> <span class="n">thorws</span> <span class="n">LaunchException</span> <span class="o">{</span>
-    <span class="k">try</span> <span class="o">{</span>
-        <span class="c1">// lanuch ICBM</span>
-    <span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">IOException</span> <span class="o">|</span> <span class="n">DatabaseException</span> <span class="o">|</span> <span class="o">...</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">throw</span> <span class="k">new</span> <span class="n">LaunchException</span><span class="o">(</span><span class="s">&quot;Something went wrong...&quot;</span><span class="o">,</span> <span class="n">ex</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</pre></div>
+<p>public launchICBM() thorws LaunchException {
+    try {
+        // lanuch ICBM
+    } catch(IOException | DatabaseException | ... ex) {
+        throw new LaunchException("Something went wrong...", ex);
+    }
+}</p>
 
 </div>
 </div>
 </div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12526,8 +12783,7 @@ at XMLParser.parse()</code></pre>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12560,8 +12816,7 @@ require(
             progress: true,
             history: true,
 
-            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-            transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+            transition: "slide",
 
             // Optional libraries used to extend on reveal.js
             dependencies: [
@@ -12581,13 +12836,25 @@ require(
 
         Reveal.addEventListener('slidechanged', update);
 
-        var update_scroll = function(event){
-          $(".reveal").scrollTop(0);
-        };
+        function setScrollingSlide() {
+            var scroll = false
+            if (scroll === true) {
+              var h = $('.reveal').height() * 0.95;
+              $('section.present').find('section')
+                .filter(function() {
+                  return $(this).height() > h;
+                })
+                .css('height', 'calc(95vh)')
+                .css('overflow-y', 'scroll')
+                .css('margin-top', '20px');
+            }
+        }
 
-        Reveal.addEventListener('slidechanged', update_scroll);
+        // check and set the scrolling slide every time the slide change
+        Reveal.addEventListener('slidechanged', setScrollingSlide);
 
     }
+
 );
 </script>
 

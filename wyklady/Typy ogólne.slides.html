@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-<title>Język Java i wirtualna maszyna Javy slides</title>
+<title>Typy ogólne slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11905,8 +11905,8 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="J&#281;zyk-Java-i-wirtualna-maszyna-Javy-(JVM)">J&#281;zyk Java i wirtualna maszyna Javy (JVM)<a class="anchor-link" href="#J&#281;zyk-Java-i-wirtualna-maszyna-Javy-(JVM)">&#182;</a></h1><p><br/></p>
-<h2 id="dr-in&#380;.-Aleksander-Smywi&#324;ski-Pohl">dr in&#380;. Aleksander Smywi&#324;ski-Pohl<a class="anchor-link" href="#dr-in&#380;.-Aleksander-Smywi&#324;ski-Pohl">&#182;</a></h2><h2 id="apohllo@o2.pl">apohllo@o2.pl<a class="anchor-link" href="#apohllo@o2.pl">&#182;</a></h2><h2 id="http://apohllo.pl"><a href="http://apohllo.pl">http://apohllo.pl</a><a class="anchor-link" href="#http://apohllo.pl">&#182;</a></h2>
+<h1 id="Typy-og&#243;lne">Typy og&#243;lne<a class="anchor-link" href="#Typy-og&#243;lne">&#182;</a></h1><h2 id="kowariancja-tablic,-typy-og&#243;lne,-funkcje,-konsumenci,-itp.">kowariancja tablic, typy og&#243;lne, funkcje, konsumenci, itp.<a class="anchor-link" href="#kowariancja-tablic,-typy-og&#243;lne,-funkcje,-konsumenci,-itp.">&#182;</a></h2><p><br/></p>
+<h2 id="dr-in&#380;.-Aleksander-Smywi&#324;ski-Pohl">dr in&#380;. Aleksander Smywi&#324;ski-Pohl<a class="anchor-link" href="#dr-in&#380;.-Aleksander-Smywi&#324;ski-Pohl">&#182;</a></h2><h2 id="apohllo@o2.pl">apohllo@o2.pl<a class="anchor-link" href="#apohllo@o2.pl">&#182;</a></h2><h2 id="http://apohllo.pl/dydaktyka/programowanie-obiektowe"><a href="http://apohllo.pl/dydaktyka/programowanie-obiektowe">http://apohllo.pl/dydaktyka/programowanie-obiektowe</a><a class="anchor-link" href="#http://apohllo.pl/dydaktyka/programowanie-obiektowe">&#182;</a></h2>
 </div>
 </div>
 </div></section></section><section><section>
@@ -11914,27 +11914,300 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Tiobe-index">Tiobe index<a class="anchor-link" href="#Tiobe-index">&#182;</a></h1><p><img src="img/java-tiobe.png" width="1400"/></p>
+<p><img src="img/master.jpg" style="height: 800px"/></p>
 
 </div>
 </div>
-</div><aside class="notes">
-
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Całkiem prawdopodobne, że większość z osób siedzących na tej sali będzie zarabiać na życie programując w Javie ;-)</p>
+<h1 id="Typ-og&#243;lny-(generyczny,-parametryzowany)">Typ og&#243;lny (generyczny, parametryzowany)<a class="anchor-link" href="#Typ-og&#243;lny-(generyczny,-parametryzowany)">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">SingletonContainer</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">E</span> <span class="n">element</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">put</span><span class="o">(</span><span class="n">E</span> <span class="n">element</span><span class="o">){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">element</span> <span class="o">=</span> <span class="n">element</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="n">E</span> <span class="nf">get</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="n">element</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
 
 </div>
 </div>
 </div>
-</aside></section></section><section><section>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">SingletonContainer</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">container</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SingletonContainer</span><span class="o">&lt;&gt;();</span>
+<span class="n">container</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s2">&quot;Ala&quot;</span><span class="o">);</span>
+<span class="n">String</span> <span class="n">string</span> <span class="o">=</span> <span class="n">container</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">string</span><span class="o">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">SingletonContainer</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">container</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SingletonContainer</span><span class="o">&lt;&gt;();</span>
+<span class="n">container</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+<span class="n">Integer</span> <span class="n">integer</span> <span class="o">=</span> <span class="n">container</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">integer</span><span class="o">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Zarobki">Zarobki<a class="anchor-link" href="#Zarobki">&#182;</a></h1><p><img src="img/zarobki.png" width="600"/></p>
+<p><img src="img/farmvill.jpg" /></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Kowariancja-tablic">Kowariancja tablic<a class="anchor-link" href="#Kowariancja-tablic">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">ArrayRuntimeError</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+    <span class="n">String</span> <span class="n">words</span><span class="o">[]</span> <span class="o">=</span> <span class="o">{</span><span class="s2">&quot;Ala&quot;</span><span class="o">,</span> <span class="s2">&quot;ma&quot;</span><span class="o">,</span> <span class="s2">&quot;kota&quot;</span><span class="o">};</span>
+    <span class="n">Object</span><span class="o">[]</span> <span class="n">objects</span> <span class="o">=</span> <span class="n">words</span><span class="o">;</span>
+
+    <span class="n">objects</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>org.codehaus.groovy.control.MultipleCompilationErrorsException: startup failed:
+Script1.groovy: 3: expecting &#39;}&#39;, found &#39;=&#39; @ line 3, column 20.
+       String words[] = {&#34;Ala&#34;, &#34;ma&#34;, &#34;kota&#34;};
+                      ^
+
+1 error
+
+	at org.codehaus.groovy.control.ErrorCollector.failIfErrors(ErrorCollector.java:310)
+	at org.codehaus.groovy.control.ErrorCollector.addFatalError(ErrorCollector.java:150)
+	at org.codehaus.groovy.control.ErrorCollector.addError(ErrorCollector.java:120)
+	at org.codehaus.groovy.control.ErrorCollector.addError(ErrorCollector.java:132)
+	at org.codehaus.groovy.control.SourceUnit.addError(SourceUnit.java:350)
+	at org.codehaus.groovy.antlr.AntlrParserPlugin.transformCSTIntoAST(AntlrParserPlugin.java:144)
+	at org.codehaus.groovy.antlr.AntlrParserPlugin.parseCST(AntlrParserPlugin.java:110)
+	at org.codehaus.groovy.control.SourceUnit.parse(SourceUnit.java:234)
+	at org.codehaus.groovy.control.CompilationUnit$1.call(CompilationUnit.java:168)
+	at org.codehaus.groovy.control.CompilationUnit.applyToSourceUnits(CompilationUnit.java:943)
+	at org.codehaus.groovy.control.CompilationUnit.doPhaseOperation(CompilationUnit.java:605)
+	at org.codehaus.groovy.control.CompilationUnit.processPhaseOperations(CompilationUnit.java:581)
+	at org.codehaus.groovy.control.CompilationUnit.compile(CompilationUnit.java:558)
+	at groovy.lang.GroovyClassLoader.doParseClass(GroovyClassLoader.java:298)
+	at groovy.lang.GroovyClassLoader.parseClass(GroovyClassLoader.java:268)
+	at groovy.lang.GroovyClassLoader.parseClass(GroovyClassLoader.java:254)
+	at groovy.lang.GroovyClassLoader.parseClass(GroovyClassLoader.java:250)
+	at org.scijava.plugins.scripting.groovy.GroovyScriptEngine.getScriptClass(GroovyScriptEngine.java:319)
+	at org.scijava.plugins.scripting.groovy.GroovyScriptEngine.eval(GroovyScriptEngine.java:122)
+	at javax.script.AbstractScriptEngine.eval(AbstractScriptEngine.java:264)
+	at org.scijava.script.ScriptModule.run(ScriptModule.java:159)
+	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:167)
+	at org.scijava.jupyter.kernel.evaluator.Worker.run(Worker.java:109)
+	at org.scijava.thread.DefaultThreadService$2.run(DefaultThreadService.java:220)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[1]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>No Outputs</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Kowariancja-list">Kowariancja list<a class="anchor-link" href="#Kowariancja-list">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">ListCompilationError</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">words</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s2">&quot;Ala&quot;</span><span class="o">,</span> <span class="s2">&quot;ma&quot;</span><span class="o">,</span> <span class="s2">&quot;kota&quot;</span><span class="o">);</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">objects</span> <span class="o">=</span> <span class="n">words</span><span class="o">;</span>
+
+    <span class="n">objects</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">ListGenericError</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">words</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s2">&quot;Ala&quot;</span><span class="o">,</span> <span class="s2">&quot;ma&quot;</span><span class="o">,</span> <span class="s2">&quot;kota&quot;</span><span class="o">);</span>
+    <span class="n">List</span><span class="o">&lt;?&gt;</span> <span class="n">objects</span> <span class="o">=</span> <span class="n">words</span><span class="o">;</span>
+
+    <span class="n">String</span> <span class="n">string</span> <span class="o">=</span> <span class="n">objects</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+    <span class="n">objects</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="s2">&quot;Jola&quot;</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">ListGenerics</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">words</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s2">&quot;Ala&quot;</span><span class="o">,</span> <span class="s2">&quot;ma&quot;</span><span class="o">,</span> <span class="s2">&quot;kota&quot;</span><span class="o">);</span>
+    <span class="n">List</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">objects</span> <span class="o">=</span> <span class="n">words</span><span class="o">;</span>
+
+    <span class="n">String</span> <span class="n">string</span> <span class="o">=</span> <span class="n">objects</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+    <span class="n">objects</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="s2">&quot;Jola&quot;</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="?-extends-vs-?-super"><code>? extends</code> vs <code>? super</code><a class="anchor-link" href="#?-extends-vs-?-super">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">List</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">objects</span><span class="o">;</span>
+
+<span class="n">List</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">strings</span><span class="o">;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/generics.png"/></p>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><code>? extends y</code> =&gt; (czytaj) <code>? extends y</code></li>
+<li><code>? super y</code> =&gt; (czytaj) <code>? isSuperOf y</code></li>
+</ul>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/why.jpg" /></p>
 
 </div>
 </div>
@@ -11943,212 +12216,273 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Kto-u&#380;ywa-Javy?">Kto u&#380;ywa Javy?<a class="anchor-link" href="#Kto-u&#380;ywa-Javy?">&#182;</a></h1><p><img src="img/google.png" style="text-align: right"/></p>
+<p><img src="img/consumer.jpg"/></p>
 
 </div>
 </div>
-</div><aside class="notes">
-
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Poza tym</p>
-<ul>
-<li>IBM</li>
-<li>Facebook</li>
-<li>Amazon</li>
-<li>LinkedIn</li>
-<li>...</li>
+<h1 id="Interfejs-Consumer&lt;T&gt;">Interfejs <code>Consumer&lt;T&gt;</code><a class="anchor-link" href="#Interfejs-Consumer&lt;T&gt;">&#182;</a></h1><ul>
+<li><code>void accept(T t)</code></li>
+<li><code>default Consumer&lt;T&gt; andThen(Consumer&lt;? super T&gt; after)</code></li>
 </ul>
 
 </div>
 </div>
-</div>
-</aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Aplikacje-napisane-w-Javie">Aplikacje napisane w Javie<a class="anchor-link" href="#Aplikacje-napisane-w-Javie">&#182;</a></h1><p><img src="img/amazon.jpg" style="text-align: right"/></p>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">Consumer</span><span class="o">&lt;</span><span class="n">Number</span><span class="o">&gt;</span> <span class="n">numberConsumer</span><span class="o">;</span>
+<span class="n">Consumer</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">integerConsumer</span><span class="o">;</span>
+<span class="n">Consumer</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">objectConsumer</span><span class="o">;</span>
+</pre></div>
 
 </div>
 </div>
-</div><aside class="notes">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Przykładowe narzędzia i platformy</p>
-<ul>
-<li>Google Web Toolkit</li>
-<li>Android</li>
-<li>Eclipse (IBM)</li>
-<li>LibreOffice</li>
-</ul>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">numberConsumer</span><span class="o">.</span><span class="na">andThen</span><span class="o">(</span><span class="n">numberConsumer</span><span class="o">);</span>
+</pre></div>
 
 </div>
 </div>
 </div>
-</aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Bezpiecze&#324;stwo">Bezpiecze&#324;stwo<a class="anchor-link" href="#Bezpiecze&#324;stwo">&#182;</a></h1><ul>
-<li>jedna z najbardziej bezpiecznych platform programistycznych</li>
-<li>język tworzony z myślą o bezpieczeństwie</li>
-<li><a href="https://java-0day.com/">https://java-0day.com/</a> </li>
-</ul>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">numberConsumer</span><span class="o">.</span><span class="na">andThen</span><span class="o">(</span><span class="n">integerConsumer</span><span class="o">);</span>
+</pre></div>
 
 </div>
 </div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">numberConsumer</span><span class="o">.</span><span class="na">andThen</span><span class="o">(</span><span class="n">objectConsumer</span><span class="o">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">integerConsumer</span><span class="o">.</span><span class="na">andThen</span><span class="o">(</span><span class="n">objectConsumer</span><span class="o">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.stream.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.function.*</span><span class="o">;</span>
+
+<span class="c1">//       vvvvvvv</span>
+<span class="n">Consumer</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">print</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="o">{</span>      
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s2">&quot;Jeden &quot;</span><span class="o">);</span> 
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="o">);</span> 
+<span class="o">};</span>
+
+<span class="c1">//       vvvvvv</span>
+<span class="n">Consumer</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">printTwice</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s2">&quot;Dwa &quot;</span><span class="o">);</span> 
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">x</span><span class="o">);</span> 
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">x</span><span class="o">);</span> 
+<span class="o">};</span>
+
+<span class="n">Consumer</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">combined</span> <span class="o">=</span> <span class="n">print</span><span class="o">.</span><span class="na">andThen</span><span class="o">(</span><span class="n">printTwice</span><span class="o">);</span>
+
+<span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">7</span><span class="o">,</span><span class="mi">8</span><span class="o">,</span><span class="mi">9</span><span class="o">,</span><span class="mi">10</span><span class="o">).</span><span class="na">stream</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="n">combined</span><span class="o">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Historia-Javy">Historia Javy<a class="anchor-link" href="#Historia-Javy">&#182;</a></h1><ul>
-<li>Java 1.0 - 1996, 212 klas</li>
-<li>Java 1.1 - 1997</li>
-<li>Java 1.2 - 1998, tzw. Java 2</li>
-<li>Java 1.3 - 2000, 1842 klasy</li>
-<li>Java 1.4 - 2002, 2991 klasy</li>
-<li>Java 5 - 2004, 3279 klas</li>
-<li>Java 6 - 2006, 3793 klasy</li>
-<li>Java 7 - 2011, 4024 klasy</li>
-<li>Java 8 - 2014, 4240 klasy</li>
-<li>Java 9 - 21.09.2017</li>
-</ul>
+<p><img src="img/snake.jpg"/></p>
 
 </div>
 </div>
-</div><aside class="notes">
-
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>1.1 - klasy wewnętrze oraz refleksja</li>
-<li>1.2 - wprowadzono kolekcje jako element języka</li>
-<li>1.3 - wprowadzono JVM HotSpot</li>
-<li>1.4 - mocno rozbudowano bibliotekę standardową, regexpy, XML, XSLT, logowanie, itp.</li>
-<li>5 - największe zemiany w języku: typy ogólne, typy wyliczeniowe, adnotacje, opakowywanie typów prosytch</li>
-<li>6 - współpraca z językami skryptowymi, Swing, </li>
-<li>Zastój związany z problemami firmy Sun. W 2011 roku została ona przejęta przez firmę Oracle.</li>
-<li>7 - pierwsze wydanie od Oracle, NIO, try z zasobami, uchwyty do metod</li>
-<li>8 - wyrażenia lambda, implementacja interpretera JavaScrip - Nashorn.</li>
-<li>9 - system modułowy, REPL, usprawnienia w kolekcjach</li>
-</ul>
-
+<h1 id="Interfejs-Function&lt;T,R&gt;">Interfejs <code>Function&lt;T,R&gt;</code><a class="anchor-link" href="#Interfejs-Function&lt;T,R&gt;">&#182;</a></h1>
 </div>
 </div>
 </div>
-</aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Java-a-JavaScript">Java a JavaScript<a class="anchor-link" href="#Java-a-JavaScript">&#182;</a></h1><p><img src="img/javascript.jpg"/></p>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="k">default</span> <span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span> <span class="n">Function</span><span class="o">&lt;</span><span class="n">T</span><span class="o">,</span><span class="n">V</span><span class="o">&gt;</span> <span class="n">andThen</span><span class="o">(</span><span class="n">Function</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">R</span><span class="o">,?</span> <span class="kd">extends</span> <span class="n">V</span><span class="o">&gt;</span> <span class="n">after</span><span class="o">)</span>
+<span class="n">R</span> <span class="nf">apply</span><span class="o">(</span><span class="n">T</span> <span class="n">t</span><span class="o">)</span>
+<span class="k">default</span> <span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span> <span class="n">Function</span><span class="o">&lt;</span><span class="n">V</span><span class="o">,</span><span class="n">R</span><span class="o">&gt;</span> <span class="n">compose</span><span class="o">(</span><span class="n">Function</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">V</span><span class="o">,?</span> <span class="kd">extends</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">before</span><span class="o">)</span>
+<span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">Function</span><span class="o">&lt;</span><span class="n">T</span><span class="o">,</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">identity</span><span class="o">()</span>
+</pre></div>
 
 </div>
 </div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">intIntFunction</span> <span class="o">=</span> <span class="o">(</span><span class="n">x</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="o">;</span>
+<span class="n">Function</span><span class="o">&lt;</span><span class="n">Number</span><span class="o">,</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">numStrFunction</span> <span class="o">=</span> <span class="o">(</span><span class="n">x</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+<span class="n">Function</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">objIntFunction</span> <span class="o">=</span> <span class="o">(</span><span class="n">x</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">.</span><span class="na">toString</span><span class="o">().</span><span class="na">size</span><span class="o">();</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">combined</span> <span class="o">=</span> <span class="n">intIntFunction</span><span class="o">.</span><span class="na">andThen</span><span class="o">(</span><span class="n">numStrFunction</span><span class="o">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">Integer</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">Integer</span>     <span class="c1">// -&gt; Number isSuperOf Integer </span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">Object</span>      <span class="c1">// -&gt; String extends Object</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.stream.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.function.*</span><span class="o">;</span>
+
+<span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">intIntFunction</span> <span class="o">=</span> <span class="o">(</span><span class="n">x</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="o">;</span>
+<span class="n">Function</span><span class="o">&lt;</span><span class="n">Number</span><span class="o">,</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">numStrFunction</span> <span class="o">=</span> <span class="o">(</span><span class="n">x</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+
+<span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">combined</span> <span class="o">=</span> <span class="n">intIntFunction</span><span class="o">.</span><span class="na">andThen</span><span class="o">(</span><span class="n">numStrFunction</span><span class="o">);</span>
+
+<span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">4</span><span class="o">,</span><span class="mi">5</span><span class="o">,</span><span class="mi">6</span><span class="o">,</span><span class="mi">7</span><span class="o">,</span><span class="mi">8</span><span class="o">,</span><span class="mi">9</span><span class="o">,</span><span class="mi">10</span><span class="o">).</span><span class="na">stream</span><span class="o">().</span><span class="na">map</span><span class="o">(</span><span class="n">combined</span><span class="o">).</span>
+    <span class="n">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">());</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Java-update">Java update<a class="anchor-link" href="#Java-update">&#182;</a></h1><p><img src="img/java_update.jpg" width="1200"/></p>
+<p><img src="img/eraser.jpg" /></p>
 
 </div>
 </div>
-</div><aside class="notes">
-
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Kiedy pojawia się notyfikacja o możliwości aktualizacji Javy, nie chodzi o zmianę języka Java. Co prawda język się rozwija, ale nie aż tak szybko. Chodzi o aktualizację <strong>wirtualnej maszyny Javy (JVM)</strong>, która umożliwia uruchamianie programów napisanych w Javie. Jest interpreterem byte-codu Javy ale również dostarcza zestaw podstawowych bibliotek, które są elementami języka. Dlatego granice pomiędzy Javą (językiem) a Javą (maszyną wirtualną) nie są zbyt ostre. Istotne jest również to, że istnieje wiele wirtualnych maszyn Javy - referencyjny JVM dostarczany jest przez Oracle (kiedyś Sun), ale istnieje również OpenJDK, czy Java SDK firmy IBM.</p>
-
+<h1 id="Wymazywanie-typu">Wymazywanie typu<a class="anchor-link" href="#Wymazywanie-typu">&#182;</a></h1>
 </div>
 </div>
 </div>
-</aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Architektura-JVM">Architektura JVM<a class="anchor-link" href="#Architektura-JVM">&#182;</a></h1><p><img src="img/JVM.jpg" alt="Architektura JVM"></p>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="kd">class</span> <span class="nc">TypeErasure</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">consume</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">integers</span><span class="o">){</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">consume</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">strings</span><span class="o">){</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
 
 </div>
 </div>
-</div><aside class="notes">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Architektura JVM:</p>
-<ul>
-<li>class loader - ładuje klasy, zarówno te zdefiniowane w API Javy jak i klasy zdefiniowane przez użytkownika</li>
-<li>execution engine - odpowiedzialny za uruchomienie kodu bajtowego oraz zarządzanie uruchomionym kodem</li>
-<li>JVM interpreter - podstawowy mechanizm uruchamiania kodu, w oparciu o interpreter języka</li>
-<li>JIT compiler - alternatywny mechanizm polegający na kompilacji wybranych fragmentów kodu do kodu maszynowego</li>
-</ul>
-<p>JVM:</p>
-<ul>
-<li>posiada architekturę stosową, a nie rejestrową jak realny procesor</li>
-<li>udostępnia abstrakcje mechanizmów zarządzania kodem (ładowanie, garbage collector, etc.)</li>
-</ul>
+    <div class="input_area">
+<div class=" highlight hl-groovy"><pre><span></span><span class="o">|</span>  <span class="nl">Error:</span>
+<span class="o">|</span>  <span class="n">name</span> <span class="nl">clash:</span> <span class="n">consume</span><span class="o">(</span><span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">String</span><span class="o">&gt;)</span> <span class="n">and</span> 
+<span class="o">|</span>      <span class="n">consume</span><span class="o">(</span><span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">List</span><span class="o">&lt;</span><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Integer</span><span class="o">&gt;)</span> <span class="n">have</span> <span class="n">the</span> <span class="n">same</span> <span class="n">erasure</span>
+<span class="o">|</span>
+<span class="o">|</span>      <span class="kd">public</span> <span class="kt">void</span> <span class="n">consume</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">strings</span><span class="o">){</span>
+<span class="o">|</span>      <span class="o">^-----------------------------------------...</span>
+</pre></div>
 
 </div>
 </div>
 </div>
-</aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="J&#281;zyki-na-JVM">J&#281;zyki na JVM<a class="anchor-link" href="#J&#281;zyki-na-JVM">&#182;</a></h1><ul>
-<li>Scala</li>
-<li>Lisp, Clojure</li>
-<li>Pascal</li>
-<li>JRuby (Ruby)</li>
-<li>Jython (Python)</li>
-<li>Groovy</li>
-<li>JavaScript</li>
-<li>JIProlog (Prolog)</li>
-</ul>
 
-</div>
-</div>
-</div><aside class="notes">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Niektóre spośród tych języków od początku były projektowane dla JVM - Scala, Clojure, Groovy. Inne posiadają swoje <em>podstawowe</em> implementacje - np. Lisp, Ruby, Python - ale opracowano również biblioteki, które pozwalają na uruchamianie tych języków na JVMie.</p>
-
-</div>
-</div>
-</div>
-</aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Literatura">Literatura<a class="anchor-link" href="#Literatura">&#182;</a></h1><ul>
-<li><em>Java w pigułce</em>, Benjamin Evans, David Flanagan</li>
-<li><em>Thinking in Java</em> (wyd. polskie), Bruce Eckel</li>
-<li><em>Java. Efektywne programowanie</em> (wyd. II), Joshua Bloch</li>
-</ul>
-
-</div>
-</div>
-</div></section></section><section><section>
+</div></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
