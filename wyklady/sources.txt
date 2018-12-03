@@ -9,10 +9,12 @@ https://www.thinglink.com/scene/716060753563484161
 http://www.scottbot.net/HIAL/index.html@p=39166.html
 https://pl.pinterest.com/pin/548524429591787611/?lp=true
 https://www.youtube.com/watch?v=J-bAKh_dYls
+
 Wyklad 2 (języka Java)
 http://forsal.pl/artykuly/888598,zarobki-w-branzy-it-gdzie-zaplaca-ci-najwiecej.html
 https://www.linkedin.com/pulse/java-javascript-eliseo-d-annunzio
 https://surveyanyplace.com/survey-questions-types/
+https://cheezburger.com/7080445696/no-you-may-not-check-for-updates
 
 Wyklad 3 (typy danych)
 https://javatutoring.com/data-types-in-java/
@@ -25,6 +27,8 @@ https://www.pinterest.com/explore/cross-stitch-patterns/
 http://mo.morsi.org/blog/2015/09/26/bitcoin_aware_barbers_pole/
 https://en.wikipedia.org/wiki/Java_(programming_language)
 https://www.forgettingthepill.com/categories/pill-organizers
+https://www.amazon.co.uk/Alphabet-Preschool-Kindergarten-Building-Stacking/dp/B00NY4TL36
+https://englishiscoolsite.wordpress.com/2015/10/30/days-of-the-week/
 
 Wyklad 4 (stan)
 https://play.google.com/store/apps/details?id=com.nrsoftbd.roomtemperature
@@ -43,6 +47,8 @@ http://www.patheos.com/blogs/slacktivist/2016/12/21/clarity-dead-end/
 https://www.vox.com/2015/4/21/8459353/loch-ness-monster
 http://averagejoerestoration.com/1964-mustang-wiring-diagrams/
 https://www.vox.com/2017/8/26/16206746/mayweather-mcgregor-fight-saturday-racism-domestic-abuse
+https://amazingpict.com/hd-wallpapers-background-images/cartoon-factory/
+http://dighist.fas.harvard.edu/courses/2016/HUM11c/exhibits/show/readings/item/112
 
 Wyklad 6 (wyjątki)
 https://www.pinterest.com/pin/24840235423814629/
@@ -54,6 +60,17 @@ Wyklad 7 (kolekcje)
 https://unsekhable.com/tag/class-diagram/
 
 Wyklad 8 (typy zagnieżdżone)
+http://themetapicture.com/russian-nesting-doll-ultrasound/
+https://me.me/i/your-babushka-when-you-refuse-to-eat-more-kompot-12062970
+https://technabob.com/blog/2009/11/16/alien-sonogram-t-shirt/
+https://bitcoinmagazine.com/articles/new-regulatory-sandbox-could-boost-blockchain-tech-canada/
+https://hacked.com/anonymous-india-reliance-jio-is-sharing-call-data-with-advertisers/
+http://worldartsme.com/scale-clipart.html#gal_post_7698_scale-clipart-1.jpg
+https://antonioleiva.com/functional-programming-android-kotlin-lambdas/
+https://www.bizjournals.com/chicago/news/2015/08/25/united-airlines-packs-a-dragon-loch-ness-monster.html
+https://millionmetres.org.nz/open-project/uretara-estuary-managers-tahawai-stream-project/
+http://blog.askomputer.pl/pierwsza-praca-w-roli-informatyka-czyli-o-tym-jak-plynnie-wejsc-w-rynek-pracy/leniwiec/
+https://www.backyardboss.net/why-does-my-garden-hose-leak/
 
 Wyklad 9 (refleksja)
 http://mashable.com/2013/03/31/reddit-facts-3-29/#SeT920PQZuqN

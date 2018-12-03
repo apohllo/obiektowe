@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>Kolekcje slides</title>
+<title>Stan obiektów w Rubim slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13242,113 +13242,33 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Kolekcje">Kolekcje<a class="anchor-link" href="#Kolekcje">&#182;</a></h1><h2 id="Interfejsy-i-klasy-s&#322;u&#380;&#261;ce-do-przechowywania-obiekt&#243;w">Interfejsy i klasy s&#322;u&#380;&#261;ce do przechowywania obiekt&#243;w<a class="anchor-link" href="#Interfejsy-i-klasy-s&#322;u&#380;&#261;ce-do-przechowywania-obiekt&#243;w">&#182;</a></h2><p><br/></p>
-<h2 id="apohllo@agh.edu.pl">apohllo@agh.edu.pl<a class="anchor-link" href="#apohllo@agh.edu.pl">&#182;</a></h2><h2 id="http://apohllo.pl/dydaktyka/programowanie-obiektowe"><a href="http://apohllo.pl/dydaktyka/programowanie-obiektowe">http://apohllo.pl/dydaktyka/programowanie-obiektowe</a><a class="anchor-link" href="#http://apohllo.pl/dydaktyka/programowanie-obiektowe">&#182;</a></h2><h2 id="konsultacje:-wtorek-15:30---18:00,-pok&#243;j-4.61">konsultacje: wtorek 15:30 - 18:00, pok&#243;j 4.61<a class="anchor-link" href="#konsultacje:-wtorek-15:30---18:00,-pok&#243;j-4.61">&#182;</a></h2>
+<h1 id="Stan-obiekt&#243;w-w-Rubim">Stan obiekt&#243;w w Rubim<a class="anchor-link" href="#Stan-obiekt&#243;w-w-Rubim">&#182;</a></h1><p><br/></p>
+<h2 id="dr-in&#380;.-Aleksander-Smywi&#324;ski-Pohl">dr in&#380;. Aleksander Smywi&#324;ski-Pohl<a class="anchor-link" href="#dr-in&#380;.-Aleksander-Smywi&#324;ski-Pohl">&#182;</a></h2><h2 id="apohllo@agh.edu.pl">apohllo@agh.edu.pl<a class="anchor-link" href="#apohllo@agh.edu.pl">&#182;</a></h2><h2 id="http://apohllo.pl/dydaktyka/programowanie-obiektowe"><a href="http://apohllo.pl/dydaktyka/programowanie-obiektowe">http://apohllo.pl/dydaktyka/programowanie-obiektowe</a><a class="anchor-link" href="#http://apohllo.pl/dydaktyka/programowanie-obiektowe">&#182;</a></h2><h2 id="konsultacje:-wtorek-15:30---18:00,-pok&#243;j-4.61">konsultacje: wtorek 15:30 - 18:00, pok&#243;j 4.61<a class="anchor-link" href="#konsultacje:-wtorek-15:30---18:00,-pok&#243;j-4.61">&#182;</a></h2>
 </div>
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="img/collections.png" style="width: 1280px;"/></p>
+<p><img src="img/ruby-horizontal.svg" style="width: 800px" /></p>
 
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Plan">Plan<a class="anchor-link" href="#Plan">&#182;</a></h1><ul>
-<li>kolekcje - <code>Collection</code></li>
-<li>listy - <code>List</code></li>
-<li>iteratory - <code>Iterator</code>, <code>Iterable</code></li>
-<li>zbiory - <code>Set</code></li>
-<li>słowniki - <code>Map</code></li>
-</ul>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Interfejs-Collection">Interfejs <code>Collection</code><a class="anchor-link" href="#Interfejs-Collection">&#182;</a></h1><ul>
-<li>mapa nie jest kolekcją (w Javie)</li>
-<li>podstawowe operacje<ul>
-<li><code>add</code></li>
-<li><code>addAll</code></li>
-<li><code>remove</code></li>
-<li><code>removeAll</code></li>
-<li><code>retainAll</code></li>
-<li><code>clear</code></li>
-<li><code>isEmpty</code></li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div><aside class="notes">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Interfejs <code>Collection</code> posiada najważniejsze wywołania związane z obsługą różnych typów kolekcji.</p>
-
-</div>
-</div>
-</div>
-</aside></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Interfejs-Collection-cd.">Interfejs <code>Collection</code> cd.<a class="anchor-link" href="#Interfejs-Collection-cd.">&#182;</a></h1><ul>
-<li>podstawowe operacje<ul>
-<li><code>size</code></li>
-<li><code>contains</code></li>
-<li><code>containsAll</code></li>
-<li><code>toArray</code></li>
-<li><code>singleton</code></li>
-<li><code>iterator</code></li>
-<li>...</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="img/collections-interface.png"/></p>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Kolekcje-bez-typu">Kolekcje bez typu<a class="anchor-link" href="#Kolekcje-bez-typu">&#182;</a></h1>
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="kd">class</span> <span class="nc">Car</span> <span class="o">{}</span>
-<span class="kd">class</span> <span class="nc">Rocket</span> <span class="o">{}</span>
-
-<span class="n">Collection</span> <span class="n">cars</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">();</span>
-<span class="n">Car</span> <span class="n">car1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Car</span><span class="o">();</span>
-<span class="n">Rocket</span> <span class="n">rocket1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rocket</span><span class="o">();</span>
-<span class="n">cars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car1</span><span class="o">);</span>
-<span class="n">cars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">rocket1</span><span class="o">);</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cars</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">car1</span><span class="o">));</span>           
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cars</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">rocket1</span><span class="o">));</span>        
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">cars</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="k">new</span> <span class="n">Rocket</span><span class="o">()));</span>
+<div class=" highlight hl-ruby"><pre><span></span><span class="k">class</span> <span class="nc">Speed</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="vi">@value</span> <span class="o">=</span> <span class="n">value</span>
+  <span class="k">end</span>
+  
+  <span class="k">def</span> <span class="nf">to_s</span>
+    <span class="s2">&quot;Speed: &quot;</span> <span class="o">+</span> <span class="vi">@value</span><span class="o">.</span><span class="n">to_s</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 </pre></div>
 
     </div>
@@ -13360,37 +13280,23 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Kolekcje bez typu (bez parametru w nawiasach ostrych) pozwalają przechowywać dowolne wartości referencyjne. W jednej kolekji można zatem umieszczać obiekty z klas zupełnie ze sobą niepowiązanych. Późniejsze wykorzystanie
-obiektu z takiej kolekcji wymaga jednak rzutowania na odpowiedni typ. Ponieważ jednak nie mamy gwarancji, że w danej kolekcji są obiekty tylko tego typu, rzutowanie takie może zakończyć się błędem.</p>
+<p>W Rubym odpowiednikiem konstruktora jest metoda <code>initialize</code>. Odpowiednikiem <code>toString</code> z Javy jest <code>to_s</code>.
+Zmienne instancyjne zaczynają się od @.</p>
 
 </div>
 </div>
 </div>
-</aside></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Kolekcje-z-typem">Kolekcje z typem<a class="anchor-link" href="#Kolekcje-z-typem">&#182;</a></h1>
-</div>
-</div>
-</div>
+</aside><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="kd">class</span> <span class="nc">Car</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">drive</span><span class="o">(){}</span>
-<span class="o">}</span>
-<span class="kd">class</span> <span class="nc">Rocket</span> <span class="o">{}</span>
+<div class=" highlight hl-ruby"><pre><span></span><span class="n">speed1</span> <span class="o">=</span> <span class="no">Speed</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">speed2</span> <span class="o">=</span> <span class="no">Speed</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 
-<span class="n">var</span> <span class="n">cars</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">Car</span><span class="o">&gt;();</span>
-<span class="n">Car</span> <span class="n">car1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Car</span><span class="o">();</span>
-<span class="n">Rocket</span> <span class="n">rocket1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rocket</span><span class="o">();</span>
-<span class="n">cars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car1</span><span class="o">);</span>
-<span class="c1">//cars.add(rocket1);    </span>
-<span class="n">Car</span> <span class="n">car2</span> <span class="o">=</span> <span class="n">cars</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
-<span class="n">car2</span><span class="o">.</span><span class="na">drive</span><span class="o">();</span>
+<span class="nb">puts</span> <span class="n">speed1</span>
+<span class="nb">puts</span> <span class="n">speed2</span>
 </pre></div>
 
     </div>
@@ -13402,7 +13308,47 @@ obiektu z takiej kolekcji wymaga jednak rzutowania na odpowiedni typ. Ponieważ 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Kolekcje z typem (przykładowo kolekcja <code>cars</code> posiada typ <code>Car</code>) pozwalają na składowanie wyłącznie obiektów danego typu (włączając w to obiekty typów dziedziczących lub implementujących dany interfejs). Dzięki temu kompilator może określić typ zwracanego biektu i nie ma potrzeby rzutowania go. Co więcej do takiej kolekcji nie można dodać obiektów typu niekompatybilnego.</p>
+<p>Utworzenie nowego obiektu w Rubym odbywa się poprzez wywołanie <code>NazwaKlasy.new</code> - <code>new</code> jest niemalże "zwykłą" metodą. Wywołanie <code>puts</code> niejawnie korzysta z metody <code>to_s</code>.</p>
+
+</div>
+</div>
+</div>
+</aside></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ruby"><pre><span></span><span class="k">class</span> <span class="nc">Speed</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">unit</span><span class="p">)</span>
+    <span class="vi">@value</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="vi">@unit</span> <span class="o">=</span> <span class="n">unit</span>
+  <span class="k">end</span>
+  
+  <span class="k">def</span> <span class="nf">to_s</span>
+    <span class="s2">&quot;Speed </span><span class="si">#{</span><span class="vi">@value</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="vi">@unit</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="k">end</span>
+  
+  <span class="k">def</span> <span class="nf">+</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+    <span class="k">if</span> <span class="vi">@unit</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="vi">@unit</span>                   <span class="c1"># &lt;--------------!</span>
+      <span class="no">Speed</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="vi">@value</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="vi">@value</span><span class="p">,</span> <span class="vi">@unit</span><span class="p">)</span> <span class="c1"># &lt;--------------!</span>
+    <span class="k">else</span>
+      <span class="nb">self</span> <span class="c1"># lepiej rzucić wyjątek</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Kod powoduje błąd składniowy ponieważ w Rubym nie można odwołać się do atrybutów obiektu inaczej niż przez niekwalifikowaną nazwę atrybutu (<code>@atrybut</code>). <code>zmienna.@atrybut</code> jest konstrukcją niepoprawną składniowo - w ten sposób zagwarantowana jest prywatność atrybutów - stan - obiektów.</p>
 
 </div>
 </div>
@@ -13411,37 +13357,162 @@ obiektu z takiej kolekcji wymaga jednak rzutowania na odpowiedni typ. Ponieważ 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="add,-addAll,-remove,-removeAll"><code>add</code>, <code>addAll</code>, <code>remove</code>, <code>removeAll</code><a class="anchor-link" href="#add,-addAll,-remove,-removeAll">&#182;</a></h1>
+<p><img src="img/ruby_variable.png" /></p>
+
+</div>
+</div>
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Widzimy tutaj istotną różnicę względem Javy - w tym języku inne obiekty tej samej klasy mają dostęp do prywatnych atrybutów innych obiektów tej samej klasy. W Rubym nie ma takiego dostępu.</p>
+
 </div>
 </div>
 </div>
+</aside></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">Car</span><span class="o">&gt;</span> <span class="n">cars1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
-<span class="n">cars1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Car</span><span class="o">());</span>
-<span class="n">cars1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Car</span><span class="o">());</span>
-<span class="n">cars1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Car</span><span class="o">());</span>
-<span class="n">Collection</span><span class="o">&lt;</span><span class="n">Car</span><span class="o">&gt;</span> <span class="n">cars2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
+<div class=" highlight hl-ruby"><pre><span></span><span class="k">class</span> <span class="nc">Speed</span>
+  <span class="kp">attr_reader</span> <span class="ss">:unit</span><span class="p">,</span> <span class="ss">:value</span>
+    
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">unit</span><span class="p">)</span>
+    <span class="vi">@value</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="vi">@unit</span> <span class="o">=</span> <span class="n">unit</span>
+  <span class="k">end</span>
+    
+  <span class="k">def</span> <span class="nf">to_s</span>
+    <span class="s2">&quot;Speed </span><span class="si">#{</span><span class="vi">@value</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="vi">@unit</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="k">end</span>
+  
+  <span class="k">def</span> <span class="nf">+</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+    <span class="k">if</span> <span class="vi">@unit</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">unit</span>
+      <span class="no">Speed</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="vi">@value</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="vi">@unit</span><span class="p">)</span>
+    <span class="k">else</span>
+      <span class="nb">self</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Aby odwołać się do wartości atrybutu w innym obiekcie musimy skorzystać z pośrednictwa metody. 
+<code>attr_reader</code> definiuje nam gettery - w tym wypadku dla atrybutów <code>unit</code> oraz <code>value</code>. Należy jednak mieć na uwadze, że wywołanie <code>other.unit</code> i <code>other.value</code> nie odwołują się bezpośrednio do wartości atrybutów lecz korzystają z pośrednictwa zdefiniowanych metod (które mogą być nadpisane).</p>
+<p>W Rubym można redefiniować operatory. <code>+(other)</code> definiuje nam operator, który można wywoływać na obiektach klasy <code>Speed</code>.</p>
+
+</div>
+</div>
+</div>
+</aside><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ruby"><pre><span></span><span class="n">speed1</span> <span class="o">=</span> <span class="no">Speed</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="ss">:KMH</span><span class="p">)</span>
+<span class="n">speed2</span> <span class="o">=</span> <span class="no">Speed</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="ss">:KMH</span><span class="p">)</span>
+
+<span class="n">speed3</span> <span class="o">=</span> <span class="n">speed1</span> <span class="o">+</span> <span class="n">speed2</span>
+
+<span class="nb">puts</span> <span class="n">speed3</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/ruby_variable_1.png" /></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ruby"><pre><span></span><span class="k">class</span> <span class="nc">SpaceShip</span>
+  <span class="k">def</span> <span class="nf">initalize</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>
+    <span class="vi">@speed</span> <span class="o">=</span> <span class="n">speed</span>
+  <span class="k">end</span>
+    
+  <span class="k">def</span> <span class="nf">accelerate</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>
+    <span class="vi">@speed</span> <span class="o">+=</span> <span class="n">speed</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Przykład wykorzystania operatora <code>+</code> zdefiniowanego dla klasy <code>Speed</code>.</p>
+
+</div>
+</div>
+</div>
+</aside></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Atrybuty-a-dziedziczenie">Atrybuty a dziedziczenie<a class="anchor-link" href="#Atrybuty-a-dziedziczenie">&#182;</a></h1>
+</div>
+</div>
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="k">for</span><span class="o">(</span><span class="n">Car</span> <span class="n">car</span> <span class="o">:</span> <span class="n">cars1</span><span class="o">){</span>
-    <span class="n">cars2</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
-<span class="o">}</span>
-<span class="c1">// prościej</span>
-<span class="n">cars2</span><span class="o">.</span><span class="na">addAll</span><span class="o">(</span><span class="n">cars1</span><span class="o">);</span>
+<div class=" highlight hl-ruby"><pre><span></span><span class="k">class</span> <span class="nc">Speed</span>
+  <span class="kp">attr_reader</span> <span class="ss">:unit</span>
+  
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">unit</span><span class="p">)</span>
+    <span class="vi">@unit</span> <span class="o">=</span> <span class="n">unit</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ruby"><pre><span></span><span class="k">class</span> <span class="nc">Speed1D</span> <span class="o">&lt;</span> <span class="no">Speed</span>
+  <span class="kp">attr_reader</span> <span class="ss">:value</span>
+  
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="k">super</span><span class="p">(</span><span class="n">unit</span><span class="p">)</span>
+    <span class="vi">@value</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="vi">@unit</span> <span class="o">=</span> <span class="ss">:KMH</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 </pre></div>
 
     </div>
@@ -13453,7 +13524,8 @@ obiektu z takiej kolekcji wymaga jednak rzutowania na odpowiedni typ. Ponieważ 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Metoda <code>addAll</code> pozwala dodać do danej kolekcji wszystkie elementy z innej kolekcji.</p>
+<p><code>Speed1D &lt; Speed</code> oznacza, że <code>Speed1D</code> dziedziczy ze <code>Speed</code>.</p>
+<p><code>super</code> oznacza wywołanie konstruktora z klasy nadrzędnej.</p>
 
 </div>
 </div>
@@ -13464,12 +13536,8 @@ obiektu z takiej kolekcji wymaga jednak rzutowania na odpowiedni typ. Ponieważ 
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="k">for</span><span class="o">(</span><span class="n">Car</span> <span class="n">car</span> <span class="o">:</span> <span class="n">cars1</span><span class="o">){</span>
-    <span class="n">cars2</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
-<span class="o">}</span>
-<span class="c1">// prościej</span>
-<span class="n">cars2</span><span class="o">.</span><span class="na">removeAll</span><span class="o">(</span><span class="n">cars1</span><span class="o">);</span>
-<span class="n">cars2</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">cars1</span><span class="o">);</span>
+<div class=" highlight hl-ruby"><pre><span></span><span class="n">speed1</span> <span class="o">=</span> <span class="no">Speed1D</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="ss">:MS</span><span class="p">)</span>
+<span class="n">speed1</span><span class="o">.</span><span class="n">unit</span> <span class="c1">#=&gt; :KMH</span>
 </pre></div>
 
     </div>
@@ -13480,39 +13548,30 @@ obiektu z takiej kolekcji wymaga jednak rzutowania na odpowiedni typ. Ponieważ 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="remove,-size,-isEmpty-i-singleton"><code>remove</code>, <code>size</code>, <code>isEmpty</code> i <code>singleton</code><a class="anchor-link" href="#remove,-size,-isEmpty-i-singleton">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">Car</span><span class="o">&gt;</span> <span class="n">cars1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
-<span class="n">Car</span> <span class="n">car</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Car</span><span class="o">();</span>
-<span class="n">cars1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
-<span class="n">cars1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
-<span class="n">cars1</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
-<span class="n">cars1</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
-</pre></div>
+<p><img src="img/ruby_class.png" /></p>
 
-    </div>
 </div>
 </div>
-
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Zunifikowany-dost&#281;p-do-atrybut&#243;w">Zunifikowany dost&#281;p do atrybut&#243;w<a class="anchor-link" href="#Zunifikowany-dost&#281;p-do-atrybut&#243;w">&#182;</a></h2>
+</div>
+</div>
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">Car</span><span class="o">&gt;</span> <span class="n">cars1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
-<span class="n">Car</span> <span class="n">car</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Car</span><span class="o">();</span>
-<span class="n">cars1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
-<span class="n">cars1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
-<span class="n">cars1</span><span class="o">.</span><span class="na">removeAll</span><span class="o">(</span><span class="n">Collections</span><span class="o">.</span><span class="na">singleton</span><span class="o">(</span><span class="n">car</span><span class="o">));</span>
-<span class="n">cars1</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">();</span>
+<div class=" highlight hl-ruby"><pre><span></span><span class="k">class</span> <span class="nc">Speed</span>
+  <span class="kp">attr_accessor</span> <span class="ss">:unit</span>
+  
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">unit</span><span class="p">)</span>
+    <span class="vi">@unit</span> <span class="o">=</span> <span class="n">unit</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 </pre></div>
 
     </div>
@@ -13524,197 +13583,7 @@ obiektu z takiej kolekcji wymaga jednak rzutowania na odpowiedni typ. Ponieważ 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Metoda <code>removeAll</code> ma podobną semantykę do <code>addAll</code>, ale ma inną semantykę od <code>remove</code> - tzn. w przypadku <code>remove</code> zostanie usunięte tylko jedno wystąpienie danego obiektu (nawet jeśli występuje wielokrotnie), a <code>removeAll</code> usunie wszystkie wystąpienia powtarzającego się obiektu. Warunkiem poprawności działania tych metod jest poprawne zaimplementowanie metody <code>equals</code>.</p>
-<p>Ponadto <code>removeAll</code> akceptuje kolekcję - jeśli zatem chcemy usunąć jeden powtarzający się element, musimy zamienić go na kolekcję, za pomocą wywołania <code>Collections.singleton</code>.</p>
-
-</div>
-</div>
-</div>
-</aside></div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="toArray"><code>toArray</code><a class="anchor-link" href="#toArray">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">Car</span><span class="o">&gt;</span> <span class="n">cars1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
-<span class="n">Car</span> <span class="n">car</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Car</span><span class="o">();</span>
-<span class="n">cars1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
-<span class="n">cars1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
-<span class="n">cars1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Car</span><span class="o">());</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">Car</span><span class="o">[]</span> <span class="n">carsAsArray1</span> <span class="o">=</span> <span class="n">cars1</span><span class="o">.</span><span class="na">toArray</span><span class="o">();</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div></div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">Object</span><span class="o">[]</span> <span class="n">carsAsArray2</span> <span class="o">=</span> <span class="n">cars1</span><span class="o">.</span><span class="na">toArray</span><span class="o">();</span>  
-<span class="n">Car</span><span class="o">[]</span> <span class="n">carsAsArray3</span> <span class="o">=</span> <span class="n">cars1</span><span class="o">.</span><span class="na">toArray</span><span class="o">(</span><span class="k">new</span> <span class="n">Car</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div><aside class="notes">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Wywołanie <code>toArray</code>, które dostępne jest w interfejsie <code>Collection</code> pozwala zamienić daną kolekcję na tablicę.
-Jeśli jednak chcemy zrzutować na tablicę określonego typu, musimy skorzystać z wywołania z argumentem akceptującym <strong>pustą</strong> tablicę odpowiedniego typu.</p>
-
-</div>
-</div>
-</div>
-</aside></div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="singleton-i-opcjonalne-metody"><code>singleton</code> i opcjonalne metody<a class="anchor-link" href="#singleton-i-opcjonalne-metody">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">Car</span><span class="o">&gt;</span> <span class="n">oneCar</span> <span class="o">=</span> <span class="n">Collections</span><span class="o">.</span><span class="na">singleton</span><span class="o">(</span><span class="k">new</span> <span class="n">Car</span><span class="o">());</span>
-<span class="n">oneCar</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Car</span><span class="o">());</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div><aside class="notes">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Nie wszystkie metody w interfejsach są realnie dostępne. Metody opcjonalne mogą rzucić wyjątek <code>UnsupportedOperationException</code>.</p>
-
-</div>
-</div>
-</div>
-</aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Interfejs-List">Interfejs <code>List</code><a class="anchor-link" href="#Interfejs-List">&#182;</a></h1><ul>
-<li>uporządkowany zbiór obiektów</li>
-<li>obiekty mogą się powtarzać</li>
-<li>obiekty posiadają <em>indeks</em></li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Interfejs-List">Interfejs <code>List</code><a class="anchor-link" href="#Interfejs-List">&#182;</a></h1><ul>
-<li>metody <code>List</code><ul>
-<li><code>get</code></li>
-<li><code>set</code></li>
-<li><code>indexOf</code></li>
-<li><code>lastIndexOf</code></li>
-<li><code>subList</code></li>
-</ul>
-</li>
-<li>metody <code>Collections</code><ul>
-<li><code>sort</code></li>
-<li><code>min</code>, <code>max</code></li>
-</ul>
-</li>
-<li>metody <code>Arrays</code><ul>
-<li><code>asList</code></li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="img/list.png"/></p>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">words</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">,</span> <span class="s">&quot;dwa&quot;</span><span class="o">,</span> <span class="s">&quot;trzy&quot;</span><span class="o">);</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">words</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>          
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">words</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="s">&quot;zero&quot;</span><span class="o">));</span>   
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">words</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>          
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;dwa&quot;</span><span class="o">));</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">words</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">5</span><span class="o">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div><aside class="notes">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Próba pobrania wartości dla indeksu, który przekracza jej rozmiar skutkuje wyjątkiem <code>ArrayIndexOutOfBoundsException</code>.</p>
-
-</div>
-</div>
-</div>
-</aside><aside class="notes">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Kolekcja zwracana przez <code>Arrays.asList()</code> jest niemodyfikowalna, dlatego przy próbie dodania obiektu rzucany jest wyjątek <code>UnsupportedOperationException</code>.</p>
+<p><code>attr_accessor</code> definiuje zarówno getter jak i setter dla klasy <code>Speed</code>.</p>
 
 </div>
 </div>
@@ -13725,114 +13594,12 @@ Jeśli jednak chcemy zrzutować na tablicę określonego typu, musimy skorzysta�
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">words</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">,</span> <span class="s">&quot;dwa&quot;</span><span class="o">,</span> <span class="s">&quot;jeden&quot;</span><span class="o">);</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">words</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">));</span>    
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">words</span><span class="o">.</span><span class="na">lastIndexOf</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">));</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div></div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">words</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
-<span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">);</span>
-<span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;dwa&quot;</span><span class="o">);</span>
-<span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;trzy&quot;</span><span class="o">);</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">words</span><span class="o">);</span> 
-<span class="n">words</span><span class="o">.</span><span class="na">subList</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">3</span><span class="o">).</span><span class="na">clear</span><span class="o">();</span>       
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">words</span><span class="o">);</span> 
-<span class="n">words</span><span class="o">.</span><span class="na">subList</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">).</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;sześć&quot;</span><span class="o">);</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">words</span><span class="o">);</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Collections:-sort,-min,-max"><code>Collections</code>: <code>sort</code>, <code>min</code>, <code>max</code><a class="anchor-link" href="#Collections:-sort,-min,-max">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">words</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">,</span> <span class="s">&quot;dwa&quot;</span><span class="o">,</span> <span class="s">&quot;trzy&quot;</span><span class="o">);</span>
-<span class="n">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">words</span><span class="o">);</span>        
-<span class="n">words</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">words</span><span class="o">,</span> <span class="k">new</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="n">String</span> <span class="n">a</span><span class="o">,</span> <span class="n">String</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="n">b</span><span class="o">.</span><span class="na">length</span><span class="o">()){</span>
-            <span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">b</span><span class="o">);</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="n">b</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">});</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div></div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Collections</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">words</span><span class="o">));</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Collections</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">words</span><span class="o">));</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Lista-liczb">Lista liczb<a class="anchor-link" href="#Lista-liczb">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
-<span class="n">numbers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
-<span class="n">numbers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
-<span class="n">numbers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-<span class="n">numbers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
-<span class="n">numbers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
-<span class="c1">//numbers.remove(0);</span>
-<span class="n">numbers</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>
-<span class="n">numbers</span>
+<div class=" highlight hl-ruby"><pre><span></span><span class="n">speed1</span> <span class="o">=</span> <span class="no">Speed</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:KMH</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">speed1</span><span class="o">.</span><span class="n">unit</span><span class="p">()</span>
+<span class="n">speed1</span><span class="o">.</span><span class="n">unit</span><span class="o">=</span><span class="p">(</span><span class="ss">:MPH</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">speed1</span><span class="o">.</span><span class="n">unit</span>
+<span class="n">speed1</span><span class="o">.</span><span class="n">unit</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span>
+<span class="nb">puts</span> <span class="n">speed1</span><span class="o">.</span><span class="n">unit</span>
 </pre></div>
 
     </div>
@@ -13844,147 +13611,60 @@ Jeśli jednak chcemy zrzutować na tablicę określonego typu, musimy skorzysta�
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Wywołanie <code>remove(int)</code> usuwa element o określonym indeksie. Dlatego jeśli mamy listę liczb, musimy użyć typu otokowego aby usunąć żądany element.</p>
+<p>W Rubym nawiasy w wywołaniach metod są opcjonalne (jeśli nie powoduje to niejednoznaczności). Dlatego wywołania 
+<code>speed.unit= value</code> oraz <code>speed.unit=(value)</code> a także <code>speed.unit</code> i <code>speed.unit()</code> są tożsame.</p>
+
+</div>
+</div>
+</div>
+</aside></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ruby"><pre><span></span><span class="k">class</span> <span class="nc">Speed</span>
+  <span class="kp">attr_reader</span> <span class="ss">:unit</span>
+  <span class="no">VALID_UNITS</span> <span class="o">=</span> <span class="o">[</span><span class="ss">:KMH</span><span class="p">,</span> <span class="ss">:MPH</span><span class="o">]</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">unit</span><span class="p">)</span>
+    <span class="vi">@unit</span> <span class="o">=</span> <span class="n">unit</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">unit</span><span class="o">=</span><span class="p">(</span><span class="n">new_value</span><span class="p">)</span>
+    <span class="k">if</span> <span class="no">VALID_UNITS</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="n">new_value</span><span class="p">)</span>
+      <span class="vi">@unit</span> <span class="o">=</span> <span class="n">new_value</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div><aside class="notes">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Dzikęki temu możemy w sposób 'przezroczysty` nadpisywać metody dostępowe np. zabezpieczając przed niewłaściwymi modyfikacjami stanu naszego obiektu.</p>
 
 </div>
 </div>
 </div>
 </aside></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Implementacje-interfejsu-List">Implementacje interfejsu <code>List</code><a class="anchor-link" href="#Implementacje-interfejsu-List">&#182;</a></h1><table style="align: left; font-size:32px">
-<tr>
-    <th>Klasa</th>
-    <th>Reprezentacja</th>
-    <th>Uwagi</th>
-</tr>
-<tr>
-    <td><tt>ArrayList</tt></td>
-    <td>tablica</td>
-    <td>implementacja ogólnego przeznaczenia</td>
-</tr>
-<tr>
-    <td><tt>LinkedList</tt></td>
-    <td>lista dwukierunkowa</td>
-    <td>efektywne wstawianie i usuwanie</td>
-</tr>
-<tr>
-    <td><tt>CopyOnWriteArrayList</tt></td>
-    <td>tablica</td>
-    <td>bezpieczna zw. na wątki</td>
-</tr>
-<tr>
-    <td><tt>Vector</tt></td>
-    <td>tablica</td>
-    <td>synchronizowane metody, przestarzała</td>
-</tr>
-<tr>
-    <td><tt>Stack</tt></td>
-    <td>tablica</td>
-    <td>dodaje metody <tt>push</tt>, <tt>pop</tt>, <tt>peek</tt>, przestarzała</td>
-</tr>
-</table>
-</div>
-</div>
-</div><aside class="notes">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><code>ArrayList</code> - lista oparta o tablice</li>
-<li><code>LinkedList</code> - lista oparta o listę dwukierunkową</li>
-<li><code>CopyOnWriteArrayList</code> - tworzy kopię listy, w momencie modyfikacji w danym wątku</li>
-<li><code>Vector</code>, <code>Stack</code> - przestarzałe, ponieważ synchronizacja metod operujących na tych strukturach nie rozwiązuje
-żadnych problemów współbieżności, a wpływa negatywnie na wydajność operacji. Jeśli chcemy coś synchronizować,
-to zazwyczaj jest to cała kolekcja operacji, a nie pojedyncze operacje na danej strukturze. Synchronizowanie
-metod tych klas nie rozwiązuje więc tego problemu.</li>
-</ul>
-
-</div>
-</div>
-</div>
-</aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Wzorzec-Iterator">Wzorzec <code>Iterator</code><a class="anchor-link" href="#Wzorzec-Iterator">&#182;</a></h1>
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">Car</span><span class="o">&gt;</span> <span class="n">cars1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
-<span class="n">Car</span> <span class="n">car</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Car</span><span class="o">();</span>
-<span class="n">cars1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
-<span class="n">cars1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
-<span class="n">Iterator</span><span class="o">&lt;</span><span class="n">Car</span><span class="o">&gt;</span> <span class="n">iterator</span> <span class="o">=</span> <span class="n">cars1</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
-<span class="k">while</span><span class="o">(</span><span class="n">iterator</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()){</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">iterator</span><span class="o">.</span><span class="na">next</span><span class="o">());</span>
-<span class="o">}</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="c1">// krócej</span>
-<span class="k">for</span><span class="o">(</span><span class="n">Car</span> <span class="n">car</span> <span class="o">:</span> <span class="n">cars1</span><span class="o">){</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
-<span class="o">}</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="img/iterator.png"></p>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Interfejs-Iterator&lt;E&gt;">Interfejs <code>Iterator&lt;E&gt;</code><a class="anchor-link" href="#Interfejs-Iterator&lt;E&gt;">&#182;</a></h1><ul>
-<li>służy do definiowania iteratorów</li>
-<li>metody:<ul>
-<li>next</li>
-<li>hasNext</li>
-<li>remove</li>
-<li>forEachRemaining</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Iterator</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="o">{</span>
-    <span class="kt">boolean</span> <span class="nf">hasNext</span><span class="o">();</span>
-    <span class="n">E</span> <span class="nf">next</span><span class="o">();</span>
-    <span class="kt">void</span> <span class="nf">remove</span><span class="o">();</span>
-    <span class="k">default</span> <span class="kt">void</span> <span class="nf">forEachRemaining</span><span class="o">(</span><span class="n">Consumer</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">E</span><span class="o">&gt;</span> <span class="n">action</span><span class="o">){</span> <span class="o">...</span> <span class="o">}</span>
-<span class="o">}</span>
+<div class=" highlight hl-ruby"><pre><span></span><span class="n">speed1</span> <span class="o">=</span> <span class="no">Speed</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:KMH</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">speed1</span><span class="o">.</span><span class="n">unit</span>
+<span class="n">speed1</span><span class="o">.</span><span class="n">unit</span> <span class="o">=</span> <span class="ss">:MPH</span>
+<span class="nb">puts</span> <span class="n">speed1</span><span class="o">.</span><span class="n">unit</span>
+<span class="n">speed1</span><span class="o">.</span><span class="n">unit</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span>
+<span class="nb">puts</span> <span class="n">speed1</span><span class="o">.</span><span class="n">unit</span>
 </pre></div>
 
     </div>
@@ -13992,828 +13672,6 @@ metod tych klas nie rozwiązuje więc tego problemu.</li>
 </div>
 
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Interfejs-Iterable&lt;E&gt;">Interfejs <code>Iterable&lt;E&gt;</code><a class="anchor-link" href="#Interfejs-Iterable&lt;E&gt;">&#182;</a></h1><ul>
-<li>zwraca iterator</li>
-<li>pozwala "chodzić" po swoich elementach</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Iterable</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="o">{</span>
-    <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="nf">iterator</span><span class="o">();</span>
-    <span class="k">default</span> <span class="n">Spliterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">spliterator</span><span class="o">();</span>
-    <span class="k">default</span> <span class="kt">void</span> <span class="nf">forEach</span><span class="o">(</span><span class="n">Consumer</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">action</span><span class="o">);</span>
-<span class="o">}</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Wyj&#261;tek-ConcurrentModificationException">Wyj&#261;tek <code>ConcurrentModificationException</code><a class="anchor-link" href="#Wyj&#261;tek-ConcurrentModificationException">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">cars</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">,</span> <span class="s">&quot;dwa&quot;</span><span class="o">,</span> <span class="s">&quot;trzy&quot;</span><span class="o">));</span>
-<span class="n">Iterator</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">iterator</span> <span class="o">=</span> <span class="n">cars</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
-<span class="n">iterator</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
-<span class="n">cars</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">);</span>
-<span class="n">iterator</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">iterator</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
-<span class="n">iterator</span><span class="o">.</span><span class="na">remove</span><span class="o">();</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Interfejs-Set">Interfejs <code>Set</code><a class="anchor-link" href="#Interfejs-Set">&#182;</a></h1><ul>
-<li>przechowuje elementy bez powtórzeń</li>
-<li>wymaga poprawnej definicji metod <code>equals</code> </li>
-<li>klasy implementujące wymagają poprawnej implementacji <code>hashCode</code>, implementacji interfejsu <code>Comparable</code> 
-lub akceptują "zewnętrzną" definicję komparatora</li>
-</ul>
-<p>x.equals(y) -&gt; x.hashCode() == y.hashCode()</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="img/set.png"/></p>
-
-</div>
-</div>
-</div><aside class="notes">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><code>SortedSet</code> dodatkowo definiuje metody takie jak <code>first</code>, <code>last</code>, <code>headSet</code>, <code>tailSet</code> oraz <code>subSet</code>. 
-Innymi słowy nadaje porządek elementom zbioru.</li>
-<li><code>NavigableSet</code> dodaje metody takie jak <code>higher</code> (excl.), <code>floor</code> (incl.), <code>lower</code> (excl.), <code>ceiling</code> (incl.) 
-oraz metody pozwalające na przeglądanie elementów w odwrotnym kierunku. Ponadto rozszerza definicję np.
-<code>headSet</code> o to, że akceptuje parametr incl./excl., która zwraca <code>NavigableSet</code>.</li>
-<li><code>HashSet</code> wymaga do działania poprawnej implementacji metody <code>hashCode</code>.</li>
-<li><code>LinkedHashSet</code> zapamiętuje kolejność elementów, co objawia się w sposobie iterowania po tym zbiorze.</li>
-</ul>
-
-</div>
-</div>
-</div>
-</aside></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="equals-i-hashCode"><code>equals</code> i <code>hashCode</code><a class="anchor-link" href="#equals-i-hashCode">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="kd">class</span> <span class="nc">Car</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">vin</span><span class="o">;</span>
-    
-    <span class="kd">public</span> <span class="nf">Car</span><span class="o">(</span><span class="n">String</span> <span class="n">vin</span><span class="o">){</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">vin</span> <span class="o">=</span> <span class="n">vin</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="n">Object</span> <span class="n">other</span><span class="o">){</span>
-        <span class="c1">//...</span>
-        <span class="n">Car</span> <span class="n">that</span> <span class="o">=</span> <span class="o">(</span><span class="n">Car</span><span class="o">)</span> <span class="n">other</span><span class="o">;</span>
-        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">vin</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">that</span><span class="o">.</span><span class="na">vin</span><span class="o">);</span>
-    <span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">hashCode</span><span class="o">(){</span>
-        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">vin</span><span class="o">.</span><span class="na">hashCode</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="n">Car</span> <span class="n">car1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Car</span><span class="o">(</span><span class="s">&quot;ABC&quot;</span><span class="o">);</span>
-<span class="n">Car</span> <span class="n">car2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Car</span><span class="o">(</span><span class="s">&quot;ABC&quot;</span><span class="o">);</span>
-<span class="n">Set</span><span class="o">&lt;</span><span class="n">Car</span><span class="o">&gt;</span> <span class="n">cars</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;();</span>
-<span class="n">cars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car1</span><span class="o">);</span>
-<span class="n">cars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">car2</span><span class="o">);</span>
-<span class="n">cars</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[33]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Interfejs-SortedSet">Interfejs <code>SortedSet</code><a class="anchor-link" href="#Interfejs-SortedSet">&#182;</a></h1><ul>
-<li><code>SortedSet</code> przechowuje elementy w sposób uporządkowany</li>
-<li>wymaga aby obiekty imeplementowały interfejs <code>Comparable</code> lub aby przekazano do niego obiekt implementujący 
-interfejs <code>Comparator</code></li>
-<li>metody:<ul>
-<li><code>headSet</code></li>
-<li><code>tailSet</code></li>
-<li><code>subSet</code></li>
-<li><code>first</code></li>
-<li><code>last</code></li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Przyk&#322;ad">Przyk&#322;ad<a class="anchor-link" href="#Przyk&#322;ad">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="kn">import static</span> <span class="nn">java.lang.System.out</span><span class="o">;</span>
-
-<span class="n">SortedSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeSet</span><span class="o">&lt;&gt;(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">&quot;dwa&quot;</span><span class="o">,</span> <span class="s">&quot;jeden&quot;</span><span class="o">,</span> <span class="s">&quot;trzy&quot;</span><span class="o">));</span>
-<span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">numbers</span><span class="o">.</span><span class="na">headSet</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">));</span>
-<span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">numbers</span><span class="o">.</span><span class="na">tailSet</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">));</span>
-<span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">numbers</span><span class="o">.</span><span class="na">tailSet</span><span class="o">(</span><span class="s">&quot;jeden\0&quot;</span><span class="o">));</span>
-<span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">numbers</span><span class="o">.</span><span class="na">subSet</span><span class="o">(</span><span class="s">&quot;dwa\0&quot;</span><span class="o">,</span><span class="s">&quot;trzy&quot;</span><span class="o">));</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[dwa]
-[jeden, trzy]
-[trzy]
-[jeden]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Implementacje-interfejsu-Set">Implementacje interfejsu <code>Set</code><a class="anchor-link" href="#Implementacje-interfejsu-Set">&#182;</a></h1><table style="align: left; font-size:24px">
-<tr>
-    <th>Klasa</th>
-    <th>Reprezentacja</th>
-    <th>Uporządkowanie</th>
-    <th>Ograniczenia</th>
-    <th>Wydajność dostępu</th>
-    <th>Wydajność iteracji</th>
-    <th>Uwagi</th>
-</tr>
-<tr>
-    <td><tt>HashSet</tt></td>
-    <td>tablica haszująca</td>
-    <td>brak</td>
-    <td>brak</td>
-    <td>O(1)</td>
-    <td>O(pojemność)</td>
-    <td>implementacja ogólnego przeznaczenia</td>
-</tr>
-<tr>
-    <td><tt>LinkedHashSet</tt></td>
-    <td>powiązana tablica haszująca</td>
-    <td>kolejność wstawiania</td>
-    <td>brak</td>
-    <td>O(1)</td>
-    <td>O(n)</td>
-    <td>zachowuje kolejność</td>
-</tr>
-<tr>
-    <td><tt>EnumSet</tt></td>
-    <td>pole bitowe</td>
-    <td>deklaracja</td>
-    <td>wartości enum</td>
-    <td>O(1)</td>
-    <td>O(n)</td>
-    <td>tylko wartości enum</td>
-</tr>
-<tr>
-    <td><tt>TreeSet</tt></td>
-    <td>drzewo czerwono-czarne</td>
-    <td>sortowanie rosnące</td>
-    <td>porównywalność</td>
-    <td>O(log(n))</td>
-    <td>O(n)</td>
-    <td>Comparable lub Comparator</td>
-</tr>
-<tr>
-    <td><tt>CopyOnWriteArraySet</tt></td>
-    <td>tablica</td>
-    <td>kolejność wstawiania</td>
-    <td>brak</td>
-    <td>O(n)</td>
-    <td>O(n)</td>
-    <td>bezpieczna zw. na wątki</td>
-</tr>
-</table>
-</div>
-</div>
-</div><aside class="notes">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><code>HashSet</code> - oparta o tablicę hashującą implementacja zbioru</li>
-<li><code>LinkedHashSet</code> - zapamiętuje kolejność dodawania elementów</li>
-<li><code>EnumSet</code> - znacznie bardziej wydajna implementacja, ponieważ metody realizowane są jako 
- operacje tablicach bitów</li>
-<li><code>TreeSet</code> - wymaga określenia porządku elementów</li>
-<li><code>CopyOnWriteArraySet</code> - struktura bezpieczna ze względu na wątki, w tym sensie, że metody modyfikujące
- zawartość prowadzą do utworzenia nowej kopii. W ogólnym przypadku stosowana w scenariuszach, w których
- operacje odczytu znacząco przeważają nad operacjami modyfikacji.</li>
-</ul>
-
-</div>
-</div>
-</div>
-</aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Interfejs-Map">Interfejs <code>Map</code><a class="anchor-link" href="#Interfejs-Map">&#182;</a></h1><ul>
-<li>implementuje strukturę słownika</li>
-<li>odwzorowuje <em>klucze</em> na <em>wartości</em></li>
-<li>można to interpretować jako tablicę indeksowaną <em>kluczami</em>, które nie muszą być liczbami</li>
-<li>(zazwyczaj) pozwala na szybki dostęp do elementów</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Interfejs-Map">Interfejs <code>Map</code><a class="anchor-link" href="#Interfejs-Map">&#182;</a></h1><ul>
-<li>metody:<ul>
-<li><code>put</code></li>
-<li><code>get</code></li>
-<li><code>remove</code></li>
-<li><code>containsKey</code></li>
-<li><code>containsValue</code></li>
-<li><code>keySet</code></li>
-<li><code>values</code></li>
-<li><code>entrySet</code></li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="img/map.png"/></p>
-
-</div>
-</div>
-</div><aside class="notes">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><code>SortedMap</code> analogicznie do <code>SortedSet</code> pozwala iterować uwzględniając kolejność <strong>kluczy</strong>. 
-Posiada analogiczne metody, np. <code>firstKey</code>, <code>lastKey</code>,  <code>headMap</code> itd.</li>
-<li><code>NavigableMap</code> pozwala dodatkowo pobierać klucz lub parę klucz-wartość mniejszą bądź większą 
-od zadanej wartości, słownik o odwrotnej kolejności kluczy, itp.</li>
-<li><code>LinkedHashMap</code> natomiast analogicznie jak <code>LinkedHashSet</code> zachowuje kolejność dodawania par do słownika.</li>
-</ul>
-
-</div>
-</div>
-</div>
-</aside></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="put,-get,-remove"><code>put</code>, <code>get</code>, <code>remove</code><a class="anchor-link" href="#put,-get,-remove">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
-<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
-<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;dwa&quot;</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
-<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;trzy&quot;</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
-<span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">numbers</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;dwa&quot;</span><span class="o">));</span>            
-<span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">numbers</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="s">&quot;dwa&quot;</span><span class="o">));</span>
-<span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">numbers</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;dwa&quot;</span><span class="o">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>2
-2
-null
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="containsKey,-containsValue"><code>containsKey</code>, <code>containsValue</code><a class="anchor-link" href="#containsKey,-containsValue">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
-<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
-<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;dwa&quot;</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
-<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;trzy&quot;</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
-<span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">numbers</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">));</span>        
-<span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">numbers</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="s">&quot;cztery&quot;</span><span class="o">));</span>       
-<span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">numbers</span><span class="o">.</span><span class="na">containsValue</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>            
-<span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">numbers</span><span class="o">.</span><span class="na">containsValue</span><span class="o">(</span><span class="mi">4</span><span class="o">));</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>true
-false
-true
-false
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="keySet,-values,-entrySet"><code>keySet</code>, <code>values</code>, <code>entrySet</code><a class="anchor-link" href="#keySet,-values,-entrySet">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
-<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
-<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;dwa&quot;</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
-<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;trzy&quot;</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
-<span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">numbers</span><span class="o">.</span><span class="na">keySet</span><span class="o">());</span>
-<span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">numbers</span><span class="o">.</span><span class="na">values</span><span class="o">());</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[jeden, trzy, dwa]
-[1, 3, 2]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="k">for</span><span class="o">(</span><span class="n">Map</span><span class="o">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">entry</span> <span class="o">:</span> <span class="n">numbers</span><span class="o">.</span><span class="na">entrySet</span><span class="o">()){</span>
-    <span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;&quot;</span> <span class="o">+</span> <span class="n">entry</span><span class="o">.</span><span class="na">getKey</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; : &quot;</span> <span class="o">+</span> <span class="n">entry</span><span class="o">.</span><span class="na">getValue</span><span class="o">());</span>
-<span class="o">}</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>jeden : 1
-trzy : 3
-dwa : 2
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">numbers</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="s">&quot;dwa&quot;</span><span class="o">);</span>
-<span class="n">numbers</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[39]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{jeden=1, trzy=3}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">numbers</span><span class="o">.</span><span class="na">keySet</span><span class="o">().</span><span class="na">remove</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">);</span>
-<span class="n">numbers</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[40]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{trzy=3}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Interfejs-SortedMap">Interfejs <code>SortedMap</code><a class="anchor-link" href="#Interfejs-SortedMap">&#182;</a></h1><ul>
-<li>rozszerza interfejs <code>Map</code></li>
-<li>elementy są sortowane względem wartości kluczy</li>
-<li>wymaga elementów typu <code>Comparable</code> lub przekazania obiektu <code>Comparator</code></li>
-<li>metody:<ul>
-<li><code>firstKey</code></li>
-<li><code>lastKey</code></li>
-<li><code>headMap</code></li>
-<li><code>tailMap</code></li>
-<li><code>subMap</code></li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="firstKey,-lastKey"><code>firstKey</code>, <code>lastKey</code><a class="anchor-link" href="#firstKey,-lastKey">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-java"><pre><span></span><span class="n">SortedMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeMap</span><span class="o">&lt;&gt;();</span>
-<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;jeden&quot;</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
-<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;dwa&quot;</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
-<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;trzy&quot;</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
-<span class="n">numbers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;łał&quot;</span><span class="o">,</span> <span class="mi">4</span><span class="o">);</span>
-<span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">numbers</span><span class="o">.</span><span class="na">firstKey</span><span class="o">());</span>
-<span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">numbers</span><span class="o">.</span><span class="na">lastKey</span><span class="o">());</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>dwa
-łał
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Implementacje-interfejsu-Map">Implementacje interfejsu <code>Map</code><a class="anchor-link" href="#Implementacje-interfejsu-Map">&#182;</a></h1><table style="align: left; font-size:24px">
-<tr>
-    <th>Klasa</th>
-    <th>Reprezentacja</th>
-    <th>klucze <tt>null</tt></th>
-    <th>wartości <tt>null</tt></th>
-    <th>uwagi</th>
-</tr>
-<tr>
-    <td><tt>HashMap</tt></td>
-    <td>tablica haszująca</td>
-    <td>tak</td>
-    <td>tak</td>
-    <td>implementacja ogólnego przeznaczenia</td>
-</tr>
-<tr>
-    <td><tt>ConcurrentHashMap</tt></td>
-    <td>tablica haszująca</td>
-    <td>nie</td>
-    <td>nie</td>
-    <td>implementacja bezpieczna zw. na wątki</td>
-</tr>
-<tr>
-    <td><tt>ConcurrentSkipListMap</tt></td>
-    <td>tablica haszująca</td>
-    <td>nie</td>
-    <td>nie</td>
-    <td>jw., interfejs <tt>ConcurrentNavigableMap</tt></td>
-</tr>
-<tr>
-    <td><tt>EnumMap</tt></td>
-    <td>tablica</td>
-    <td>nie</td>
-    <td>nie</td>
-    <td>klucze to wartości <tt>enum</tt></td>
-</tr>
-<tr>
-    <td><tt>LinkedHashMap</tt></td>
-    <td>tablica haszująca</td>
-    <td>tak</td>
-    <td>tak</td>
-    <td>zachowuje kolejność wstawiania</td>
-</tr>
-<tr>
-    <td><tt>TreeMap</tt></td>
-    <td>drzewo czerwono-czarne</td>
-    <td>nie</td>
-    <td>tak</td>
-    <td>posortowana wg wartości kluczy</td>
-</tr>
-<tr>
-    <td><tt>IdentityHashMap</tt></td>
-    <td>tablica haszująca</td>
-    <td>tak</td>
-    <td>tak</td>
-    <td>do porównywania używa ==</td>
-</tr>
-<tr>
-    <td><tt>WeakHashMap</tt></td>
-    <td>tablica haszująca</td>
-    <td>tak</td>
-    <td>tak</td>
-    <td>korzysta ze słabych referencji dla kluczy</td>
-</tr>
-<tr>
-    <td><tt>Hashtable</tt></td>
-    <td>tablica haszująca</td>
-    <td>nie</td>
-    <td>nie</td>
-    <td>przestarzała, synchronizowane metody</td>
-</tr>
-<tr>
-    <td><tt>Properties</tt></td>
-    <td>tablica haszująca</td>
-    <td>nie</td>
-    <td>nie</td>
-    <td>rozszerza <tt>Hashtable</tt> o metody klasy <tt>String</tt></td>
-</tr>
-</table>
-</div>
-</div>
-</div><aside class="notes">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><code>HashMap</code> - implementacja ogólnego przeznaczenia, wymaga <code>hashCode</code></li>
-<li><code>ConcurrentHashMap</code> - implementacja bezpieczna ze względu na wątki z tego względu, że iterowanie nie
-rzuci wyjątku <code>ConcurrentModificationException</code> jeśli mapa zostanie zmodyfikowana. Niemniej jednak
-wynik iteracji może nie odzwierciedlać aktualnego stanu kolekcji. Ponadto dostęp do określonego
-klucza odzwierciedla stan <strong>zakończonej</strong> operacji jego modyfikacji. Metody modyfikujące wiele kluczy
-przy odczycie będą dawały <strong>przybliżoną</strong> wartość zawartości tej struktury (tzn. mogą zawierać jeszcze jakieś
-klucze, gdy operacja <code>clear</code> jest w toku).</li>
-<li><code>ConcurrentSkiListMap</code> - bezpieczna ze względu na wątki implementacja interfejsu <code>ConcurrentNavigableMap</code>.
-Semantyka operacji współbieżnych analogiczna jak w przypadku <code>ConcurrentHashMap</code>.</li>
-<li><code>EnumMap</code> - implementacja nalogiczna jak <code>EnumSet</code>.</li>
-<li><code>TreeMap</code> - implementacja ogólnego przeznaczenia interfejsu <code>NavigableMap</code></li>
-<li><code>IdentityHashMap</code> - opiera się na porównaniu za pomocą <code>==</code> a nie <code>equals</code> do porównywania kluczy.</li>
-<li><code>WeakHashMap</code> - wpisy mogą być usunięte, jeśli dana mapa jest jedynym sposobem "dotarcia" do danego klucza 
-(ale nie wartości). Przydatna w implementacji struktur takich jak <em>cache</em>.</li>
-<li><code>Hashtable</code> - analogicznie jak <code>Vector</code> i <code>Stack</code> synchronizuje na poszczególnych operacjach.</li>
-</ul>
-
-</div>
-</div>
-</div>
-</aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Metody-pomocnicze-Collections">Metody pomocnicze <code>Collections</code><a class="anchor-link" href="#Metody-pomocnicze-Collections">&#182;</a></h1><ul>
-<li><code>binarySearch</code> - wyszukiwanie połówkowe</li>
-<li><code>checkedCollection</code> - operacje modyfikacji są weryfikowane w czasie wykonania, a nie kompilacji</li>
-<li><code>disjoint</code> - sprawdza rozłączność dwóch kolekcji</li>
-<li><code>emptyList</code> - zwraca pustą listę</li>
-<li><code>fill</code> - wypełnia listę dostarczonymi wartościami</li>
-<li><code>max</code> - zwraca element największy</li>
-<li><code>rotate</code> - przenosi elementy w kierunku końca</li>
-<li><code>synchronizedList</code> - metody są synchronizowane, iterowanie wymaga synchronizacji na widoku</li>
-<li><code>unmodifiableList</code> - zwraca niemodyfikowalny widok danej listy</li>
-</ul>
-
-</div>
-</div>
-</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
